@@ -8,10 +8,10 @@
   font-size: 1.25em;
   font-family: var(--font-secondary);
   font-weight: 400;
-  color: var(--color-main-dark);
+  color: var(--color-main-light);
   @media (hover: hover) {
     @nest .root:hover & {
-      color: var(--color-accent-dark);
+      color: var(--color-accent-light);
       text-decoration: underline;
     }
   }

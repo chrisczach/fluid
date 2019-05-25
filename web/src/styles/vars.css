@@ -2,10 +2,10 @@
   --font-main: 'Lato', sans-serif;
   --font-secondary: 'Playfair Display', serif;
   --font-brand: 'dk_lampionregular', sans-serif;
-  /* --color-main-light: #F1F2F1;
-  --color-accent-light: #F7F5F1;
-  --color-main-dark: #5c4841;
-  --color-accent-dark: #b87c6e;
+  /* --color-main-dark: #F1F2F1;
+  --color-accent-dark: #F7F5F1;
+  --color-main-light: #5c4841;
+  --color-accent-light: #b87c6e;
   --color-brand: #E1C6D2; */
   --burger-size: 26px;
   --transition-short: all 0.3s ease;

@@ -2,15 +2,15 @@
 @import '../../styles/vars.css';
 
 .root {
-  background: var(--color-main-dark);
-  color: var(--color-accent-light);
+  background: var(--color-main-light);
+  color: var(--color-accent-dark);
   margin: 2rem -1.5rem;
   overflow: hidden;
   padding: 1rem;
 
   @media (--media-min-medium) {
-    background: var(--color-accent-light);
-    color: var(--color-accent-dark);
+    background: var(--color-accent-dark);
+    color: var(--color-accent-light);
   }
 
   @media (--media-min-small) {

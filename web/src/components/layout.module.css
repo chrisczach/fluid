@@ -14,9 +14,9 @@
 
 .svgWrapper svg,
 path {
-  height: 120px;
+  height: 45px;
   width: auto;
-  fill: var(--color-main-dark);
+  fill: var(--color-main-light);
 }
 
 .footerWrapper {

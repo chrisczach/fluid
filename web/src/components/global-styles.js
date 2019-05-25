@@ -1,7 +1,7 @@
 import React, { createRef } from 'react'
 import styles from './global-styles.module.css'
 
-export default function GlobalStyles({
+export default function GlobalStyles ({
   children,
   siteSettings = {
     title: 'Fluid Pictures',
@@ -22,8 +22,8 @@ export default function GlobalStyles({
     '--color-brand': getHex(brandAccent),
     '--color-accent-dark': getHex(accentDark),
     '--color-main-dark': getHex(primaryDark),
-    background: 'var(--color-main-light)',
-    color: 'var(--color-main-dark)'
+    background: 'var(--color-main-dark)',
+    color: 'var(--color-main-light)'
   }
 
   const scrollDiv = createRef()

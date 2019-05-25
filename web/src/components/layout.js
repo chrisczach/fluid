@@ -63,7 +63,6 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
                     className={styles.svgWrapper}
                     src={logo && imageUrlFor(buildImageObj(logo)).url()}
                   />
-                  {companyInfo.name.toUpperCase()}
                 </div>
               )}
             </div>

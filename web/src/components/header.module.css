@@ -19,7 +19,7 @@
     padding: 1.5em 1.5em;
   }
 
-  @media screen and (orientation: portrait) {
+  @media screen and (orientation: landscape) {
     justify-content: flex-start;
     left: 0;
   }
@@ -32,7 +32,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: var(--color-main-light);
+  background: var(--color-main-dark);
   opacity: 0.85;
   transition: var(--transition-short);
 }
@@ -46,7 +46,7 @@
   font-weight: 500;
   z-index: 105;
   opacity: 1;
-  color: var(--color-main-dark);
+  color: var(--color-main-light);
   font-size: 2.5em;
   margin: 0;
   @media screen and (orientation: portrait) {
@@ -60,7 +60,7 @@
 
     @media (hover: hover) {
       @nest &:hover {
-        color: var(--color-accent-dark);
+        color: var(--color-accent-light);
       }
     }
   }
@@ -70,18 +70,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  display: inline-block;
   position: relative;
   z-index: 200;
-  transform: translate(-33%, 50%);
-  height: 30px;
+  top: calc(var(--burger-size)*0.125);
+  height: calc(var(--burger-size)*1.25);
+
 }
 
 .svgWrapper svg,
 path {
-  height: 45px;
+  height: calc(var(--burger-size)*1.25);
   width: auto;
-  fill: var(--color-main-dark);
+  fill: var(--color-main-light);
 }
 
 .logoText {

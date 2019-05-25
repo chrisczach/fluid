@@ -20,7 +20,7 @@
 
 .mainContent {
   @nest & a {
-    color: var(--color-accent-dark);
+    color: var(--color-accent-light);
 
     @media (hover: hover) {
       @nest &:hover {
@@ -39,7 +39,7 @@
 }
 
 .categories {
-  border-top: 1px solid var(--color-main-dark);
+  border-top: 1px solid var(--color-main-light);
   margin: 2rem 0 3rem;
 
   @nest & ul {

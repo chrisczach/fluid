@@ -39,7 +39,7 @@
 }
 
 .categories {
-  border-top: 1px solid var(--color-main-dark);
+  border-top: 1px solid var(--color-main-light);
   margin: 2rem 0 3rem;
 
   @nest & ul {
@@ -59,7 +59,7 @@
 }
 
 .relatedProjects {
-  border-top: 1px solid var(--color-main-dark);
+  border-top: 1px solid var(--color-main-light);
   margin: 2rem 0 3rem;
 
   @nest & ul {

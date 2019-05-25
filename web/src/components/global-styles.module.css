@@ -8,17 +8,17 @@
 
 @media screen and (orientation: landscape) {
   .scroll::-webkit-scrollbar {
-    background: var(--color-main-light);
+    background: var(--color-main-dark);
     width: 6px;
   }
   .scroll::-webkit-scrollbar-thumb {
-    background: var(--color-main-dark);
+    background: var(--color-main-light);
     border-radius: 15px;
     height: 30px;
     transition: var(--transition-short);
     @media (hover: hover) {
       @nest &:hover {
-        background: var(--color-accent-dark);
+        background: var(--color-accent-light);
       }
     }
   }

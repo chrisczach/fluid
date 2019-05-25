@@ -9,13 +9,13 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: var(--color-main-dark);
+  background: var(--color-main-light);
   transition: var(--transition-short);
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: var(--color-accent-dark);
+  background: var(--color-accent-light);
 }
 
 /* Position and sizing of clickable cross button */
@@ -26,7 +26,7 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: var(--color-main-light);
+  background: var(--color-main-dark);
 }
 
 /*
@@ -40,14 +40,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: var(--color-main-dark);
+  background: var(--color-main-light);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: var(--color-main-dark);
+  fill: var(--color-main-light);
 }
 
 /* Wrapper for item list */
@@ -61,12 +61,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 1em;
   display: inline-block;
   text-decoration: none;
-  color: var(--color-main-light);
+  color: var(--color-main-dark);
   outline: none;
 }
 
 .bm-item:hover {
-  background: var(--color-accent-dark);
+  background: var(--color-accent-light);
   transition: var(--transition-short);
 }
 
@@ -78,6 +78,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   width: 100%;
   position: absolute;
   content: '';
-  background: var(--color-main-dark);
+  background: var(--color-main-light);
   opacity: 0.3;
 }
