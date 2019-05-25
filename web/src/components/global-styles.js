@@ -4,7 +4,7 @@ import styles from './global-styles.module.css'
 export default function GlobalStyles({
   children,
   siteSettings = {
-    title: 'Sonder Floral',
+    title: 'Fluid Pictures',
     primaryLight: { hex: '#f1f2f1' },
     accentLight: { hex: '#f7f5f1' },
     brandAccent: { hex: '#e1c6d2' },

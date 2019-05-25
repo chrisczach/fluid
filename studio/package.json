@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "sonder-floral-studio",
+  "name": "fluid-studio",
   "version": "1.0.0",
   "author": "Chris Czach <hello@chrisczach.com>",
   "scripts": {
@@ -15,11 +15,11 @@
   "dependencies": {
     "@sanity/base": "^0.140.17",
     "@sanity/color-input": "^0.140.3",
-    "@sanity/components": "^0.140.17",
-    "@sanity/core": "^0.140.17",
-    "@sanity/default-layout": "^0.140.17",
+    "@sanity/components": "^0.140.25",
+    "@sanity/core": "^0.140.25",
+    "@sanity/default-layout": "^0.140.25",
     "@sanity/default-login": "^0.140.15",
-    "@sanity/desk-tool": "^0.140.17",
+    "@sanity/desk-tool": "^0.140.25",
     "@sanity/production-preview": "^0.140.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.5",

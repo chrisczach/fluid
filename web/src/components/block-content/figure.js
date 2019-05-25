@@ -7,7 +7,7 @@ import Image from '../image'
 function Figure(props) {
   return (
     <figure className={styles.root}>
-      {props.asset && <Image asset={props.asset} args={{ maxWidth: 2400 }} />}
+      {props.asset && <Image asset={buildImageObj(props)} />}
       <figcaption className={styles.caption}>{props.caption}</figcaption>
     </figure>
   )

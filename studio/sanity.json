@@ -1,11 +1,11 @@
 {
   "root": true,
   "api": {
-    "projectId": "z8zw1m88",
+    "projectId": "pjkgqycs",
     "dataset": "production"
   },
   "project": {
-    "name": "Sonder Floral"
+    "name": "Fluid"
   },
   "plugins": [
     "@sanity/base",

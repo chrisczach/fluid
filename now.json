@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "sonder-floral",
+  "name": "fluid pictures",
   "builds": [
     {
       "src": "web/package.json",
@@ -8,5 +8,5 @@
       "config": { "distDir": "web/public" }
     }
   ],
-  "alias": ["sonder-floral.now.sh"]
+  "alias": ["fluidfluidpictures.now.sh"]
 }

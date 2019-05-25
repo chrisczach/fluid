@@ -1,0 +1,64 @@
+Arguments: 
+  /Users/ChrisCzach/.nvm/versions/node/v11.12.0/bin/node /Users/ChrisCzach/.nvm/versions/node/v11.12.0/lib/node_modules/@sanity/cli/vendor/yarn install --json --non-interactive --ignore-engines --registry https://registry.npmjs.org
+
+PATH: 
+  /Users/ChrisCzach/Projects/fluid/studio/node_modules/.bin:/Users/ChrisCzach/Projects/fluid/node_modules/.bin:/Users/ChrisCzach/Projects/node_modules/.bin:/Users/ChrisCzach/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/Users/ChrisCzach/.nvm/versions/node/v11.12.0/bin:/Users/ChrisCzach/.nvm/versions/node/v11.12.0/lib/node_modules/vendor:/Library/Frameworks/Python.framework/Versions/3.7/bin:/Users/ChrisCzach/.nvm/versions/node/v11.12.0/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.npm-global/bin:/Users/ChrisCzach/Library/Android/sdk/emulator:/Users/ChrisCzach/Library/Android/sdk/tools:/Users/ChrisCzach/Library/Android/sdk/tools/bin:/Users/ChrisCzach/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  11.12.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.npmjs.org/eslint/-/eslint-4.19.1.tgz: ENOENT: no such file or directory, open '/Users/ChrisCzach/Library/Caches/Yarn/v1/npm-eslint-4.19.1-32d1d653e1d90408854bfb296f076ec7e186a300/.yarn-tarball.tgz'
+
+npm manifest: 
+  {
+    "private": false,
+    "name": "fluid-studio",
+    "version": "1.0.0",
+    "author": "Chris Czach <hello@chrisczach.com>",
+    "scripts": {
+      "deploy": "npm run graphql-deploy && npm run sanity-deploy",
+      "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",
+      "graphql-deploy": "sanity graphql deploy --playground",
+      "sanity-deploy": "sanity deploy",
+      "lint": "eslint .",
+      "start": "sanity start",
+      "test": "sanity check"
+    },
+    "dependencies": {
+      "@sanity/base": "^0.140.17",
+      "@sanity/color-input": "^0.140.3",
+      "@sanity/components": "^0.140.25",
+      "@sanity/core": "^0.140.25",
+      "@sanity/default-layout": "^0.140.25",
+      "@sanity/default-login": "^0.140.15",
+      "@sanity/desk-tool": "^0.140.25",
+      "@sanity/production-preview": "^0.140.0",
+      "prop-types": "^15.7.2",
+      "react": "^16.8.5",
+      "react-dom": "^16.8.4"
+    },
+    "devDependencies": {
+      "eslint": "^5.16.0",
+      "eslint-config-standard": "^12.0.0",
+      "eslint-config-standard-react": "^7.0.2",
+      "eslint-plugin-import": "^2.16.0",
+      "eslint-plugin-node": "^8.0.1",
+      "eslint-plugin-promise": "^4.1.1",
+      "eslint-plugin-react": "^7.12.4",
+      "eslint-plugin-standard": "^4.0.0",
+      "prettier-eslint-cli": "^4.7.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

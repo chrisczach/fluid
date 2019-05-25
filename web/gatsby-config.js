@@ -10,8 +10,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Sonder Floral',
-        short_name: 'Sonder Floral',
+        name: 'Fluid Pictures',
+        short_name: 'Fluid Pictures',
         start_url: '/',
         background_color: '#F1F2F1',
         theme_color: '#B87C6E',
