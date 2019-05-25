@@ -1,0 +1,27 @@
+@import './vars.css';
+@import './hamburgerhelper.css';
+@font-face {
+  font-family: 'dk_lampionregular';
+  src: url('dk_lampion-webfont.woff2') format('woff2'),
+    url('dk_lampion-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: var(--font-main);
+  font-size: var(--font-base-size);
+  line-height: var(--font-base-line-height);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+html,
+body,
+body > div,
+body > div > div {
+  height: 100%;
+}

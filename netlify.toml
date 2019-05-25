@@ -1,0 +1,8 @@
+[build]
+  base = "web/"
+  command = "npm run build"
+  publish = "web/public"
+  
+[[redirects]]
+  from = "/studio"
+  to = "https://sonderfloral.sanity.studio/desk"

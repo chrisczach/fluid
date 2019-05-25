@@ -1,0 +1,60 @@
+{
+  "private": false,
+  "name": "sonder-floral-frontend",
+  "version": "1.0.0",
+  "author": "Chris Czach <hello@chrisczach.com>",
+  "scripts": {
+    "build": "gatsby build",
+    "deploy": "npm run now-deploy",
+    "develop": "gatsby develop",
+    "lint": "eslint .",
+    "now-build": "npm run build",
+    "start": "npm run develop",
+    "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "dependencies": {
+    "@sanity/block-content-to-react": "^2.0.6",
+    "@sanity/client": "^0.140.17",
+    "@sanity/image-url": "^0.140.12",
+    "date-fns": "^1.30.1",
+    "dotenv": "^7.0.0",
+    "gatsby": "^2.4.3",
+    "gatsby-image": "^2.0.41",
+    "gatsby-plugin-layout": "^1.0.15",
+    "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-offline": "^2.1.0",
+    "gatsby-plugin-postcss": "^2.0.7",
+    "gatsby-plugin-react-helmet": "^3.0.11",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-source-sanity": "^2.0.2",
+    "husky": "^2.2.0",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.6.0",
+    "prettier": "^1.17.0",
+    "pretty-quick": "^1.10.0",
+    "react": "^16.8.6",
+    "react-burger-menu": "^2.6.10",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-progressive-image": "^0.6.0",
+    "react-svg": "^9.0.4",
+    "react-transition-group": "^4.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier-eslint-cli": "^4.7.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}

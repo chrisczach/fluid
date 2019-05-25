@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "sonder-floral",
+  "builds": [
+    {
+      "src": "web/package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "web/public" }
+    }
+  ],
+  "alias": ["sonder-floral.now.sh"]
+}

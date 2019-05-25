@@ -1,0 +1,45 @@
+.scroll {
+  overflow: overlay;
+  height: 100vh;
+  width: 100vw;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (orientation: landscape) {
+  .scroll::-webkit-scrollbar {
+    background: var(--color-main-light);
+    width: 6px;
+  }
+  .scroll::-webkit-scrollbar-thumb {
+    background: var(--color-main-dark);
+    border-radius: 15px;
+    height: 30px;
+    transition: var(--transition-short);
+    @media (hover: hover) {
+      @nest &:hover {
+        background: var(--color-accent-dark);
+      }
+    }
+  }
+
+  .scroll::-webkit-scrollbar-track-piece {
+    display: none;
+  }
+}
+/* .scroll::-webkit-scrollbar {
+  width: 0.7em;
+  background: white;
+  }
+  .scroll::-webkit-scrollbar-button {
+
+  }
+  .scroll::-webkit-scrollbar-track {
+
+}
+  .scroll::-webkit-scrollbar-track-piece {
+
+  }
+  .scroll::-webkit-scrollbar-thumb {background: blue;}
+  .scroll::-webkit-scrollbar-corner {background: blue;}
+  .scroll::-webkit-resizer {background: blue;} */

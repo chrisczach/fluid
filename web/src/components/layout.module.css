@@ -1,0 +1,49 @@
+@import '../styles/media-queries.css';
+@import '../styles/vars.css';
+
+.content {
+  min-height: calc(100% - 73px - 152px);
+
+  @media (--media-min-small) {
+    min-height: calc(100% - 90px - 169px);
+  }
+}
+
+.footer {
+}
+
+.svgWrapper svg,
+path {
+  height: 120px;
+  width: auto;
+  fill: var(--color-main-dark);
+}
+
+.footerWrapper {
+  font-family: var(--font-brand);
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 1.5em;
+  margin: 0 auto;
+
+  @media (--media-min-small) {
+    padding: 2em;
+  }
+}
+
+.companyInfo {
+  text-align: center;
+  margin: 0 0 1rem;
+  font-size: 2.5em;
+  font-weight: 500;
+}
+
+.siteInfo {
+  text-align: center;
+  font-size: var(--font-small-size);
+  line-height: var(--font-small-line-height);
+
+  @nest & a {
+    color: inherit;
+  }
+}
