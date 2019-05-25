@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "fluid pictures",
+  "name": "fluid",
   "builds": [
     {
       "src": "web/package.json",
@@ -8,5 +8,5 @@
       "config": { "distDir": "web/public" }
     }
   ],
-  "alias": ["fluidfluidpictures.now.sh"]
+  "alias": ["fluid.now.sh"]
 }
