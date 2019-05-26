@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  bottom: 2em;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.3;
@@ -18,9 +18,8 @@
 }
 
 .svgStyle {
-  height: 120px;
+  height: 48px;
   width: auto;
-  transform: translateY(36px);
 }
 
 .svgStyle > g > path {

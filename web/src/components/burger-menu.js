@@ -30,7 +30,6 @@ export default function burgerMenu ({ siteTitle, logo }) {
           className={styles.svgWrapper}
           src={logo && imageUrlFor(buildImageObj(logo)).url()}
         />
-        <h2 className={styles.logo}>{siteTitle}</h2>
       </div>
     </Menu>
   )

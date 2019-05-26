@@ -21,6 +21,11 @@ const Layout = ({ children, companyInfo, siteSettings, location }) => {
   }
 
   try {
+    title = siteSettings.title
+  } catch (err) {
+    console.log('prevent build error')
+  }
+  try {
     logo = siteSettings.logo
   } catch (err) {
     console.log('prevent build error')
@@ -54,10 +59,12 @@ const Layout = ({ children, companyInfo, siteSettings, location }) => {
                   )}
                   {companyInfo.zipCode} {companyInfo.city}
                   {companyInfo.country && <span>, {companyInfo.country}</span>} */}
-                  <ReactSVG
+
+                  {/* <ReactSVG
                     className={styles.svgWrapper}
                     src={logo && imageUrlFor(buildImageObj(logo)).url()}
-                  />
+                  /> */}
+                  <div className={styles.footerWrapper}>{title.toLowerCase()}</div>
                 </div>
               )}
             </div>
