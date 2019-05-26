@@ -1,5 +1,5 @@
 .sectionBackground {
   /* position: relative; */
-  background: linear-gradient(to bottom right, rgba(20,20,20,.8) 20%, rgba(20,20,20,.3));
+  background: linear-gradient(to bottom right, rgba(20,20,20,.95) 20%, rgba(20,20,20,.5));
   box-shadow: var(--box-shadow-2);
 }
