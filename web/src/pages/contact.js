@@ -65,7 +65,9 @@ const ContactPage = props => {
       <Container>
         <div className={styles.sectionBackground}>
           <h1 className={responsiveTitle1}>{page.title}</h1>
-          <BlockContent blocks={page._rawBody || []} />
+          <div className={styles.contactText}>
+            <BlockContent blocks={page._rawBody || []} />
+          </div>
         </div>
       </Container>
     </>
