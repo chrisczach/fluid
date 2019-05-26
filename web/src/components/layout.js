@@ -9,15 +9,10 @@ import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import Transition from './page-transition'
 
-const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) => {
+const Layout = ({ children, companyInfo, siteSettings, location }) => {
   let logo
   let title = ''
   let pathname = ''
-  try {
-    title = siteTitle.toUpperCase()
-  } catch (err) {
-    console.log('prevent build error')
-  }
 
   try {
     pathname = location.pathname
@@ -30,12 +25,12 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
   } catch (err) {
     console.log('prevent build error')
   }
-
+  console.log(logo)
   return (
     <GlobalStyles siteSettings={siteSettings}>
       <BurgerMenu siteTitle={title} logo={logo} />
-      <div id="page-wrap">
-        <Header siteTitle={title} logo={logo} />
+      <div id='page-wrap'>
+        <Header logo={logo} />
 
         <Transition location={{ pathname }}>
           <>
@@ -68,10 +63,10 @@ const Layout = ({ children, companyInfo, siteTitle, siteSettings, location }) =>
             </div>
 
             <div className={styles.siteInfo}>
-              © {new Date().getFullYear()}, Built with <a href="https://www.sanity.io">Sanity</a>{' '}
+              © {new Date().getFullYear()}, Built with <a href='https://www.sanity.io'>Sanity</a>{' '}
               &amp;
               {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
+              <a href='https://www.gatsbyjs.org'>Gatsby</a>
             </div>
           </div>
         </footer>

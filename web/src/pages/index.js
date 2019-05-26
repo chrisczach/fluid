@@ -16,82 +16,82 @@ export const query = graphql`
       keywords
     }
 
-    projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
-      edges {
-        node {
-          id
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-              metadata {
-                lqip
-              }
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
+    # projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
+    #   edges {
+    #     node {
+    #       id
+    #       mainImage {
+    #         crop {
+    #           _key
+    #           _type
+    #           top
+    #           bottom
+    #           left
+    #           right
+    #         }
+    #         hotspot {
+    #           _key
+    #           _type
+    #           x
+    #           y
+    #           height
+    #           width
+    #         }
+    #         asset {
+    #           _id
+    #           metadata {
+    #             lqip
+    #           }
+    #         }
+    #         alt
+    #       }
+    #       title
+    #       _rawExcerpt
+    #       slug {
+    #         current
+    #       }
+    #     }
+    #   }
+    # }
 
-    posts: allSanityPost(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
-      edges {
-        node {
-          id
-          publishedAt
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-              metadata {
-                lqip
-              }
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
+    # posts: allSanityPost(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
+    #   edges {
+    #     node {
+    #       id
+    #       publishedAt
+    #       mainImage {
+    #         crop {
+    #           _key
+    #           _type
+    #           top
+    #           bottom
+    #           left
+    #           right
+    #         }
+    #         hotspot {
+    #           _key
+    #           _type
+    #           x
+    #           y
+    #           height
+    #           width
+    #         }
+    #         asset {
+    #           _id
+    #           metadata {
+    #             lqip
+    #           }
+    #         }
+    #         alt
+    #       }
+    #       title
+    #       _rawExcerpt
+    #       slug {
+    #         current
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
 
@@ -103,12 +103,12 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
-    : []
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
-    : []
+  // const postNodes = (data || {}).posts
+  //   ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
+  //   : []
+  // const projectNodes = (data || {}).projects
+  //   ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+  //   : []
 
   if (!site) {
     throw new Error(
@@ -121,7 +121,7 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        {projectNodes && (
+        {/* {projectNodes && (
           <ProjectPreviewGrid
             title="Latest projects"
             nodes={projectNodes}
@@ -134,7 +134,7 @@ const IndexPage = props => {
             nodes={postNodes}
             browseMoreHref="/blog/"
           />
-        )}
+        )} */}
       </Container>
     </>
   )
