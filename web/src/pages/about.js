@@ -5,10 +5,12 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import PeopleGrid from '../components/people-grid'
 import SEO from '../components/seo'
+
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 
 import { responsiveTitle1 } from '../components/typography.module.css'
+import CoverImage from '../components/cover-image'
 
 export const query = graphql`
   query AboutPageQuery {
@@ -17,6 +19,31 @@ export const query = graphql`
       _id
       title
       _rawBody
+      mainImage {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
     }
     people: allSanityPerson {
       edges {
@@ -58,10 +85,12 @@ const AboutPage = props => {
   return (
     <>
       <SEO title={page.title} />
+      <CoverImage asset={page.mainImage} coverSize={1} />
       <Container>
         <h1 className={responsiveTitle1}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
-        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />}
+
+        {/* {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />} */}
       </Container>
     </>
   )

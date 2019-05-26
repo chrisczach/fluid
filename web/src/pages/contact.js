@@ -13,6 +13,11 @@ export const query = graphql`
     page: sanityPage(_id: { regex: "/(drafts.|)contact/" }) {
       title
       _rawBody
+      mainImage {
+        _key
+        _type
+        alt
+      }
     }
   }
 `

@@ -6,7 +6,7 @@ import { imageUrlFor } from '../lib/image-url'
 import { buildImageObj } from '../lib/helpers'
 import { join } from 'path'
 
-export default function Image({ asset, args, fixed = false, ...props }) {
+export default function Image ({ asset, args, fixed = false, ...props }) {
   // console.log('asset', asset)
   const imageArgs =
     args || (fixed ? { width: 1200, height: Math.floor((9 / 16) * 1200) } : { maxWidth: 1200 })
@@ -24,6 +24,7 @@ export default function Image({ asset, args, fixed = false, ...props }) {
   let processedImg = imageUrlFor(asset)
   if (fixed) {
     processedImg = processedImg.width(args.width).height(args.height)
+    processedImg = processedImg.url()
   } else {
     console.log(imgProps)
     processedImg = processedImg.width(imageArgs.maxWidth)
