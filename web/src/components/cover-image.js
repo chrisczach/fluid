@@ -16,8 +16,8 @@ function useWindowSize () {
 
   function getSize () {
     return {
-      width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined
+      width: isClient ? document.body.clientWidth : undefined,
+      height: isClient ? document.body.clientHeight : undefined
     }
   }
 
