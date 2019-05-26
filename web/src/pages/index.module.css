@@ -1,7 +1,6 @@
 .aboutSection{
-  background: transparent;
-  padding: 1em 4em;
-  box-shadow: none;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .alignButton{
