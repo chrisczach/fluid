@@ -22,6 +22,16 @@ export default {
       }
     },
     {
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text'
+    },
+    {
+      name: 'mainImage',
+      title: 'Main image',
+      type: 'mainImage'
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'text'

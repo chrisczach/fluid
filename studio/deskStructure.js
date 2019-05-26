@@ -35,6 +35,25 @@ export default () =>
             .documentId('companyInfo')
         )
         .icon(MdBusiness),
+
+      S.listItem()
+        .title('About Page')
+        .child(
+          S.editor()
+            .id('aboutPage')
+            .schemaType('page')
+            .documentId('about')
+        )
+        .icon(FaFileO),
+      S.listItem()
+        .title('Contact Page')
+        .child(
+          S.editor()
+            .id('contactPage')
+            .schemaType('page')
+            .documentId('contact')
+        )
+        .icon(FaFileO),
       S.listItem()
         .title('Equipment Categories')
         .schemaType('category')
@@ -43,32 +62,6 @@ export default () =>
         .title('Equipment')
         .schemaType('equipment')
         .child(S.documentTypeList('equipment')),
-      S.listItem()
-        .title('Pages')
-        .child(
-          S.list()
-            .title('Pages')
-            .items([
-              S.listItem()
-                .title('About')
-                .child(
-                  S.editor()
-                    .id('aboutPage')
-                    .schemaType('page')
-                    .documentId('about')
-                )
-                .icon(FaFileO),
-              S.listItem()
-                .title('Contact')
-                .child(
-                  S.editor()
-                    .id('contactPage')
-                    .schemaType('page')
-                    .documentId('contact')
-                )
-                .icon(FaFileO)
-            ])
-        ),
       S.listItem()
         .title('People')
         .schemaType('person')

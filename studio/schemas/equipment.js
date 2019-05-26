@@ -4,6 +4,12 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'categories',
+      title: 'Equipment Category',
+      type: 'reference',
+      to: { type: 'category' }
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string'
@@ -21,7 +27,7 @@ export default {
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'blockText'
+      type: 'text'
     },
     {
       name: 'mainImage',
@@ -29,15 +35,14 @@ export default {
       type: 'mainImage'
     },
     {
-      name: 'categories',
-      title: 'Equipment Categories',
-      type: 'reference',
-      to: { type: 'category' }
-    },
-    {
       name: 'body',
       title: 'Body',
       type: 'blockContent'
+    },
+    {
+      name: 'gallery',
+      title: 'Photo Gallery',
+      type: 'slideshow'
     }
   ],
   preview: {
