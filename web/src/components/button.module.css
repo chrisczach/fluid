@@ -1,0 +1,10 @@
+.root {
+  color: var(--color-main-light);
+  text-decoration: none;
+  padding: 0.5em 1.5em;
+  border: 2px solid var(--color-main-light);
+
+  @nest &:hover {
+    background: var(--color-accent-light);
+  }
+}

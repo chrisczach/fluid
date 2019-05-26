@@ -1,20 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from '../components/image'
 import styles from './cover-image.module.css'
 
 export default function CoverImage ({ asset, coverSize = 1, ...props }) {
-  let width = 200
-  let height = 100
-
-  try {
-    width = window.innerWidth
-    height = window.innerHeight * coverSize
-  } catch (err) {
-    console.log('prevent build error')
-  }
+  const size = useWindowSize()
   return (
     <div className={styles.cover}>
-      <Image fixed {...props} asset={asset} args={{ width: width, height: height }} />
+      <Image fixed {...props} asset={asset} args={{ width: size.width, height: size.height }} />
     </div>
   )
+}
+
+function useWindowSize () {
+  const isClient = typeof window === 'object'
+
+  function getSize () {
+    return {
+      width: isClient ? window.innerWidth : undefined,
+      height: isClient ? window.innerHeight : undefined
+    }
+  }
+
+  const [windowSize, setWindowSize] = useState(getSize)
+
+  useEffect(() => {
+    if (!isClient) {
+      return false
+    }
+
+    function handleResize () {
+      setWindowSize(getSize())
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, []) // Empty array ensures that effect is only run on mount and unmount
+
+  return windowSize
 }

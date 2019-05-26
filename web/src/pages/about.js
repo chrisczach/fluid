@@ -11,6 +11,7 @@ import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 
 import { responsiveTitle1 } from '../components/typography.module.css'
 import CoverImage from '../components/cover-image'
+import Button from '../components/button'
 
 export const query = graphql`
   query AboutPageQuery {
@@ -90,7 +91,9 @@ const AboutPage = props => {
         <div className={styles.sectionBackground}>
           <h1 className={responsiveTitle1}>{page.title}</h1>
           <BlockContent blocks={page._rawBody || []} />
-
+          <Button to='/contact' className={styles.alignButton}>
+            contact us
+          </Button>
           {/* {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />} */}
         </div>
       </Container>
