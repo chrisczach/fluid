@@ -5,6 +5,7 @@
   max-width: 1080px;
   padding: 1.5em;
   margin: 0 auto;
+  min-height: 65vh;
 
   @media (--media-min-small) {
     padding: 2em;

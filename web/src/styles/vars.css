@@ -8,5 +8,5 @@
   --color-accent-light: #b87c6e;
   --color-brand: #E1C6D2; */
   --burger-size: 26px;
-  --transition-short: all 0.3s ease;
+  --transition-short: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }

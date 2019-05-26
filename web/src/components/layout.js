@@ -8,6 +8,7 @@ import GlobalStyles from './global-styles'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import Transition from './page-transition'
+import { Link } from 'gatsby'
 
 const Layout = ({ children, companyInfo, siteSettings, location }) => {
   let logo
@@ -45,30 +46,9 @@ const Layout = ({ children, companyInfo, siteSettings, location }) => {
 
         <footer className={styles.footer}>
           <div className={styles.footerWrapper}>
-            <div className={styles.companyInfo}>
-              {companyInfo && (
-                <div>
-                  {/* <br />
-                  {companyInfo.address1}
-                  <br />
-                  {companyInfo.address2 && (
-                    <span>
-                      {companyInfo.address2}
-                      <br />
-                    </span>
-                  )}
-                  {companyInfo.zipCode} {companyInfo.city}
-                  {companyInfo.country && <span>, {companyInfo.country}</span>} */}
-
-                  {/* <ReactSVG
-                    className={styles.svgWrapper}
-                    src={logo && imageUrlFor(buildImageObj(logo)).url()}
-                  /> */}
-                  <div className={styles.footerWrapper}>{title.toLowerCase()}</div>
-                </div>
-              )}
-            </div>
-
+            <Link className={styles.footerTitle} to='/'>
+              {title.toLowerCase()}
+            </Link>
             <div className={styles.siteInfo}>
               © {new Date().getFullYear()}, Built with <a href='https://www.sanity.io'>Sanity</a>{' '}
               &amp;

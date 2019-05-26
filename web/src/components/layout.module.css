@@ -19,16 +19,35 @@ path {
   fill: var(--color-main-light);
 }
 
-.footerWrapper {
+.footerTitle {
+  cursor: pointer;
+  opacity: 0.5;
   font-family: var(--font-brand);
+  color: var(--color-main-light);
+  text-decoration: none;
+  font-size: 1.5em;
+  padding: 1em;
+
+    @nest &:hover {
+    opacity: 0.6;
+  }
+}
+
+.footerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   box-sizing: border-box;
   max-width: 960px;
-  padding: 1.5em;
+  padding: 0.5em;
   margin: 0 auto;
 
   @media (--media-min-small) {
-    padding: 2em;
+    padding: 1em;
   }
+
+
 }
 
 .companyInfo {
@@ -39,6 +58,7 @@ path {
 }
 
 .siteInfo {
+  opacity: 0.25;
   text-align: center;
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);

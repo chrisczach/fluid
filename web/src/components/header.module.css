@@ -33,12 +33,12 @@
   top: 0;
   left: 0;
   background: var(--color-main-dark);
-  opacity: 0.85;
+  opacity: 0;
   transition: var(--transition-short);
 }
 
 .wrapper:hover::after {
-  opacity: 0.95;
+  opacity: 0.25;
 }
 
 .branding {
