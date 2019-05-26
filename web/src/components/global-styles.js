@@ -22,8 +22,6 @@ export default function GlobalStyles ({
     '--color-brand': getHex(brandAccent),
     '--color-accent-dark': getHex(accentDark),
     '--color-main-dark': getHex(primaryDark),
-    background:
-      'linear-gradient(to bottom right, var(--color-accent-dark), var(--color-main-dark))',
     color: 'var(--color-main-light)'
   }
 
@@ -47,6 +45,13 @@ export default function GlobalStyles ({
 
   return (
     <div ref={scrollDiv} style={globalColors} className={styles.scroll}>
+      <div
+        style={{
+          background:
+            'linear-gradient(to bottom right, var(--color-accent-dark), var(--color-main-dark))'
+        }}
+        className={styles.background}
+      />
       <>{children}</>
     </div>
   )
