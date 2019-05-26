@@ -7,7 +7,7 @@
   margin: 0 auto;
   min-height: 65vh;
 
-  @media (--media-min-small) {
-    padding: 2em;
+  @media (--media-max-small) {
+    padding: 0.5em;
   }
 }

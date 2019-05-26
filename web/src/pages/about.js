@@ -86,9 +86,11 @@ const AboutPage = props => {
   return (
     <>
       <SEO title={page.title} />
-      {page.mainImage && <CoverImage asset={page.mainImage} coverSize={1} />}
+
       <Container>
         <div className={styles.sectionBackground}>
+          {page.mainImage && <CoverImage asset={page.mainImage} coverSize={1} />}
+
           <h1 className={responsiveTitle1}>{page.title}</h1>
           <BlockContent blocks={page._rawBody || []} />
           <Button to='/contact' className={styles.alignButton}>

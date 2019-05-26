@@ -1,10 +1,9 @@
 .sectionBackground {
-  padding: 1.5em 4em 2em 1em;
+  padding: 1.5em 1em;
   background: linear-gradient(to bottom right, rgba(20,20,20,.95) 20%, rgba(20,20,20,.5));
   min-height: 50vh;
 }
 
 .contactText{
-  padding: 0 0 0 2em;
   color: var(--color-accent-light);
 }
