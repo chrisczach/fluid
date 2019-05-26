@@ -8,6 +8,7 @@ import Layout from '../containers/layout'
 import styles from './contact.module.css'
 import { responsiveTitle1 } from '../components/typography.module.css'
 import CoverImage from '../components/cover-image'
+import SectionBackground from '../components/section-background'
 
 export const query = graphql`
   query ContactPageQuery {
@@ -62,13 +63,13 @@ const ContactPage = props => {
     <>
       <SEO title={page.title} />
       <Container>
-        <div className={styles.sectionBackground}>
+        <SectionBackground className={styles.sectionBackground}>
           {page.mainImage && <CoverImage asset={page.mainImage} coverSize={1} />}
           <h1 className={responsiveTitle1}>{page.title}</h1>
           <div className={styles.contactText}>
             <BlockContent blocks={page._rawBody || []} />
           </div>
-        </div>
+        </SectionBackground>
       </Container>
     </>
   )

@@ -103,6 +103,7 @@
 }
 
 .responsiveTitle2 {
+  font-family: var(--font-secondary);
   font-weight: 400;
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);

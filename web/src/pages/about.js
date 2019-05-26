@@ -12,6 +12,7 @@ import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 import { responsiveTitle1 } from '../components/typography.module.css'
 import CoverImage from '../components/cover-image'
 import Button from '../components/button'
+import SectionBackground from '../components/section-background';
 
 export const query = graphql`
   query AboutPageQuery {
@@ -46,6 +47,7 @@ export const query = graphql`
         alt
       }
     }
+
     people: allSanityPerson {
       edges {
         node {
@@ -74,6 +76,7 @@ const AboutPage = props => {
   }
 
   const page = data && data.page
+  
   const personNodes =
     data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
 
@@ -88,16 +91,18 @@ const AboutPage = props => {
       <SEO title={page.title} />
 
       <Container>
-        <div className={styles.sectionBackground}>
+        <SectionBackground className={styles.sectionBackground}>
           {page.mainImage && <CoverImage asset={page.mainImage} coverSize={1} />}
 
-          <h1 className={responsiveTitle1}>{page.title}</h1>
+          <h1 className={ responsiveTitle1 }>{ page.title }</h1>
+          <div className={ styles.aboutText }>
           <BlockContent blocks={page._rawBody || []} />
-          <Button to='/contact' className={styles.alignButton}>
+          <Button to="/contact" className={styles.alignButton}>
             contact us
           </Button>
+            </div>
           {/* {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />} */}
-        </div>
+        </SectionBackground>
       </Container>
     </>
   )
