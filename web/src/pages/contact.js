@@ -5,8 +5,9 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-
+import styles from './contact.module.css'
 import { responsiveTitle1 } from '../components/typography.module.css'
+import CoverImage from '../components/cover-image'
 
 export const query = graphql`
   query ContactPageQuery {
@@ -14,8 +15,28 @@ export const query = graphql`
       title
       _rawBody
       mainImage {
-        _key
-        _type
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+          }
+        }
         alt
       }
     }
@@ -40,9 +61,12 @@ const ContactPage = props => {
   return (
     <>
       <SEO title={page.title} />
+      {page.mainImage && <CoverImage asset={page.mainImage} coverSize={1} />}
       <Container>
-        <h1 className={responsiveTitle1}>{page.title}</h1>
-        <BlockContent blocks={page._rawBody || []} />
+        <div className={styles.sectionBackground}>
+          <h1 className={responsiveTitle1}>{page.title}</h1>
+          <BlockContent blocks={page._rawBody || []} />
+        </div>
       </Container>
     </>
   )
