@@ -2,6 +2,7 @@
   /* position: relative; */
   padding: 1.5em 2em 0em 1em;
   min-height: 150vh;
+  z-index:5;
 }
 
 .aboutText{

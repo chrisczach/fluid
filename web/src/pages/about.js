@@ -91,9 +91,8 @@ const AboutPage = props => {
       <SEO title={page.title} />
 
       <Container>
+        {page.mainImage && <CoverImage fixed asset={page.mainImage} coverSize={1} />}
         <SectionBackground className={styles.sectionBackground}>
-          {page.mainImage && <CoverImage fixed asset={page.mainImage} coverSize={1} />}
-
           <h1 className={responsiveTitle1}>{page.title}</h1>
           <div className={styles.aboutText}>
             <BlockContent blocks={page._rawBody || []} />
