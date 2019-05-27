@@ -5,12 +5,14 @@
 
 .absolute {
   z-index: -1 !important;
+  position: absolute;
   top: 0;
   left: 0;
 }
 
 .fixed {
   z-index: -1 !important;
+  position: fixed;
   top: 0;
   left: 0;
 }
