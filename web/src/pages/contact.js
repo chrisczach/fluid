@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import useResizeAware from 'react-resize-aware'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import ReactMapGL, { Marker } from 'react-map-gl'
+import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
@@ -66,9 +66,10 @@ const ContactPage = props => {
     longitude: -118.59653,
     zoom: 15
   }
+  const { width } = useWindowSize()
   const [resizeListener, sizes] = useResizeAware()
   const [viewport, setViewport] = useState(location)
-  console.log('width: ', sizes.width, 'height: ', sizes.height)
+
   return (
     <>
       <SEO title={page.title} />
@@ -88,7 +89,9 @@ const ContactPage = props => {
                 height={sizes.height}
                 mapboxApiAccessToken={process.env.GATSBY_MAPBOX_TOKEN}
               >
-                <Marker {...location}>Fluid Pictures Shop</Marker>
+                <Popup closeButton={false} {...location} closeOnClick={false} anchor='bottom'>
+                  <div className={styles.marker}>Fluid Pictures Shop</div>
+                </Popup>
               </ReactMapGL>
             </div>
           </div>
@@ -105,4 +108,34 @@ ContactPage.defaultProps = {
     }
   }
 }
+
+// Hook
+function useWindowSize () {
+  const isClient = typeof window === 'object'
+
+  function getSize () {
+    return {
+      width: isClient ? window.innerWidth : undefined,
+      height: isClient ? window.innerHeight : undefined
+    }
+  }
+
+  const [windowSize, setWindowSize] = useState(getSize)
+
+  useEffect(() => {
+    if (!isClient) {
+      return false
+    }
+
+    function handleResize () {
+      setWindowSize(getSize())
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, []) // Empty array ensures that effect is only run on mount and unmount
+
+  return windowSize
+}
+
 export default ContactPage

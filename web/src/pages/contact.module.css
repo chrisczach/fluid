@@ -12,9 +12,14 @@
 
 .contactWrapper {
   display: flex;
+
 }
 
 .mapWrapper {
   position: relative;
   flex: 100%
+}
+
+.marker {
+  color: var(--color-main-dark);
 }
