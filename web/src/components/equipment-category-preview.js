@@ -11,16 +11,25 @@ export default function EquipmentCategoryPreview ({
   mainImage
 }) {
   return (
-    <div key={id}>
-      {title}
-      {excerpt}
-      <Button to={current}>View {title}</Button>
-      {mainImage && mainImage.asset && (
-        <Image
-          asset={mainImage}
-          args={{ maxWidth: 2400, maxHeight: Math.floor((9 / 16) * 2400) }}
-        />
-      )}
+    <div className={styles.wrapper} key={id}>
+      <div className={styles.imageBlock}>
+        {mainImage && mainImage.asset && (
+          <>
+            <div className={styles.imageOverlay}>{title.toLowerCase()}</div>
+            <Image
+              asset={mainImage}
+              args={{ maxWidth: 2400, maxHeight: Math.floor((9 / 16) * 2400) }}
+            />
+          </>
+        )}
+      </div>
+      <div className={styles.contentBlock}>
+        {excerpt}
+
+        <Button to={current} className={styles.categoryLink}>
+          view {title.toLowerCase()}
+        </Button>
+      </div>
     </div>
   )
 }

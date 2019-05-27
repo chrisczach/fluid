@@ -1,0 +1,51 @@
+.wrapper {
+  position: relative;
+  margin: 0 0 4em 0;
+  display: flex;
+  background: rgba(0,0,0, .25);
+  box-shadow: var(--box-shadow-1);
+  transition: var(--transition-short);
+  @nest &:hover {
+    background: rgba(0,0,0, .5);
+    box-shadow: var(--box-shadow-2);
+  }
+    @nest &:hover .imageOverlay{
+    background: rgba(0,0,0, .1);
+
+  }
+}
+
+.imageBlock{
+  position: relative;
+width: 50%;
+
+}
+
+.contentBlock{
+  position: relative;
+width: 50%;
+padding: 2em 2em 6em 2em;
+}
+
+.imageOverlay{
+    transition: var(--transition-short);
+  background: rgba(0,0,0, .5);
+  font-size: 4em;
+  font-family: var(--font-brand);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.categoryLink{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 2em;
+}
