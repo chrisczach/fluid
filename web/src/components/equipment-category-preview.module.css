@@ -17,12 +17,15 @@
 .imageBlock{
   position: relative;
 width: 50%;
+height: 100%;
+overflow: hidden;
 
 }
 
 .contentBlock{
   position: relative;
 width: 50%;
+height: 100%;
 padding: 2em 2em 6em 2em;
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './equipment-category-preview.module.css'
 import Image from '../components/image'
 import Button from './button'
+import useResizeAware from 'react-resize-aware'
 
 export default function EquipmentCategoryPreview ({
   id,
@@ -11,9 +12,13 @@ export default function EquipmentCategoryPreview ({
   mainImage,
   grid
 }) {
+  const [imageResizeListener, imageSizes] = useResizeAware()
+  const [contentResizeListener, contentSizes] = useResizeAware()
+
   return (
     <div className={styles.wrapper} key={id}>
       <div className={styles.imageBlock}>
+        {imageResizeListener}
         {mainImage && mainImage.asset && (
           <>
             <div className={grid ? styles.gridImageOverlay : styles.imageOverlay}>
@@ -21,18 +26,19 @@ export default function EquipmentCategoryPreview ({
             </div>
             <Image
               asset={mainImage}
-              args={{ maxWidth: 2400, maxHeight: Math.floor((9 / 16) * 2400) }}
+              fixed
+              args={{ width: imageSizes.width, height: contentSizes.height * 1.5 }}
             />
           </>
         )}
       </div>
       <div className={styles.contentBlock}>
         {excerpt}
-
-        <Button to={current} className={styles.categoryLink}>
-          view {title.toLowerCase()}
-        </Button>
+        {contentResizeListener}
       </div>
+      <Button to={current} className={styles.categoryLink}>
+        view {title.toLowerCase()}
+      </Button>
     </div>
   )
 }

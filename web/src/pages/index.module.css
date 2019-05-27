@@ -6,8 +6,9 @@
 
 .equipmentSection{
   position: relative;
-  background: linear-gradient(to bottom right, rgba(0,0,0,.3), transparent) !important;
-  padding: 0.5em 2em 2em 2em;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 0 4em 0;
 }
 
 .alignButton{

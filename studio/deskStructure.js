@@ -55,6 +55,15 @@ export default () =>
         )
         .icon(FaFileO),
       S.listItem()
+        .title('Equipment Category Page')
+        .child(
+          S.editor()
+            .id('equipmentPage')
+            .schemaType('page')
+            .documentId('equipment')
+        )
+        .icon(FaFileO),
+      S.listItem()
         .title('Equipment Categories')
         .schemaType('category')
         .child(S.documentTypeList('category').title('Equipment Categories')),

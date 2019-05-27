@@ -8,9 +8,43 @@ import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 
 import { responsiveTitle1 } from '../components/typography.module.css'
 import EquipmentCategories from '../components/equipment-categories'
+import BlockContent from '../components/block-content'
+import styles from './equipment.module.css'
 
 export const query = graphql`
   query EquipmentCategoryPageQuery {
+    equipment: sanityPage(_id: { regex: "/(drafts.|)equipment/" }) {
+      id
+      _id
+      title
+      _rawBody
+      mainImage {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
+    }
+
     category: allSanityCategory(sort: { fields: [sort], order: ASC }) {
       edges {
         node {
@@ -56,14 +90,17 @@ const EquipmentPage = props => {
   if (errors) {
     return <GraphQLErrorList errors={errors} />
   }
-
+  const equipment = data && data.equipment
   const categoryNodes =
     data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
   return (
     <>
       <SEO title='equipment' />
       <Container>
-        <h1 className={responsiveTitle1}>equipment</h1>
+        <div className={styles.blockText}>
+          <BlockContent blocks={equipment._rawBody || []} />
+        </div>
+        <h1 className={responsiveTitle1}>{equipment.title}</h1>
         {categoryNodes && categoryNodes.length > 0 && <EquipmentCategories nodes={categoryNodes} />}
       </Container>
     </>

@@ -131,7 +131,7 @@ const IndexPage = props => {
         {categoryNodes && categoryNodes.length > 0 && (
           <SectionBackground className={ styles.equipmentSection}>
             <h1 className={responsiveTitle2}>equipment</h1>
-            <EquipmentCategories grid nodes={categoryNodes} />
+            <EquipmentCategories nodes={categoryNodes} />
           </SectionBackground>
         )}
         {/* {projectNodes && (
