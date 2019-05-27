@@ -6,7 +6,7 @@ export default function CoverImage ({ asset, coverSize = 1,fixed = false, ...pro
   const size = useWindowSize()
   return (
     <div className={ fixed ? styles.fixed : styles.absolute} style={{height: size.height * coverSize}} >
-      <Image style={{height: size.height}} fixed {...props} asset={asset} args={{ width: size.width, height: size.height * coverSize }} />
+      <Image style={{height: size.height, zIndex: -1}} fixed {...props} asset={asset} args={{ width: size.width, height: size.height * coverSize }} />
     </div>
   )
 }

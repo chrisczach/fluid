@@ -1,7 +1,7 @@
 .sectionBackground {
   padding: 1.5em 1em;
   min-height: 50vh;
-   z-index:5;
+   z-index:5 !important;
 }
 
 .contactText{
