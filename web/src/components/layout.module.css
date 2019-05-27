@@ -10,7 +10,7 @@
 }
 
 .footer {
-  padding-bottom: 4em;
+
 }
 
 .svgWrapper svg,
@@ -35,13 +35,15 @@ path {
 }
 
 .footerWrapper {
+  padding: 0 0 6em 0;
+    position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
   max-width: 960px;
-  padding: 0.5em;
   margin: 0 auto;
 
   @media (--media-min-small) {
