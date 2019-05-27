@@ -12,6 +12,7 @@ import Button from '../components/button'
 import styles from './index.module.css'
 import { responsiveTitle2 } from '../components/typography.module.css'
 import SectionBackground from '../components/section-background'
+import EquipmentCategories from '../components/equipment-categories'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -52,82 +53,44 @@ export const query = graphql`
         alt
       }
     }
-    # projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
-    #   edges {
-    #     node {
-    #       id
-    #       mainImage {
-    #         crop {
-    #           _key
-    #           _type
-    #           top
-    #           bottom
-    #           left
-    #           right
-    #         }
-    #         hotspot {
-    #           _key
-    #           _type
-    #           x
-    #           y
-    #           height
-    #           width
-    #         }
-    #         asset {
-    #           _id
-    #           metadata {
-    #             lqip
-    #           }
-    #         }
-    #         alt
-    #       }
-    #       title
-    #       _rawExcerpt
-    #       slug {
-    #         current
-    #       }
-    #     }
-    #   }
-    # }
 
-    # posts: allSanityPost(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
-    #   edges {
-    #     node {
-    #       id
-    #       publishedAt
-    #       mainImage {
-    #         crop {
-    #           _key
-    #           _type
-    #           top
-    #           bottom
-    #           left
-    #           right
-    #         }
-    #         hotspot {
-    #           _key
-    #           _type
-    #           x
-    #           y
-    #           height
-    #           width
-    #         }
-    #         asset {
-    #           _id
-    #           metadata {
-    #             lqip
-    #           }
-    #         }
-    #         alt
-    #       }
-    #       title
-    #       _rawExcerpt
-    #       slug {
-    #         current
-    #       }
-    #     }
-    #   }
-    # }
+    category: allSanityCategory(sort: { fields: [sort], order: ASC }) {
+      edges {
+        node {
+          id
+          title
+          slug {
+            current
+          }
+          excerpt
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+              metadata {
+                lqip
+              }
+            }
+            alt
+          }
+        }
+      }
+    }
   }
 `
 
@@ -152,6 +115,9 @@ const IndexPage = props => {
     )
   }
 
+  const categoryNodes =
+    data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
+
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
@@ -161,6 +127,13 @@ const IndexPage = props => {
           <h1 className={responsiveTitle2}>{about.title}</h1>
           <BlockContent blocks={about._rawBody || []} />
         </SectionBackground>
+
+        {categoryNodes && categoryNodes.length > 0 && (
+          <SectionBackground className={ styles.equipmentSection}>
+            <h1 className={responsiveTitle2}>equipment</h1>
+            <EquipmentCategories grid nodes={categoryNodes} />
+          </SectionBackground>
+        )}
         {/* {projectNodes && (
           <ProjectPreviewGrid
             title="Latest projects"

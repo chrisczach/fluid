@@ -1,3 +1,11 @@
-.categoryWrapper {
-  
+.showColumn {
+    display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2em;
+}
+
+.showGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
 }

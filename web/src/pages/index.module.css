@@ -4,6 +4,12 @@
   box-shadow: none !important;
 }
 
+.equipmentSection{
+  position: relative;
+  background: linear-gradient(to bottom right, rgba(0,0,0,.3), transparent) !important;
+  padding: 0.5em 2em 2em 2em;
+}
+
 .alignButton{
 
 }
