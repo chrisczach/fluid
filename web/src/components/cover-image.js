@@ -5,8 +5,8 @@ import styles from './cover-image.module.css'
 export default function CoverImage ({ asset, coverSize = 1, ...props }) {
   const size = useWindowSize()
   return (
-    <div className={styles.cover} style={{height: size.height}} >
-      <Image style={{height: size.height}} fixed {...props} asset={asset} args={{ width: size.width, height: size.height }} />
+    <div className={styles.cover} style={{height: size.height * coverSize}} >
+      <Image style={{height: size.height}} fixed {...props} asset={asset} args={{ width: size.width, height: size.height * coverSize }} />
     </div>
   )
 }
@@ -17,7 +17,7 @@ function useWindowSize () {
   function getSize () {
     return {
       width: isClient ? document.body.clientWidth : undefined,
-      height: isClient ? document.body.clientHeight : undefined
+      height: isClient ? window.innerHeight : undefined
     }
   }
 

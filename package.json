@@ -20,5 +20,9 @@
   "devDependencies": {
     "lerna": "^3.13.4",
     "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "body-scroll-lock": "^2.6.1",
+    "react-scrolllock": "^4.0.1"
   }
 }

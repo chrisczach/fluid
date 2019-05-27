@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gatsby build",
     "deploy": "npm run now-deploy",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
     "lint": "eslint .",
     "now-build": "npm run build",
     "start": "npm run develop",

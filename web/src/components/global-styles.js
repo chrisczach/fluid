@@ -1,4 +1,6 @@
-import React, { createRef } from 'react'
+import React, { createRef,useEffect } from 'react'
+import ScrollLock from 'react-scrolllock';
+
 import styles from './global-styles.module.css'
 
 export default function GlobalStyles ({
@@ -12,7 +14,7 @@ export default function GlobalStyles ({
     primaryDark: { hex: '#5c4841' }
   }
 }) {
-  var { primaryLight, accentLight, brandAccent, accentDark, primaryDark } = siteSettings
+  let { primaryLight, accentLight, brandAccent, accentDark, primaryDark } = siteSettings
 
   const getHex = ({ hex }) => hex
 
@@ -43,7 +45,9 @@ export default function GlobalStyles ({
     console.log('prevent build error when window is undefined')
   }
 
+
   return (
+    <ScrollLock>
     <div ref={scrollDiv} style={globalColors} className={styles.scroll}>
       <div
         style={{
@@ -54,5 +58,6 @@ export default function GlobalStyles ({
       />
       <>{children}</>
     </div>
+    </ScrollLock>
   )
 }
