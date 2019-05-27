@@ -15,7 +15,7 @@ export default function burgerMenu ({ siteTitle, logo }) {
       <Link id='about' className='menu-item' to='/about' onClick={closeMenu}>
         about
       </Link>
-      <Link id='projects' className='menu-item' to='/projects' onClick={closeMenu}>
+      <Link id='equipment' className='menu-item' to='/equipment' onClick={closeMenu}>
         equipment
       </Link>
       {/* <Link id="blog" className="menu-item" to="/blog" onClick={closeMenu}>

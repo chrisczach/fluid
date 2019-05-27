@@ -1,4 +1,5 @@
 .sectionBackground {
+  position: relative;
   padding: 1.5em 1em;
   min-height: 50vh;
    z-index:5 !important;

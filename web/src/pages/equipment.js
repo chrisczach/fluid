@@ -35,7 +35,7 @@ import { responsiveTitle1 } from '../components/typography.module.css'
 //   }
 // `
 
-const ProjectsPage = props => {
+const EquipmentPage = props => {
   const { data, errors } = props
   if (errors) {
     return <GraphQLErrorList errors={errors} />
@@ -53,4 +53,4 @@ const ProjectsPage = props => {
   )
 }
 
-export default ProjectsPage
+export default EquipmentPage

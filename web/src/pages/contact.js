@@ -67,8 +67,8 @@ const ContactPage = props => {
     zoom: 13
   }
 
-  const [ contactResizeListener, contactSizes ] = useResizeAware()
-  const [ contactTextResizeListener, contactTextSizes ] = useResizeAware()
+  const [contactResizeListener, contactSizes] = useResizeAware()
+  const [contactTextResizeListener, contactTextSizes] = useResizeAware()
   const [resizeListener, sizes] = useResizeAware()
   const [viewport, setViewport] = useState(location)
   const windowSize = useWindowSize()
@@ -79,7 +79,9 @@ const ContactPage = props => {
       <SEO title={page.title} />
       <Container>
         <SectionBackground className={styles.sectionBackground}>
-          <h1 className={responsiveTitle1}>{page.title}</h1>
+          <h1 style={{ position: 'relative' }} className={responsiveTitle1}>
+            {page.title}
+          </h1>
           <div
             style={{ flexDirection: showColumns ? 'column' : 'row' }}
             className={styles.contactWrapper}
@@ -104,8 +106,8 @@ const ContactPage = props => {
               </ReactMapGL>
             </div>
           </div>
-          {page.mainImage && <CoverImage asset={page.mainImage} coverSize={1} />}
         </SectionBackground>
+        {page.mainImage && <CoverImage fixed asset={page.mainImage} coverSize={1} />}
       </Container>
     </>
   )
