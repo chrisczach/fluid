@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
+import useResizeAware from 'react-resize-aware'
+import 'mapbox-gl/dist/mapbox-gl.css'
+import ReactMapGL, { Marker } from 'react-map-gl'
 import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
@@ -58,15 +61,36 @@ const ContactPage = props => {
       'Missing "Contact" page data. Open the studio at http://localhost:3333 and add "Contact" page data and restart the development server.'
     )
   }
-
+  const location = {
+    latitude: 34.23448,
+    longitude: -118.59653,
+    zoom: 15
+  }
+  const [resizeListener, sizes] = useResizeAware()
+  const [viewport, setViewport] = useState(location)
+  console.log('width: ', sizes.width, 'height: ', sizes.height)
   return (
     <>
       <SEO title={page.title} />
       <Container>
         <SectionBackground className={styles.sectionBackground}>
           <h1 className={responsiveTitle1}>{page.title}</h1>
-          <div className={styles.contactText}>
-            <BlockContent blocks={page._rawBody || []} />
+          <div className={styles.contactWrapper}>
+            <div className={styles.contactText}>
+              <BlockContent blocks={page._rawBody || []} />
+            </div>
+            <div className={styles.mapWrapper}>
+              {resizeListener}
+              <ReactMapGL
+                {...viewport}
+                onViewportChange={setViewport}
+                width={sizes.width}
+                height={sizes.height}
+                mapboxApiAccessToken={process.env.GATSBY_MAPBOX_TOKEN}
+              >
+                <Marker {...location}>Fluid Pictures Shop</Marker>
+              </ReactMapGL>
+            </div>
           </div>
           {page.mainImage && <CoverImage asset={page.mainImage} coverSize={1} />}
         </SectionBackground>

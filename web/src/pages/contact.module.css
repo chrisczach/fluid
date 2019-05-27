@@ -7,4 +7,14 @@
 .contactText{
   padding: 0 0 0 1em;
   color: var(--color-accent-light);
+  flex: 100%
+}
+
+.contactWrapper {
+  display: flex;
+}
+
+.mapWrapper {
+  position: relative;
+  flex: 100%
 }
