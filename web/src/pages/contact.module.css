@@ -5,19 +5,22 @@
 }
 
 .contactText{
-  padding: 0 0 0 1em;
+  position: relative;
+  margin: 0 1em;
   color: var(--color-accent-light);
-  flex: 100%
+  flex-grow: 0;
 }
 
 .contactWrapper {
+  position: relative;
   display: flex;
-
 }
 
 .mapWrapper {
+  margin: 0 1em;
   position: relative;
-  flex: 100%
+  flex: 100%;
+  flex-grow: 1;
 }
 
 .marker {

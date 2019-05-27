@@ -66,18 +66,26 @@ const ContactPage = props => {
     longitude: -118.59653,
     zoom: 13
   }
-  const { width } = useWindowSize()
+
+  const [ contactResizeListener, contactSizes ] = useResizeAware()
+  const [ contactTextResizeListener, contactTextSizes ] = useResizeAware()
   const [resizeListener, sizes] = useResizeAware()
   const [viewport, setViewport] = useState(location)
-
+  const windowSize = useWindowSize()
+  const showColumns = windowSize.width < 900
+  console.log(showColumns)
   return (
     <>
       <SEO title={page.title} />
       <Container>
         <SectionBackground className={styles.sectionBackground}>
           <h1 className={responsiveTitle1}>{page.title}</h1>
-          <div className={styles.contactWrapper}>
+          <div
+            style={{ flexDirection: showColumns ? 'column' : 'row' }}
+            className={styles.contactWrapper}
+          >
             <div className={styles.contactText}>
+              {contactResizeListener}
               <BlockContent blocks={page._rawBody || []} />
             </div>
             <div className={styles.mapWrapper}>
@@ -86,8 +94,8 @@ const ContactPage = props => {
                 {...viewport}
                 mapStyle='mapbox://styles/mapbox/dark-v10'
                 onViewportChange={setViewport}
-                width={sizes.width}
-                height={sizes.height}
+                width={showColumns ? contactSizes.width : sizes.width}
+                height={showColumns ? contactSizes.width : sizes.height}
                 mapboxApiAccessToken={process.env.GATSBY_MAPBOX_TOKEN}
               >
                 <Popup closeButton={false} {...location} closeOnClick={false} anchor='bottom'>
