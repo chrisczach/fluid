@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Image from '../components/image'
 import styles from './cover-image.module.css'
 
-export default function CoverImage ({ asset, coverSize = 1, ...props }) {
+export default function CoverImage ({ asset, coverSize = 1,fixed = false, ...props }) {
   const size = useWindowSize()
+  const class = fixed ? styles.fixed : styles.absolute
   return (
-    <div className={styles.cover} style={{height: size.height * coverSize}} >
+    <div className={styles.cover +  ' ' + fixedClass} style={{height: size.height * coverSize}} >
       <Image style={{height: size.height}} fixed {...props} asset={asset} args={{ width: size.width, height: size.height * coverSize }} />
     </div>
   )

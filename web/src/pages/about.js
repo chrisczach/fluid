@@ -92,7 +92,7 @@ const AboutPage = props => {
 
       <Container>
         <SectionBackground className={styles.sectionBackground}>
-          {page.mainImage && <CoverImage asset={page.mainImage} coverSize={1} />}
+          {page.mainImage && <CoverImage fixed asset={page.mainImage} coverSize={1} />}
 
           <h1 className={responsiveTitle1}>{page.title}</h1>
           <div className={styles.aboutText}>
