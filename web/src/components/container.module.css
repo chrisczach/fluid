@@ -1,6 +1,7 @@
 @import '../styles/media-queries.css';
 
 .root {
+  position: relative;
   box-sizing: border-box;
   max-width: 1080px;
   padding: 1.5em;
