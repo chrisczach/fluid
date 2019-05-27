@@ -64,7 +64,7 @@ const ContactPage = props => {
   const location = {
     latitude: 34.23448,
     longitude: -118.59653,
-    zoom: 15
+    zoom: 13
   }
   const { width } = useWindowSize()
   const [resizeListener, sizes] = useResizeAware()
@@ -84,6 +84,7 @@ const ContactPage = props => {
               {resizeListener}
               <ReactMapGL
                 {...viewport}
+                mapStyle='mapbox://styles/mapbox/dark-v10'
                 onViewportChange={setViewport}
                 width={sizes.width}
                 height={sizes.height}
