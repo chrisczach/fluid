@@ -12,6 +12,12 @@ export default {
       type: 'string'
     },
     {
+      name: 'sort',
+      title: 'Sort Order',
+      description: 'Add sort order here',
+      type: 'number'
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -35,6 +41,13 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'text'
+    }
+  ],
+  orderings: [
+    {
+      title: 'Website Category Order',
+      name: 'sortAsc',
+      by: [{ field: 'sort', direction: 'asc' }]
     }
   ]
 }

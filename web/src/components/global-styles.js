@@ -1,5 +1,5 @@
-import React, { createRef,useEffect } from 'react'
-import ScrollLock from 'react-scrolllock';
+import React, { createRef, useEffect } from 'react'
+import ScrollLock from 'react-scrolllock'
 
 import styles from './global-styles.module.css'
 
@@ -45,19 +45,20 @@ export default function GlobalStyles ({
     console.log('prevent build error when window is undefined')
   }
 
-
   return (
     <ScrollLock>
-    <div ref={scrollDiv} style={globalColors} className={styles.scroll}>
       <div
+        ref={scrollDiv}
         style={{
           background:
-            'linear-gradient(to bottom right, var(--color-accent-dark), var(--color-main-dark))'
+            'linear-gradient(to bottom right, var(--color-accent-dark), var(--color-main-dark))',
+          ...globalColors
         }}
-        className={styles.background}
-      />
-      <>{children}</>
-    </div>
+        className={styles.scroll}
+      >
+        {/* <div className={styles.background} /> */}
+        <>{children}</>
+      </div>
     </ScrollLock>
   )
 }

@@ -20,7 +20,6 @@ export default function Image ({ asset, args, fixed = false, ...props }) {
   } catch (err) {
     console.log(err)
   }
-  console.log(imageArgs)
   let processedImg = imageUrlFor(asset)
   if (fixed) {
     processedImg = processedImg.width(args.width).height(args.height)
@@ -41,9 +40,11 @@ export default function Image ({ asset, args, fixed = false, ...props }) {
 
   const addRect = srcToAddRect => srcToAddRect.split(url).join(urlWithRect)
   imgProps.src = addRect(imgProps.src)
-  imgProps.srcSet = addRect(imgProps.srcSet)
-  imgProps.srcWebp = addRect(imgProps.srcWebp)
-  imgProps.srcSetWebp = addRect(imgProps.srcSetWebp)
+
+  // these props are resolving to null??? fix it later
+  imgProps.srcSet = imgProps.srcSet && addRect(imgProps.srcSet)
+  imgProps.srcWebp = imgProps.srcWebp && addRect(imgProps.srcWebp)
+  imgProps.srcSetWebp = imgProps.srcSetWebp && addRect(imgProps.srcSetWebp)
 
   if (fixed) {
     return <Img fixed={{ ...imgProps }} alt={asset.alt} {...props} />
