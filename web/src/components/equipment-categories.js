@@ -5,7 +5,7 @@ export default function EquipmentCategories ({ nodes, grid }) {
   return (
     <div className={grid ? styles.showGrid : styles.showColumn}>
       {nodes.map(category => (
-        <EquipmentCategoryPreview {...category} grid />
+        <EquipmentCategoryPreview {...category} grid={grid} />
       ))}
     </div>
   )
