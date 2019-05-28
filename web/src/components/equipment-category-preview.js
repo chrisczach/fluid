@@ -30,7 +30,7 @@ export default function EquipmentCategoryPreview({
               fixed
               args={{
                 width: imageSizes.width,
-                height: detectIE() ? imageSizes.width : contentSizes.height * 1.5
+                height: detectIE() ? imageSizes.width * 0.66 : contentSizes.height * 1.5
               }}
             />
           </>

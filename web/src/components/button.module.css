@@ -1,13 +1,58 @@
-.root {
-  color: var(--color-main-light);
+.c_button {
+  color: #000;
   text-decoration: none;
-  padding: 0.5em 1.5em;
-  border: 2px solid var(--color-main-light);
-  transition: var(--transition-short);
-  /* text-shadow: var(--text-shadow-light-close); */
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
 
-  @nest &:hover {
-    color: var(--color-accent-light);
-    border: 2px solid var(--color-accent-light);
-  }
+.c_button__gooey {
+  color: var(--color-main-light) !important;
+  text-transform: uppercase;
+  border: 2px solid var(--color-main-light) !important;
+  border-radius: 0;
+  padding: 1em 2em;
+  position: relative;
+  transition: var(--transition-medium);
+}
+.c_button__gooey .c_button__blobs {
+  height: 100%;
+  -webkit-filter: url(#goo);
+  filter: url(#goo);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -3px;
+  right: -1px;
+  z-index: -1;
+}
+.c_button__gooey .c_button__blobs div {
+  background-color: var(--color-brand) !important;
+  width: 34%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  -webkit-transform: scale(1.4) translateY(125%) translateZ(0);
+  transform: scale(1.4) translateY(125%) translateZ(0);
+  transition: var(--transition-medium);
+}
+.c_button__gooey .c_button__blobs div:nth-child(1) {
+  left: -5%;
+}
+.c_button__gooey .c_button__blobs div:nth-child(2) {
+  left: 30%;
+  transition-delay: 60ms;
+}
+.c_button__gooey .c_button__blobs div:nth-child(3) {
+  left: 66%;
+  transition-delay: 25ms;
+}
+.c_button__gooey:hover {
+  color: var(--color-accent-light) !important;
+  border: 2px solid var(--color-accent-light) !important;
+}
+.c_button__gooey:hover .c_button__blobs div {
+  -webkit-transform: scale(1.4) translateY(0) translateZ(0);
+  transform: scale(1.4) translateY(0) translateZ(0);
 }

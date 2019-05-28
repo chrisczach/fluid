@@ -13,6 +13,17 @@
   }
 }
 
+@keyframes zoomBackground {
+  0% {
+  }
+  10% {
+  }
+  50% {
+  }
+  100% {
+  }
+}
+
 .wrapper {
   position: relative;
   display: flex;
@@ -22,7 +33,7 @@
   @nest &:hover {
     background: rgba(0, 0, 0, 0.5);
     box-shadow: var(--box-shadow-2);
-    transform: scale(1.01);
+    animation: zoomBackground 0.5s ease both;
   }
   @nest &:hover .imageOverlay {
     background: rgba(0, 0, 0, 0.1);
