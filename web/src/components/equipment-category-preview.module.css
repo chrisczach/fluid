@@ -15,12 +15,16 @@
 
 @keyframes zoomBackground {
   0% {
+    transform: scale(1);
   }
   10% {
+    transform: rotate(-1deg);
   }
   50% {
+    transform: scale(1.025) rotate(1deg) translateY(-1.25%);
   }
   100% {
+    transform: scale(1.0125);
   }
 }
 
@@ -33,12 +37,12 @@
   @nest &:hover {
     background: rgba(0, 0, 0, 0.5);
     box-shadow: var(--box-shadow-2);
-    animation: zoomBackground 0.5s ease both;
+    animation: zoomBackground 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) both;
   }
   @nest &:hover .imageOverlay {
     background: rgba(0, 0, 0, 0.1);
     @nest & .titleText {
-      animation: zoomTitle 0.5s ease both;
+      animation: zoomTitle 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
     }
   }
 }
