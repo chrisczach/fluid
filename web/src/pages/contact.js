@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import useResizeAware from 'react-resize-aware'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -12,6 +12,7 @@ import styles from './contact.module.css'
 import { responsiveTitle1 } from '../components/typography.module.css'
 import CoverImage from '../components/cover-image'
 import SectionBackground from '../components/section-background'
+import { useWindowSize } from '../lib/helpers'
 
 export const query = graphql`
   query ContactPageQuery {
@@ -120,35 +121,6 @@ ContactPage.defaultProps = {
       title: 'No title'
     }
   }
-}
-
-// Hook
-function useWindowSize() {
-  const isClient = typeof window === 'object'
-
-  function getSize() {
-    return {
-      width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined
-    }
-  }
-
-  const [windowSize, setWindowSize] = useState(getSize)
-
-  useEffect(() => {
-    if (!isClient) {
-      return false
-    }
-
-    function handleResize() {
-      setWindowSize(getSize())
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, []) // Empty array ensures that effect is only run on mount and unmount
-
-  return windowSize
 }
 
 export default ContactPage
