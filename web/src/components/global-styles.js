@@ -3,7 +3,7 @@ import ScrollLock from 'react-scrolllock'
 
 import styles from './global-styles.module.css'
 
-export default function GlobalStyles ({
+export default function GlobalStyles({
   children,
   siteSettings = {
     title: 'Fluid Pictures',
@@ -32,7 +32,7 @@ export default function GlobalStyles ({
     if (window) {
       setTimeout(
         () => (
-          scrollDiv.current.scrollTo({
+          scrollDiv.current.scrollIntoView({
             top: 0,
             left: 0,
             behavior: 'smooth'

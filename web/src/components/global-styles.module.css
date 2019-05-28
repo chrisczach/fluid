@@ -10,11 +10,13 @@
 .scroll {
   z-index: 0;
   position: relative;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  overflow: overlay;
+
   height: 100vh;
   width: 100vw;
   scroll-behavior: smooth;
+  /* overflow: overlay; */
+  overflow: auto;
+
   -webkit-overflow-scrolling: touch;
 }
 
