@@ -6,7 +6,7 @@ transform: scale(1);
     transform: rotate(-15deg);
   }
   50% {
-    transform: scale(1.5) rotate(30deg) translatey(-5%);
+    transform: scale(1.5) rotate(15deg) translateY(-5%);
   }
     100% {
 transform: scale(1.1);
@@ -38,7 +38,6 @@ animation: zoomTitle 0.5s ease both;
   position: relative;
 width: 50%;
 height: 100%;
-overflow: hidden;
 
 }
 
