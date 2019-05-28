@@ -3,8 +3,9 @@ import styles from './equipment-category-preview.module.css'
 import Image from '../components/image'
 import Button from './button'
 import useResizeAware from 'react-resize-aware'
+import { detectIE } from '../lib/helpers'
 
-export default function EquipmentCategoryPreview ({
+export default function EquipmentCategoryPreview({
   id,
   title,
   slug: { current },
@@ -27,7 +28,10 @@ export default function EquipmentCategoryPreview ({
             <Image
               asset={mainImage}
               fixed
-              args={{ width: imageSizes.width, height: contentSizes.height * 1.5 }}
+              args={{
+                width: imageSizes.width,
+                height: detectIE() ? imageSizes.width : contentSizes.height * 1.5
+              }}
             />
           </>
         )}
