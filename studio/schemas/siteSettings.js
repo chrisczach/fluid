@@ -36,7 +36,6 @@ export default {
       title: "Logo",
       type: "mainImage"
     },
-
     {
       name: "background",
       title: "Background Image",
