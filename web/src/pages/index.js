@@ -54,6 +54,10 @@ export const query = graphql`
       }
     }
 
+    equipment: sanityPage(_id: { regex: "/(drafts.|)equipment/" }) {
+      title
+    }
+
     category: allSanityCategory(sort: { fields: [sort], order: ASC }) {
       edges {
         node {
@@ -129,8 +133,8 @@ const IndexPage = props => {
         </SectionBackground>
 
         {categoryNodes && categoryNodes.length > 0 && (
-          <SectionBackground className={ styles.equipmentSection}>
-            <h1 className={responsiveTitle2}>equipment</h1>
+          <SectionBackground className={styles.equipmentSection}>
+            <h1 className={responsiveTitle2}>{data.equipment.title}</h1>
             <EquipmentCategories nodes={categoryNodes} />
           </SectionBackground>
         )}
