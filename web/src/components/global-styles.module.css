@@ -19,32 +19,38 @@
 
   -webkit-overflow-scrolling: touch;
 }
-
-@media screen and (orientation: landscape) {
-  .scroll::-webkit-scrollbar {
-    position: relative;
-    z-index: 10000 !important;
-    background: var(--color-main-dark);
-    width: 6px;
+@supports not (-ms-ime-align: auto) {
+  .scroll {
+    overflow: overlay !important;
   }
-  .scroll::-webkit-scrollbar-thumb {
-    position: relative;
-    z-index: 10000 !important;
-    background: var(--color-brand);
-    border-radius: 15px;
-    height: 30px;
-    transition: var(--transition-short);
-    @media (hover: hover) {
-      @nest &:hover {
-        background: var(--color-accent-light);
+
+  @media screen and (orientation: landscape) {
+    .scroll::-webkit-scrollbar {
+      position: relative;
+      z-index: 10000 !important;
+      background: var(--color-main-dark);
+      width: 6px;
+    }
+    .scroll::-webkit-scrollbar-thumb {
+      position: relative;
+      z-index: 10000 !important;
+      background: var(--color-brand);
+      border-radius: 15px;
+      height: 30px;
+      transition: var(--transition-short);
+      @media (hover: hover) {
+        @nest &:hover {
+          background: var(--color-accent-light);
+        }
       }
     }
-  }
 
-  .scroll::-webkit-scrollbar-track-piece {
-    display: none;
+    .scroll::-webkit-scrollbar-track-piece {
+      display: none;
+    }
   }
 }
+
 /* .scroll::-webkit-scrollbar {
   width: 0.7em;
   background: white;
