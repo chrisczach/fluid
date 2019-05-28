@@ -9,7 +9,7 @@ transform: scale(1);
     transform: scale(1.5) rotate(15deg) translateY(-5%);
   }
     100% {
-transform: scale(1.1);
+transform: scale(1.025);
   }
 }
 
@@ -22,6 +22,7 @@ transform: scale(1.1);
   @nest &:hover {
     background: rgba(0,0,0, .5);
     box-shadow: var(--box-shadow-2);
+    transform: scale(1.01);
   }
     @nest &:hover .imageOverlay{
     background: rgba(0,0,0, .1);
