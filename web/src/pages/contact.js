@@ -94,13 +94,13 @@ const ContactPage = props => {
               {resizeListener}
               <ReactMapGL
                 {...viewport}
-                mapStyle='mapbox://styles/mapbox/dark-v10'
+                mapStyle="mapbox://styles/mapbox/dark-v10"
                 onViewportChange={setViewport}
                 width={showColumns ? contactSizes.width : sizes.width}
                 height={showColumns ? contactSizes.width : sizes.height}
                 mapboxApiAccessToken={process.env.GATSBY_MAPBOX_TOKEN}
               >
-                <Popup closeButton={false} {...location} closeOnClick={false} anchor='bottom'>
+                <Popup closeButton={false} {...location} closeOnClick={false} anchor="bottom">
                   <div className={styles.marker}>Fluid Pictures Shop</div>
                 </Popup>
               </ReactMapGL>
@@ -121,10 +121,10 @@ ContactPage.defaultProps = {
 }
 
 // Hook
-function useWindowSize () {
+function useWindowSize() {
   const isClient = typeof window === 'object'
 
-  function getSize () {
+  function getSize() {
     return {
       width: isClient ? window.innerWidth : undefined,
       height: isClient ? window.innerHeight : undefined
@@ -138,7 +138,7 @@ function useWindowSize () {
       return false
     }
 
-    function handleResize () {
+    function handleResize() {
       setWindowSize(getSize())
     }
 

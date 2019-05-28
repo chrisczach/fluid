@@ -3,6 +3,7 @@
   text-decoration: none;
   padding: 0.5em 1.5em;
   border: 2px solid var(--color-main-light);
+  /* text-shadow: var(--text-shadow-light-close); */
 
   @nest &:hover {
     background: var(--color-accent-light);

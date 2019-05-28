@@ -1,6 +1,6 @@
 @keyframes zoomTitle {
   0% {
-transform: scale(1);
+    transform: scale(1);
   }
   10% {
     transform: rotate(-15deg);
@@ -8,50 +8,47 @@ transform: scale(1);
   50% {
     transform: scale(1.5) rotate(15deg) translateY(-5%);
   }
-    100% {
-transform: scale(1.025);
+  100% {
+    transform: scale(1.025);
   }
 }
 
 .wrapper {
   position: relative;
   display: flex;
-  background: rgba(0,0,0, .25);
+  background: rgba(0, 0, 0, 0.25);
   box-shadow: var(--box-shadow-1);
   transition: var(--transition-short);
   @nest &:hover {
-    background: rgba(0,0,0, .5);
+    background: rgba(0, 0, 0, 0.5);
     box-shadow: var(--box-shadow-2);
     transform: scale(1.01);
   }
-    @nest &:hover .imageOverlay{
-    background: rgba(0,0,0, .1);
-    @nest & .titleText{
-animation: zoomTitle 0.5s ease both;
+  @nest &:hover .imageOverlay {
+    background: rgba(0, 0, 0, 0.1);
+    @nest & .titleText {
+      animation: zoomTitle 0.5s ease both;
     }
-    
   }
 }
 
-
-
-.imageBlock{
+.imageBlock {
   position: relative;
-width: 50%;
-height: 100%;
-
+  width: 50%;
+  height: 100%;
 }
 
-.contentBlock{
+.contentBlock {
+  /* text-shadow: var(--text-shadow-light-close); */
   position: relative;
-width: 50%;
-height: 100%;
-padding: 2em 2em 6em 2em;
+  width: 50%;
+  height: 100%;
+  padding: 2em 2em 6em 2em;
 }
 
-.imageOverlay{
-    transition: var(--transition-short);
-  background: rgba(0,0,0, .5);
+.imageOverlay {
+  transition: var(--transition-short);
+  background: rgba(0, 0, 0, 0.5);
   font-size: 4em;
   font-family: var(--font-brand);
   position: absolute;
@@ -63,11 +60,12 @@ padding: 2em 2em 6em 2em;
   width: 100%;
   height: 100%;
   z-index: 100;
+  text-shadow: var(--text-shadow-heavy-close);
 }
 
-.gridImageOverlay{
-    transition: var(--transition-short);
-  background: rgba(0,0,0, .5);
+.gridImageOverlay {
+  transition: var(--transition-short);
+  background: rgba(0, 0, 0, 0.5);
   font-size: 2em;
   font-family: var(--font-brand);
   position: absolute;
@@ -81,7 +79,7 @@ padding: 2em 2em 6em 2em;
   z-index: 100;
 }
 
-.categoryLink{
+.categoryLink {
   position: absolute;
   bottom: 0;
   right: 0;

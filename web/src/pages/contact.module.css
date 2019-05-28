@@ -2,14 +2,15 @@
   position: relative;
   padding: 1.5em 1em;
   min-height: 50vh;
-   z-index:5 !important;
+  z-index: 5 !important;
 }
 
-.contactText{
+.contactText {
   position: relative;
   margin: 0 1em;
   color: var(--color-accent-light);
   flex-grow: 0;
+  white-space: nowrap;
 }
 
 .contactWrapper {
