@@ -11,12 +11,14 @@ export default {
     {
       name: "name",
       title: "Company name",
-      type: "string"
+      type: "string",
+      validation: Rule => Rule.required()
     },
     {
       name: "email",
       title: "Email",
-      type: "email"
+      type: "email",
+      validation: Rule => Rule.required()
     },
     {
       name: "address1",

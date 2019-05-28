@@ -9,18 +9,21 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'sort',
       title: 'Sort Order',
       description: 'Add sort order here',
-      type: 'number'
+      type: 'number',
+      validation: Rule => Rule.required()
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      validation: Rule => Rule.required(),
       description: 'Some frontend will require a slug to be set to be able to show the project',
       options: {
         source: 'title',
@@ -30,17 +33,20 @@ export default {
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'text'
+      type: 'text',
+      validation: Rule => Rule.required()
     },
     {
       name: 'mainImage',
       title: 'Main image',
-      type: 'mainImage'
+      type: 'mainImage',
+      validation: Rule => Rule.required()
     },
     {
       name: 'description',
       title: 'Description',
-      type: 'text'
+      type: 'text',
+      validation: Rule => Rule.required()
     }
   ],
   orderings: [

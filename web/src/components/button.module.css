@@ -28,7 +28,7 @@
   z-index: -1;
 }
 .c_button__gooey .c_button__blobs div {
-  background-color: var(--color-brand) !important;
+  background-color: var(--color-accent-dark) !important;
   width: 34%;
   height: 100%;
   border-radius: 100%;
