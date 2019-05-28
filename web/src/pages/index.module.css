@@ -1,16 +1,20 @@
-.aboutSection{
-    position: relative;
+.aboutSection {
+  position: relative;
   background: transparent !important;
   box-shadow: none !important;
 }
 
-.equipmentSection{
+.equipmentSection {
   position: relative;
   background: transparent !important;
   box-shadow: none !important;
   padding: 0 0 4em 0;
 }
 
-.alignButton{
+.alignButton {
+}
 
+.coverImage {
+  opacity: 0.25;
+  filter: brightness(0.2);
 }

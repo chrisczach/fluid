@@ -107,7 +107,9 @@ const ContactPage = props => {
             </div>
           </div>
         </SectionBackground>
-        {page.mainImage && <CoverImage fixed asset={page.mainImage} coverSize={1} />}
+        {page.mainImage && (
+          <CoverImage fixed asset={page.mainImage} coverSize={1} className={styles.coverImage} />
+        )}
       </Container>
     </>
   )

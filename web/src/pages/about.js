@@ -95,13 +95,15 @@ const AboutPage = props => {
           <h1 className={responsiveTitle1}>{page.title}</h1>
           <div className={styles.aboutText}>
             <BlockContent blocks={page._rawBody || []} />
-            <Button to='/contact' className={styles.alignButton}>
+            <Button to="/contact" className={styles.alignButton}>
               contact us
             </Button>
           </div>
           {/* {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />} */}
         </SectionBackground>
-        {page.mainImage && <CoverImage fixed asset={page.mainImage} coverSize={1} />}
+        {page.mainImage && (
+          <CoverImage fixed asset={page.mainImage} coverSize={1} className={styles.coverImage} />
+        )}
       </Container>
     </>
   )

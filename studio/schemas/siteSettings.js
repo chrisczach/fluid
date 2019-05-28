@@ -36,6 +36,12 @@ export default {
       title: "Logo",
       type: "mainImage"
     },
+
+    {
+      name: "background",
+      title: "Background Image",
+      type: "mainImage"
+    },
     {
       name: "primaryLight",
       title: "Primary Light",

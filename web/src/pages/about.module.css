@@ -2,16 +2,16 @@
   position: relative;
   padding: 1.5em 2em 0em 1em;
   min-height: 50vh;
-  z-index:5 !important;
+  z-index: 5 !important;
 }
 
-.aboutText{
+.aboutText {
   position: relative;
   padding: 0 0 0 1em;
   color: var(--color-accent-light);
 }
 
-
-.alignButton{
-
+.coverImage {
+  opacity: 0.5;
+  filter: brightness(0.5);
 }

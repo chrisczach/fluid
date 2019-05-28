@@ -13,6 +13,7 @@ import styles from './index.module.css'
 import { responsiveTitle2 } from '../components/typography.module.css'
 import SectionBackground from '../components/section-background'
 import EquipmentCategories from '../components/equipment-categories'
+import CoverImage from '../components/cover-image'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -20,6 +21,31 @@ export const query = graphql`
       title
       description
       keywords
+      background {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
     }
 
     about: sanityPage(_id: { regex: "/(drafts.|)about/" }) {
@@ -152,6 +178,9 @@ const IndexPage = props => {
             browseMoreHref="/blog/"
           />
         )} */}
+        {site.background && (
+          <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
+        )}
       </Container>
     </>
   )
