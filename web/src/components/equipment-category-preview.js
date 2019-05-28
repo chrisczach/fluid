@@ -22,7 +22,7 @@ export default function EquipmentCategoryPreview ({
         {mainImage && mainImage.asset && (
           <>
             <div className={grid ? styles.gridImageOverlay : styles.imageOverlay}>
-              {title.toLowerCase()}
+              <div className={styles.titleText}>{title.toLowerCase()}</div>
             </div>
             <Image
               asset={mainImage}

@@ -1,3 +1,18 @@
+@keyframes zoomTitle {
+  0% {
+transform: scale(1);
+  }
+  10% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(30deg) translatey(-5%);
+  }
+    100% {
+transform: scale(1.1);
+  }
+}
+
 .wrapper {
   position: relative;
   display: flex;
@@ -10,9 +25,14 @@
   }
     @nest &:hover .imageOverlay{
     background: rgba(0,0,0, .1);
-
+    @nest & .titleText{
+animation: zoomTitle 0.5s ease both;
+    }
+    
   }
 }
+
+
 
 .imageBlock{
   position: relative;
