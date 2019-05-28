@@ -1,4 +1,6 @@
 .sectionBackground {
+  display: flex;
+  flex-direction: column;
   position: relative;
   padding: 1.5em 1em;
   min-height: 50vh;
@@ -16,6 +18,8 @@
 .contactWrapper {
   position: relative;
   display: flex;
+  height: 100%;
+  flex-grow: 1;
 }
 
 .mapWrapper {
