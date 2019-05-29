@@ -47,8 +47,29 @@ export const query = graphql`
     }
   }
 `
-
 const ContactPage = props => {
+  const { data, errors } = props
+
+  if (errors) {
+    return <GraphQLErrorList errors={errors} />
+  }
+
+  const page = data.page
+
+  return (
+      <>
+      <SEO title={props.data.page.title} />
+      <Container>
+  <ContactPageInner {...props}/>
+          {page.mainImage && (
+          <CoverImage fixed asset={props.data.page.mainImage} coverSize={1} className={styles.coverImage} />
+        )}
+      </Container>
+    </>
+  )
+}
+
+export const ContactPageInner = props => {
   const { data, errors } = props
 
   if (errors) {
@@ -76,9 +97,7 @@ const ContactPage = props => {
   const showColumns = windowSize.width < 900
   console.log(showColumns)
   return (
-    <>
-      <SEO title={page.title} />
-      <Container>
+
         <SectionBackground className={styles.sectionBackground}>
           <h1 style={{ position: 'relative' }} className={responsiveTitle1}>
             {page.title}
@@ -108,19 +127,9 @@ const ContactPage = props => {
             </div>
           </div>
         </SectionBackground>
-        {page.mainImage && (
-          <CoverImage fixed asset={page.mainImage} coverSize={1} className={styles.coverImage} />
-        )}
-      </Container>
-    </>
+
   )
 }
-ContactPage.defaultProps = {
-  data: {
-    page: {
-      title: 'No title'
-    }
-  }
-}
+
 
 export default ContactPage

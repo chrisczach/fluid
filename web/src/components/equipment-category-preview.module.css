@@ -41,9 +41,9 @@
   }
   @nest &:hover .imageOverlay {
     background: rgba(0, 0, 0, 0.1);
-    @nest & .titleText {
+    /* @nest & .titleText {
       animation: zoomTitle 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
-    }
+    } */
   }
 }
 
@@ -61,11 +61,16 @@
   padding: 2em 2em 6em 2em;
 }
 
+.titleText {
+    font-size: 2em;
+  font-family: var(--font-brand);
+  padding-bottom: 0.5em;
+  color: var(--color-accent-light);
+}
+
 .imageOverlay {
   transition: var(--transition-short);
   background: rgba(0, 0, 0, 0.5);
-  font-size: 4em;
-  font-family: var(--font-brand);
   position: absolute;
   display: flex;
   justify-content: center;

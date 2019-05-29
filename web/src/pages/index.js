@@ -14,7 +14,7 @@ import { responsiveTitle2 } from '../components/typography.module.css'
 import SectionBackground from '../components/section-background'
 import EquipmentCategories from '../components/equipment-categories'
 import CoverImage from '../components/cover-image'
-
+import {ContactPageInner} from './contact'
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
@@ -48,9 +48,7 @@ export const query = graphql`
       }
     }
 
-    about: sanityPage(_id: { regex: "/(drafts.|)about/" }) {
-      id
-      _id
+    contact: sanityPage(_id: { regex: "/(drafts.|)contact/" }) {
       title
       _rawBody
       mainImage {
@@ -153,10 +151,7 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        <SectionBackground className={styles.aboutSection}>
-          <h1 className={responsiveTitle2}>{about.title}</h1>
-          <BlockContent blocks={about._rawBody || []} />
-        </SectionBackground>
+
 
         {categoryNodes && categoryNodes.length > 0 && (
           <SectionBackground className={styles.equipmentSection}>
@@ -164,20 +159,7 @@ const IndexPage = props => {
             <EquipmentCategories nodes={categoryNodes} />
           </SectionBackground>
         )}
-        {/* {projectNodes && (
-          <ProjectPreviewGrid
-            title="Latest projects"
-            nodes={projectNodes}
-            browseMoreHref="/projects/"
-          />
-        )}
-        {postNodes && (
-          <BlogPostPreviewGrid
-            title="Latest blog posts"
-            nodes={postNodes}
-            browseMoreHref="/blog/"
-          />
-        )} */}
+<ContactPageInner />
         {site.background && (
           <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
         )}

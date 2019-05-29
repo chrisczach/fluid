@@ -5,7 +5,7 @@ import Button from './button'
 import useResizeAware from 'react-resize-aware'
 import { detectIE } from '../lib/helpers'
 
-export default function EquipmentCategoryPreview({
+export default function EquipmentCategoryPreview ({
   id,
   title,
   slug: { current },
@@ -22,9 +22,7 @@ export default function EquipmentCategoryPreview({
         {imageResizeListener}
         {mainImage && mainImage.asset && (
           <>
-            <div className={grid ? styles.gridImageOverlay : styles.imageOverlay}>
-              <div className={styles.titleText}>{title.toLowerCase()}</div>
-            </div>
+            <div className={grid ? styles.gridImageOverlay : styles.imageOverlay} />
             <Image
               asset={mainImage}
               fixed
@@ -37,6 +35,7 @@ export default function EquipmentCategoryPreview({
         )}
       </div>
       <div className={styles.contentBlock}>
+        <div className={styles.titleText}>{title.toLowerCase()}</div>
         {excerpt}
         {contentResizeListener}
       </div>
