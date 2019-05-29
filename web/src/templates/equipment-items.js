@@ -8,7 +8,7 @@ import Layout from '../containers/layout'
 import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
 import { responsiveTitle1, paragraph } from '../components/typography.module.css'
 import EquipmentItems from '../components/equipment-categories'
-import BlockContent from '../components/block-content'
+import EquipmentBlockContent from '../components/equipment-block-content'
 import styles from './equipment-items.module.css'
 import CoverImage from '../components/cover-image'
 import RequestInfoButton from '../components/request-info-button'
@@ -121,10 +121,10 @@ const EquipmentItemTemplate = props => {
         </Container>
       )}
       <Container>
-        <h1 className={responsiveTitle1}>{equipment.title}</h1>
+        <h1 className={styles.titleText}>{equipment.title.toLowerCase()}</h1>
         <p className={paragraph}>{equipment.excerpt}</p>
         <div className={styles.blockText}>
-          <BlockContent blocks={equipment._rawBody || []} />
+          <EquipmentBlockContent blocks={equipment._rawBody || []} />
         </div>
 
         <RequestInfoButton />

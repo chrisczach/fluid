@@ -1,5 +1,5 @@
-.requestInfoLink {
-  font-size: 1.5em;
+.linkText {
+  font-size: var(--font-large-size);
 }
 
 .requestInfoWrap {

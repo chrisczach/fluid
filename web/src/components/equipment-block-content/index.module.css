@@ -1,0 +1,25 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  @nest & ul {
+    margin: 2em auto;
+    display: inline-block;
+    justify-self: center;
+    @nest & li {
+      line-spacing: 1.5;
+    }
+  }
+}
+
+.h1Style {
+  font-size: var(--font-title3-size);
+  color: var(--color-accent-light);
+}
+
+.h2Style {
+  font-size: var(--font-title4-size);
+  color: var(--color-accent-light);
+}
+
+.specsList {
+}

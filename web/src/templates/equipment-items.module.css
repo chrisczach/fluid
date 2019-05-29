@@ -1,6 +1,13 @@
+.titleText {
+  font-size: var(--font-title1-size);
+  font-family: var(--font-brand);
+  color: var(--color-accent-light);
+  font-weight: 100;
+}
+
 .blockText {
   position: relative;
-  padding: 0 0 1em 0;
+  padding: 0 2em 2em 2em;
 }
 
 .coverImage {

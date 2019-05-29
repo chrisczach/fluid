@@ -109,7 +109,7 @@ const ProjectTemplate = props => {
         </Container>
       )}
       <Container>
-        <h1 className={responsiveTitle1}>{category.title}</h1>
+        <h1 className={responsiveTitle1}>{category.title.toLowerCase()}</h1>
         <div className={styles.blockText}>
           <BlockContent blocks={category._rawBody || []} />
         </div>
