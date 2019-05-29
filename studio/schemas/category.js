@@ -43,9 +43,9 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'description',
-      title: 'Description',
-      type: 'text',
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
       validation: Rule => Rule.required()
     }
   ],

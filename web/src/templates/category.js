@@ -10,11 +10,13 @@ import { responsiveTitle1 } from '../components/typography.module.css'
 import EquipmentItems from '../components/equipment-categories'
 import BlockContent from '../components/block-content'
 import styles from './category.module.css'
+import CoverImage from '../components/cover-image';
 export const query = graphql`
   query CategoryListTemplateQuery($id: String!) {
     category: sanityCategory(id: { eq: $id }) {
       id
       title
+      _rawBody
       slug {
         current
       }
@@ -105,14 +107,15 @@ const ProjectTemplate = props => {
         </Container>
       )}
       <Container>
-        <div className={styles.blockText}>
-          <BlockContent blocks={equipment._rawBody || []} />
-        </div>
         <h1 className={responsiveTitle1}>{category.title}</h1>
+        <div className={styles.blockText}>
+          <BlockContent blocks={category._rawBody || []} />
+        </div>
         <EquipmentItems
           nodes={equipmentNodes}
           slug={'equipment' + '/' + category.slug.current + '/'}
         />
+        {category.mainImage && <CoverImage fixed asset={ category.mainImage } coverSize={ 1 } className={ styles.coverImage } />}
       </Container>
     </>
   )
