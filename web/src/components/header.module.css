@@ -19,10 +19,10 @@
     padding: 1.5em 1.5em;
   }
 
-  @media screen and (orientation: landscape) {
+  /* @media screen and (orientation: landscape) {
     justify-content: flex-start;
     left: 0;
-  }
+  } */
 }
 
 .wrapper::after {
@@ -72,14 +72,14 @@
   align-items: center;
   position: relative;
   z-index: 200;
-  top: calc(var(--burger-size)*0.125);
-  height: calc(var(--burger-size)*1.25);
+  top: calc(var(--burger-size)*0.125*2);
+  height: calc(var(--burger-size)*1.25*2);
 
 }
 
 .svgWrapper svg,
 path {
-  height: calc(var(--burger-size)*1.25);
+  height: calc(var(--burger-size)*1.25*2);
   width: auto;
   fill: var(--color-main-light);
 }

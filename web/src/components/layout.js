@@ -9,6 +9,7 @@ import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import Transition from './page-transition'
 import { Link } from 'gatsby'
+import HeaderLogo from './header-logo'
 
 const Layout = ({ children, companyInfo, siteSettings, location }) => {
   let logo
@@ -31,13 +32,13 @@ const Layout = ({ children, companyInfo, siteSettings, location }) => {
   } catch (err) {
     console.log('prevent build error')
   }
-  console.log(logo)
+
   return (
     <GlobalStyles siteSettings={siteSettings}>
       <BurgerMenu siteTitle={title} logo={logo} />
       <div id='page-wrap'>
         <Header logo={logo} />
-
+        <HeaderLogo logo={logo} />
         <Transition location={{ pathname }}>
           <>
             <div className={styles.content}>{children}</div>

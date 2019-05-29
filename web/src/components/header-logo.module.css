@@ -1,0 +1,19 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 200;
+  top: calc(var(--burger-size)*0.125*2);
+  height: calc(var(--burger-size)*1.25*2);
+
+}
+
+.svgWrapper svg,
+path {
+    position: relative;
+  z-index: 200;
+  height: calc(var(--burger-size)*1.25*2);
+  width: auto;
+  fill: var(--color-main-light);
+}
