@@ -29,7 +29,6 @@
 .svgWrapper svg,
 path {
   transform-origin: top;
-  transition: var(--transition-long);
   position: relative;
   z-index: 500;
   height: calc(var(--burger-size) * 1.25);
@@ -39,7 +38,6 @@ path {
 
 .svgWrapperFixed svg,
 path {
-  transition: var(--transition-long);
   position: relative;
   z-index: 500;
   height: calc(var(--burger-size) * 1.25);
