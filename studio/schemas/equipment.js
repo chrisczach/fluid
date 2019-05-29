@@ -15,6 +15,13 @@ export default {
       type: 'string'
     },
     {
+      name: 'sort',
+      title: 'Sort Order',
+      description: 'Add sort order here',
+      type: 'number',
+      validation: Rule => Rule.required()
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -56,5 +63,12 @@ export default {
         media: image
       }
     }
-  }
+  },
+  orderings: [
+    {
+      title: 'Website Equipment Order',
+      name: 'sortAsc',
+      by: [{ field: 'categories.title', direction: 'asc' }, { field: 'sort', direction: 'asc' }]
+    }
+  ]
 }

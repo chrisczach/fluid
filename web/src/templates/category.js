@@ -2,15 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
+import Project from '../components/project'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
-
-import { responsiveTitle1 } from '../components/typography.module.css'
-import EquipmentCategories from '../components/equipment-categories'
-import BlockContent from '../components/block-content'
-import styles from './equipment.module.css'
-import CoverImage from '../components/cover-image'
+import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
+import EquipmentItems from '../components/equipment-categories'
 
 export const query = graphql`
   query CategoryTemplateQuery($id: String!) {
@@ -48,9 +44,13 @@ export const query = graphql`
       }
     }
 
-    equipment: allSanityEquipment(filter: { categories: { _id: { eq: $id } } }) {
+    equipment: allSanityEquipment(
+      filter: { categories: { _id: { eq: $id } } }
+      sort: { fields: [sort], order: ASC }
+    ) {
       edges {
         node {
+          sort
           id
           title
           slug {
@@ -88,30 +88,24 @@ export const query = graphql`
   }
 `
 
-const EquipmentPage = props => {
+const ProjectTemplate = props => {
   const { data, errors } = props
-  if (errors) {
-    return <GraphQLErrorList errors={errors} />
-  }
+  const category = data && data.category
   const equipment = data && data.equipment
-  const site = data && data.site
-  const categoryNodes =
-    data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
+  const equipmentNodes = equipment && mapEdgesToNodes(equipment).filter(filterOutDocsWithoutSlugs)
   return (
     <>
-      <SEO title='equipment' />
-      <Container>
-        <div className={styles.blockText}>
-          <BlockContent blocks={equipment._rawBody || []} />
-        </div>
-        <h1 className={responsiveTitle1}>{equipment.title}</h1>
-        {categoryNodes && categoryNodes.length > 0 && <EquipmentCategories nodes={categoryNodes} />}
-        {site.background && (
-          <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
-        )}
-      </Container>
+      {errors && <SEO title='GraphQL Error' />}
+      {category && <SEO title={category.title || 'Untitled'} />}
+
+      {errors && (
+        <Container>
+          <GraphQLErrorList errors={errors} />
+        </Container>
+      )}
+      <EquipmentItems nodes={equipmentNodes} />
     </>
   )
 }
 
-export default EquipmentPage
+export default ProjectTemplate
