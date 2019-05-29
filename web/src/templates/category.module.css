@@ -1,0 +1,8 @@
+.blockText {
+  padding: 0 0 1em 0;
+}
+
+.coverImage {
+  opacity: 0.25;
+  filter: brightness(0.2);
+}

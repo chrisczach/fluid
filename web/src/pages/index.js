@@ -155,7 +155,7 @@ const IndexPage = props => {
         {categoryNodes && categoryNodes.length > 0 && (
           <SectionBackground className={styles.equipmentSection}>
             <h1 className={responsiveTitle2}>{data.equipment.title}</h1>
-            <EquipmentCategories nodes={categoryNodes} />
+            <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
           </SectionBackground>
         )}
         <ContactPageInner data={{ contact: contact }} />

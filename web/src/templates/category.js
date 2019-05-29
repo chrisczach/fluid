@@ -6,11 +6,13 @@ import Project from '../components/project'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
+import { responsiveTitle1 } from '../components/typography.module.css'
 import EquipmentItems from '../components/equipment-categories'
-
+import BlockContent from '../components/block-content'
+import styles from './category.module.css'
 export const query = graphql`
-  query CategoryTemplateQuery($id: String!) {
-    category: sanityCategory(_id: { eq: $id }) {
+  query CategoryListTemplateQuery($id: String!) {
+    category: sanityCategory(id: { eq: $id }) {
       id
       title
       slug {
@@ -45,12 +47,11 @@ export const query = graphql`
     }
 
     equipment: allSanityEquipment(
-      filter: { categories: { _id: { eq: $id } } }
+      filter: { categories: { id: { eq: $id } } }
       sort: { fields: [sort], order: ASC }
     ) {
       edges {
         node {
-          sort
           id
           title
           slug {
@@ -103,7 +104,16 @@ const ProjectTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      <EquipmentItems nodes={equipmentNodes} />
+      <Container>
+        <div className={styles.blockText}>
+          <BlockContent blocks={equipment._rawBody || []} />
+        </div>
+        <h1 className={responsiveTitle1}>{category.title}</h1>
+        <EquipmentItems
+          nodes={equipmentNodes}
+          slug={'equipment' + '/' + category.slug.current + '/'}
+        />
+      </Container>
     </>
   )
 }

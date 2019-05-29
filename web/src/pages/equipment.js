@@ -13,14 +13,39 @@ import styles from './equipment.module.css'
 import CoverImage from '../components/cover-image'
 
 export const query = graphql`
-  query CategoryTemplateQuery($id: String!) {
-    category: sanityCategory(_id: { eq: $id }) {
-      id
-      title
-      slug {
-        current
+  query EquipmentCategoryPageQuery {
+    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      background {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+          }
+        }
+        alt
       }
-      excerpt
+    }
+    equipment: sanityPage(_id: { regex: "/(drafts.|)equipment/" }) {
+      id
+      _id
+      title
+      _rawBody
       mainImage {
         crop {
           _key
@@ -47,8 +72,7 @@ export const query = graphql`
         alt
       }
     }
-
-    equipment: allSanityEquipment(filter: { categories: { _id: { eq: $id } } }) {
+    category: allSanityCategory(sort: { fields: [sort], order: ASC }) {
       edges {
         node {
           id
@@ -105,7 +129,9 @@ const EquipmentPage = props => {
           <BlockContent blocks={equipment._rawBody || []} />
         </div>
         <h1 className={responsiveTitle1}>{equipment.title}</h1>
-        {categoryNodes && categoryNodes.length > 0 && <EquipmentCategories nodes={categoryNodes} />}
+        {categoryNodes && categoryNodes.length > 0 && (
+          <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
+        )}
         {site.background && (
           <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
         )}

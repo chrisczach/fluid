@@ -9,6 +9,7 @@ export default function EquipmentCategoryPreview ({
   id,
   title,
   slug: { current },
+  preslug,
   excerpt,
   mainImage,
   grid
@@ -39,7 +40,7 @@ export default function EquipmentCategoryPreview ({
         {excerpt}
         {contentResizeListener}
       </div>
-      <Button to={current} className={styles.categoryLink}>
+      <Button to={preslug + current} className={styles.categoryLink}>
         view {title.toLowerCase()}
       </Button>
     </div>

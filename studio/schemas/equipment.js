@@ -7,12 +7,14 @@ export default {
       name: 'categories',
       title: 'Equipment Category',
       type: 'reference',
-      to: { type: 'category' }
+      to: { type: 'category' },
+      validation: Rule => Rule.required()
     },
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'sort',
@@ -29,22 +31,26 @@ export default {
       options: {
         source: 'title',
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'text'
+      type: 'text',
+      validation: Rule => Rule.required()
     },
     {
       name: 'mainImage',
       title: 'Main image',
-      type: 'mainImage'
+      type: 'mainImage',
+      validation: Rule => Rule.required()
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
+      type: 'blockContent',
+      validation: Rule => Rule.required()
     },
     {
       name: 'gallery',
