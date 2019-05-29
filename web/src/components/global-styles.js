@@ -3,7 +3,7 @@ import ScrollLock from 'react-scrolllock'
 
 import styles from './global-styles.module.css'
 
-export default function GlobalStyles ({
+export default function GlobalStyles({
   children,
   siteSettings = {
     title: 'Fluid Pictures',
@@ -45,10 +45,14 @@ export default function GlobalStyles ({
     console.log('prevent build error when window is undefined')
   }
 
+  useEffect(() => {
+    document.querySelector('#scroll').scrollTop = 0
+  })
+
   return (
     <ScrollLock>
       <div
-        id='scroll'
+        id="scroll"
         ref={scrollDiv}
         style={{
           background:
