@@ -6,7 +6,7 @@ import Project from '../components/project'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { brandedTitle1 } from '../components/typography.module.css'
 import EquipmentItems from '../components/equipment-categories'
 import BlockContent from '../components/block-content'
 import styles from './category.module.css'
@@ -112,7 +112,7 @@ const ProjectTemplate = props => {
         <Link to="equipment" className={styles.backLink}>
           &larr; back to equipment categories
         </Link>
-        <h1 className={responsiveTitle1}>{category.title.toLowerCase()}</h1>
+        <h1 className={brandedTitle1}>{category.title.toLowerCase()}</h1>
         <div className={styles.blockText}>
           <BlockContent blocks={category._rawBody || []} />
         </div>

@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { brandedTitle1 } from '../components/typography.module.css'
 import EquipmentCategories from '../components/equipment-categories'
 import BlockContent from '../components/block-content'
 import styles from './equipment.module.css'
@@ -129,7 +129,7 @@ const EquipmentPage = props => {
         <div className={styles.blockText}>
           <BlockContent blocks={equipment._rawBody || []} />
         </div>
-        <h1 className={responsiveTitle1}>{equipment.title}</h1>
+        <h1 className={brandedTitle1}>{equipment.title}</h1>
         {categoryNodes && categoryNodes.length > 0 && (
           <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
         )}

@@ -10,7 +10,7 @@ import Layout from '../containers/layout'
 import BlockContent from '../components/block-content'
 import Button from '../components/button'
 import styles from './index.module.css'
-import { responsiveTitle2 } from '../components/typography.module.css'
+import { brandedTitle1 } from '../components/typography.module.css'
 import SectionBackground from '../components/section-background'
 import EquipmentCategories from '../components/equipment-categories'
 import CoverImage from '../components/cover-image'
@@ -154,7 +154,7 @@ const IndexPage = props => {
 
         {categoryNodes && categoryNodes.length > 0 && (
           <SectionBackground className={styles.equipmentSection}>
-            <h1 className={responsiveTitle2}>{data.equipment.title}</h1>
+            <h1 className={brandedTitle1}>{data.equipment.title.toLowerCase()}</h1>
             <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
           </SectionBackground>
         )}
