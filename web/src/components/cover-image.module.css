@@ -1,6 +1,7 @@
 
 
 .absolute {
+  pointer-events: none;
   position: absolute !important;
   z-index: -1 !important;
   top: 0;
@@ -8,6 +9,7 @@
 }
 
 .fixed {
+  pointer-events: none;
   position: fixed !important;
   z-index: -1 !important;
   top: 0;

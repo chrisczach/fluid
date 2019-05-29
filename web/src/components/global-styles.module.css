@@ -34,13 +34,13 @@
     .scroll::-webkit-scrollbar-thumb {
       position: relative;
       z-index: 10000 !important;
-      background: var(--color-brand);
+      background: var(--color-accent-dark);
       border-radius: 15px;
       height: 30px;
       transition: var(--transition-short);
       @media (hover: hover) {
         @nest &:hover {
-          background: var(--color-accent-light);
+          background: var(--color-brand);
         }
       }
     }
