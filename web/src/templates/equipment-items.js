@@ -6,10 +6,10 @@ import Project from '../components/project'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { responsiveTitle1, paragraph } from '../components/typography.module.css'
 import EquipmentItems from '../components/equipment-categories'
 import BlockContent from '../components/block-content'
-import styles from './category.module.css'
+import styles from './equipment-items.module.css'
 import CoverImage from '../components/cover-image'
 import RequestInfoButton from '../components/request-info-button'
 
@@ -75,12 +75,41 @@ export const query = graphql`
         alt
       }
     }
+
+    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      background {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
+    }
   }
 `
 
 const EquipmentItemTemplate = props => {
   const { data, errors } = props
   const equipment = data && data.equipment
+  const background = data && data.site && data.site.background
   return (
     <>
       {errors && <SEO title="GraphQL Error" />}
@@ -93,18 +122,14 @@ const EquipmentItemTemplate = props => {
       )}
       <Container>
         <h1 className={responsiveTitle1}>{equipment.title}</h1>
+        <p className={paragraph}>{equipment.excerpt}</p>
         <div className={styles.blockText}>
           <BlockContent blocks={equipment._rawBody || []} />
         </div>
 
         <RequestInfoButton />
         {equipment.mainImage && (
-          <CoverImage
-            fixed
-            asset={category.mainImage}
-            coverSize={1}
-            className={styles.coverImage}
-          />
+          <CoverImage fixed asset={background} coverSize={1} className={styles.coverImage} />
         )}
       </Container>
     </>

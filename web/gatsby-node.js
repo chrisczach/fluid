@@ -45,7 +45,7 @@ const { format } = require('date-fns')
 //   })
 // }
 
-async function createCategoryPages (graphql, actions, reporter) {
+async function createCategoryPages(graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions
   const result = await graphql(`
     {
@@ -63,7 +63,7 @@ async function createCategoryPages (graphql, actions, reporter) {
   `)
 
   if (result.errors) throw result.errors
-  
+
   const categoryEdges = (result.data.allSanityCategory || {}).edges || []
 
   categoryEdges.forEach(edge => {
@@ -83,7 +83,54 @@ async function createCategoryPages (graphql, actions, reporter) {
   })
 }
 
+async function createEquipmentItemPages(graphql, actions, reporter) {
+  const { createPage, createPageDependency } = actions
+  const result = await graphql(`
+    {
+      allSanityEquipment(filter: { slug: { current: { ne: null } } }) {
+        edges {
+          node {
+            id
+            categories {
+              slug {
+                _key
+                _type
+                categorySlug: current
+              }
+            }
+            slug {
+              itemSlug: current
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  const equipmentItemEdges = (result.data.allSanityEquipment || {}).edges || []
+
+  equipmentItemEdges.forEach(edge => {
+    const id = edge.node.id
+    const { categorySlug } = edge.node.categories.slug
+    const { itemSlug } = edge.node.slug
+    const path = `/equipment/${categorySlug}/${itemSlug}/`
+
+    reporter.info(`Creating equipment item page: ${path}`)
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/equipment-items.js'),
+      context: { id: id }
+    })
+
+    createPageDependency({ path, nodeId: id })
+  })
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // await createBlogPostPages(graphql, actions, reporter)
   await createCategoryPages(graphql, actions, reporter)
+  await createEquipmentItemPages(graphql, actions, reporter)
 }

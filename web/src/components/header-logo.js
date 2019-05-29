@@ -10,13 +10,13 @@ import { relative } from 'path'
 
 export default function HeaderLogo({ logo }) {
   return (
-    <Link to="/">
-      <div className={styles.logo}>
+    <div className={styles.logoWrap}>
+      <Link to="/">
         <ReactSVG
           className={styles.svgWrapper}
           src={logo && imageUrlFor(buildImageObj(logo)).url()}
         />
-      </div>
-    </Link>
+      </Link>{' '}
+    </div>
   )
 }

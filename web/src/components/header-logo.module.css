@@ -1,4 +1,4 @@
-.logo {
+.logoWrap {
   transition: var(--transition-long);
   display: flex;
   justify-content: center;
@@ -8,7 +8,7 @@
   z-index: 500;
   top: var(--burger-size);
   height: calc(var(--burger-size) * 1.25);
-  max-width: 75vw;
+  width: auto;
   margin: 0 auto 4em auto;
 }
 
