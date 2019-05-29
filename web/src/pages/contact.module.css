@@ -1,9 +1,12 @@
+.spacer {
+  margin-top: 2em;
+}
+
 .sectionBackground {
   display: flex;
   flex-direction: column;
   position: relative;
   padding: 1.5em 1em;
-  margin-top: 2em;
   min-height: 50vh;
   z-index: 5 !important;
 }

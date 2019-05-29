@@ -5,6 +5,9 @@
   height: calc(var(--burger-size) / 6 * 5);
   right: var(--burger-size);
   top: var(--burger-size);
+  @media (--media-min-medium) {
+    opacity: 0 !important;
+  }
 }
 
 /* Color/shape of burger icon bars */
@@ -46,7 +49,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 /* Morph shape necessary with bubble or elastic */
-.bm-morph-shape path{
+.bm-morph-shape path {
   fill: var(--color-main-dark) !important;
 }
 
