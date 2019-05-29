@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
+import useResizeAware from 'react-resize-aware'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import Project from '../components/project'
@@ -12,6 +13,7 @@ import EquipmentBlockContent from '../components/equipment-block-content'
 import styles from './equipment-items.module.css'
 import CoverImage from '../components/cover-image'
 import RequestInfoButton from '../components/request-info-button'
+import Image from '../components/image'
 
 export const query = graphql`
   query EquipmentItemTemplateQuery($id: String!) {
@@ -116,6 +118,7 @@ const EquipmentItemTemplate = props => {
   const { data, errors } = props
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
+  const [imageResizeListener, imageSizes] = useResizeAware()
   return (
     <>
       {errors && <SEO title="GraphQL Error" />}
@@ -128,6 +131,18 @@ const EquipmentItemTemplate = props => {
       )}
 
       <Container>
+        <div style={{ position: 'relative' }}>
+          {imageResizeListener}
+          <Image
+            className={styles.headerImage}
+            asset={equipment.mainImage}
+            fixed
+            args={{
+              width: imageSizes.width,
+              height: imageSizes.width * 0.33
+            }}
+          />
+        </div>
         <Link to={`equipment/${equipment.categories.slug.current}`} className={styles.backLink}>
           {' '}
           &larr; back to {equipment.categories.title.toLowerCase()} category
