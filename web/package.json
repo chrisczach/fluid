@@ -41,6 +41,7 @@
     "react-progressive-image": "^0.6.0",
     "react-resize-aware": "^3.0.0-beta.3",
     "react-scrolllock": "^4.0.1",
+    "react-sticky-el": "^1.0.20",
     "react-svg": "^9.0.4",
     "react-transition-group": "^4.0.1"
   },

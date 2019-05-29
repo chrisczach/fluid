@@ -1,21 +1,50 @@
 .logo {
+  transition: var(--transition-long);
   display: flex;
   justify-content: center;
   align-items: center;
   position: -webkit-sticky;
   position: sticky;
-  z-index: 200;
+  z-index: 500;
   top: var(--burger-size);
+  transform: translateY(50%);
   /* top: calc(var(--burger-size)*0.125*2); */
   height: calc(var(--burger-size)*1.25*2);
 
 }
 
+.logoFixed {
+  transition: var(--transition-long);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 500;
+  top: var(--burger-size);
+  transform: translateY(50%);
+  /* top: calc(var(--burger-size)*0.125*2); */
+  height: calc(var(--burger-size)*1.25);
+
+}
+
 .svgWrapper svg,
 path {
+  transition: var(--transition-long);
     position: relative;
-  z-index: 200;
+  z-index: 500;
   height: calc(var(--burger-size)*1.25*2);
   width: auto;
   fill: var(--color-main-light);
 }
+
+.svgWrapperFixed svg,
+path {
+  transition: var(--transition-long);
+    position: relative;
+  z-index: 500;
+  height: calc(var(--burger-size)*1.25);
+  width: auto;
+  fill: var(--color-main-light);
+}
+
