@@ -6,9 +6,9 @@
 
 .wrapper {
   z-index: 100;
-  position: -webkit-sticky;
+  /* position: -webkit-sticky; */
   top: 0;
-  position: sticky;
+  position: fixed;
   box-sizing: border-box;
   height: calc(var(--burger-size) / 6 * 5 + var(--burger-size) * 2);
   display: flex;
