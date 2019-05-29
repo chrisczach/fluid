@@ -159,10 +159,10 @@ const IndexPage = props => {
           </SectionBackground>
         )}
         <ContactPageInner data={{ contact: contact }} />
-        {site.background && (
-          <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
-        )}
       </Container>
+      {site.background && (
+        <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
+      )}
     </>
   )
 }

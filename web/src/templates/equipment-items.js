@@ -129,20 +129,19 @@ const EquipmentItemTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-
+      <div className={styles.headerImageWrap}>
+        {imageResizeListener}
+        <Image
+          className={styles.headerImage}
+          asset={equipment.mainImage}
+          fixed
+          args={{
+            width: imageSizes.width,
+            height: imageSizes.width * 0.33
+          }}
+        />
+      </div>
       <Container>
-        <div style={{ position: 'relative' }}>
-          {imageResizeListener}
-          <Image
-            className={styles.headerImage}
-            asset={equipment.mainImage}
-            fixed
-            args={{
-              width: imageSizes.width,
-              height: imageSizes.width * 0.33
-            }}
-          />
-        </div>
         <Link to={`equipment/${equipment.categories.slug.current}`} className={styles.backLink}>
           {' '}
           &larr; back to {equipment.categories.title.toLowerCase()} category
@@ -154,10 +153,10 @@ const EquipmentItemTemplate = props => {
         </div>
 
         <RequestInfoButton />
-        {equipment.mainImage && (
-          <CoverImage fixed asset={background} coverSize={1} className={styles.coverImage} />
-        )}
       </Container>
+      {equipment.mainImage && (
+        <CoverImage fixed asset={background} coverSize={1} className={styles.coverImage} />
+      )}
     </>
   )
 }

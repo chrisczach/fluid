@@ -121,15 +121,10 @@ const ProjectTemplate = props => {
           slug={'equipment' + '/' + category.slug.current + '/'}
         />
         <RequestInfoButton />
-        {category.mainImage && (
-          <CoverImage
-            fixed
-            asset={category.mainImage}
-            coverSize={1}
-            className={styles.coverImage}
-          />
-        )}
       </Container>
+      {category.mainImage && (
+        <CoverImage fixed asset={category.mainImage} coverSize={1} className={styles.coverImage} />
+      )}
     </>
   )
 }

@@ -24,5 +24,18 @@
   }
 }
 
+.headerImageWrap {
+  position: absolute;
+  z-index: 2;
+  opacity: 1;
+  top: 0;
+  width: 100vw;
+  overflow: hidden;
+}
+
 .headerImage {
+  z-index: 2;
+  opacity: 1;
+  position: absolute;
+  top: 0;
 }

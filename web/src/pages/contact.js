@@ -62,15 +62,15 @@ const ContactPage = props => {
       <Container>
         <div className={styles.spacer} />
         <ContactPageInner {...props} />
-        {contact.mainImage && (
-          <CoverImage
-            fixed
-            asset={props.data.contact.mainImage}
-            coverSize={1}
-            className={styles.coverImage}
-          />
-        )}
       </Container>
+      {contact.mainImage && (
+        <CoverImage
+          fixed
+          asset={props.data.contact.mainImage}
+          coverSize={1}
+          className={styles.coverImage}
+        />
+      )}
     </>
   )
 }

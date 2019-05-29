@@ -134,10 +134,10 @@ const EquipmentPage = props => {
           <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
         )}
         <RequestInfoButton />
-        {site.background && (
-          <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
-        )}
       </Container>
+      {site.background && (
+        <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
+      )}
     </>
   )
 }
