@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import Project from '../components/project'
@@ -18,6 +18,12 @@ export const query = graphql`
     equipment: sanityEquipment(id: { eq: $id }) {
       id
       title
+      categories {
+        title
+        slug {
+          current
+        }
+      }
       gallery {
         slides {
           crop {
@@ -120,7 +126,12 @@ const EquipmentItemTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
+
       <Container>
+        <Link to={`equipment/${equipment.categories.slug.current}`} className={styles.backLink}>
+          {' '}
+          &larr; back to {equipment.categories.title.toLowerCase()} category
+        </Link>
         <h1 className={styles.titleText}>{equipment.title.toLowerCase()}</h1>
         <p className={paragraph}>{equipment.excerpt}</p>
         <div className={styles.blockText}>

@@ -6,7 +6,10 @@
     display: inline-block;
     justify-self: center;
     @nest & li {
-      line-spacing: 1.5;
+      font-size: var(--font-large-size);
+      font-weight: 100;
+      line-height: 1.25em;
+      margin-bottom: 1em;
     }
   }
 }
@@ -17,8 +20,10 @@
 }
 
 .h2Style {
-  font-size: var(--font-title4-size);
+  font-weight: 100;
+  font-size: var(--font-title3-size);
   color: var(--color-accent-light);
+  text-align: center;
 }
 
 .specsList {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import Project from '../components/project'
@@ -109,6 +109,9 @@ const ProjectTemplate = props => {
         </Container>
       )}
       <Container>
+        <Link to="equipment" className={styles.backLink}>
+          &larr; back to equipment categories
+        </Link>
         <h1 className={responsiveTitle1}>{category.title.toLowerCase()}</h1>
         <div className={styles.blockText}>
           <BlockContent blocks={category._rawBody || []} />

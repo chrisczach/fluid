@@ -14,3 +14,12 @@
   opacity: 0.25;
   filter: brightness(0.5);
 }
+
+.backLink {
+  text-decoration: none;
+  color: var(--color-main-light);
+  opacity: 0.5;
+  @nest &:hover {
+    opacity: 0.95;
+  }
+}

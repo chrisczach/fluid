@@ -9,7 +9,7 @@
   top: var(--burger-size);
   height: calc(var(--burger-size) * 1.25);
   width: auto;
-  margin: 0 auto 4em auto;
+  margin: 0 auto;
 }
 
 .logoFixed {
