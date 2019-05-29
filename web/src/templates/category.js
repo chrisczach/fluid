@@ -11,7 +11,7 @@ import EquipmentItems from '../components/equipment-categories'
 import BlockContent from '../components/block-content'
 import styles from './category.module.css'
 import CoverImage from '../components/cover-image'
-import Button from '../components/button'
+import RequestInfoButton from '../components/request-info-button'
 
 export const query = graphql`
   query CategoryListTemplateQuery($id: String!) {
@@ -117,11 +117,7 @@ const ProjectTemplate = props => {
           nodes={equipmentNodes}
           slug={'equipment' + '/' + category.slug.current + '/'}
         />
-        <div className={styles.requestInfoWrap}>
-          <Button to="contact" className={styles.requestInfoLink}>
-            Request Information
-          </Button>
-        </div>
+        <RequestInfoButton />
         {category.mainImage && (
           <CoverImage
             fixed

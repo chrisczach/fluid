@@ -11,6 +11,7 @@ import EquipmentCategories from '../components/equipment-categories'
 import BlockContent from '../components/block-content'
 import styles from './equipment.module.css'
 import CoverImage from '../components/cover-image'
+import RequestInfoButton from '../components/request-info-button'
 
 export const query = graphql`
   query EquipmentCategoryPageQuery {
@@ -123,7 +124,7 @@ const EquipmentPage = props => {
     data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
   return (
     <>
-      <SEO title='equipment' />
+      <SEO title="equipment" />
       <Container>
         <div className={styles.blockText}>
           <BlockContent blocks={equipment._rawBody || []} />
@@ -132,6 +133,7 @@ const EquipmentPage = props => {
         {categoryNodes && categoryNodes.length > 0 && (
           <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
         )}
+        <RequestInfoButton />
         {site.background && (
           <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
         )}

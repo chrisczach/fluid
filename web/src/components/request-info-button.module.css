@@ -1,0 +1,10 @@
+.requestInfoLink {
+  font-size: 1.5em;
+}
+
+.requestInfoWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25em;
+}
