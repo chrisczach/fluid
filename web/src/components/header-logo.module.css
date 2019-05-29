@@ -7,10 +7,9 @@
   position: sticky;
   z-index: 500;
   top: var(--burger-size);
-  transform: translateY(50%);
-  /* top: calc(var(--burger-size)*0.125*2); */
-  height: calc(var(--burger-size)*1.25*2);
-
+  height: calc(var(--burger-size) * 1.25);
+  max-width: 75vw;
+  margin: 0 auto 4em auto;
 }
 
 .logoFixed {
@@ -22,18 +21,18 @@
   position: sticky;
   z-index: 500;
   top: var(--burger-size);
-  transform: translateY(50%);
-  /* top: calc(var(--burger-size)*0.125*2); */
-  height: calc(var(--burger-size)*1.25);
-
+  height: 100%;
+  max-width: 75vw;
+  margin: 0 auto;
 }
 
 .svgWrapper svg,
 path {
+  transform-origin: top;
   transition: var(--transition-long);
-    position: relative;
+  position: relative;
   z-index: 500;
-  height: calc(var(--burger-size)*1.25*2);
+  height: calc(var(--burger-size) * 1.25);
   width: auto;
   fill: var(--color-main-light);
 }
@@ -41,10 +40,9 @@ path {
 .svgWrapperFixed svg,
 path {
   transition: var(--transition-long);
-    position: relative;
+  position: relative;
   z-index: 500;
-  height: calc(var(--burger-size)*1.25);
+  height: calc(var(--burger-size) * 1.25);
   width: auto;
   fill: var(--color-main-light);
 }
-

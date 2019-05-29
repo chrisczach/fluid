@@ -10,7 +10,9 @@ import { responsiveTitle1 } from '../components/typography.module.css'
 import EquipmentItems from '../components/equipment-categories'
 import BlockContent from '../components/block-content'
 import styles from './category.module.css'
-import CoverImage from '../components/cover-image';
+import CoverImage from '../components/cover-image'
+import Button from '../components/button'
+
 export const query = graphql`
   query CategoryListTemplateQuery($id: String!) {
     category: sanityCategory(id: { eq: $id }) {
@@ -98,7 +100,7 @@ const ProjectTemplate = props => {
   const equipmentNodes = equipment && mapEdgesToNodes(equipment).filter(filterOutDocsWithoutSlugs)
   return (
     <>
-      {errors && <SEO title='GraphQL Error' />}
+      {errors && <SEO title="GraphQL Error" />}
       {category && <SEO title={category.title || 'Untitled'} />}
 
       {errors && (
@@ -115,7 +117,19 @@ const ProjectTemplate = props => {
           nodes={equipmentNodes}
           slug={'equipment' + '/' + category.slug.current + '/'}
         />
-        {category.mainImage && <CoverImage fixed asset={ category.mainImage } coverSize={ 1 } className={ styles.coverImage } />}
+        <div className={styles.requestInfoWrap}>
+          <Button to="contact" className={styles.requestInfoLink}>
+            Request Information
+          </Button>
+        </div>
+        {category.mainImage && (
+          <CoverImage
+            fixed
+            asset={category.mainImage}
+            coverSize={1}
+            className={styles.coverImage}
+          />
+        )}
       </Container>
     </>
   )

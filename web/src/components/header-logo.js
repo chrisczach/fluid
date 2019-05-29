@@ -8,22 +8,15 @@ import styles from './header-logo.module.css'
 import Sticky from 'react-sticky-el'
 import { relative } from 'path'
 
-export default function HeaderLogo ({ logo }) {
-  const [toggled, setToggled] = useState(true)
+export default function HeaderLogo({ logo }) {
   return (
-    <Sticky
-      style={{ posistion: 'relative', zIndex: 500 }}
-      scrollElement='#scroll'
-      onFixedToggle={setToggled}
-    >
-      <Link to='/'>
-        <div className={toggled ? styles.logo : styles.logoFixed}>
-          <ReactSVG
-            className={toggled ? styles.svgWrapper : styles.svgWrapperFixed}
-            src={logo && imageUrlFor(buildImageObj(logo)).url()}
-          />
-        </div>
-      </Link>
-    </Sticky>
+    <Link to="/">
+      <div className={styles.logo}>
+        <ReactSVG
+          className={styles.svgWrapper}
+          src={logo && imageUrlFor(buildImageObj(logo)).url()}
+        />
+      </div>
+    </Link>
   )
 }
