@@ -23,7 +23,9 @@ export default function HeroVideo({
       rel: 0,
       loop: 0,
       playlist: videoID,
-      controls: 0
+      controls: 0,
+      enablejsapi: 1,
+      origin: 'https://fluidpictures.chrisczach.com'
     }
   }
 
