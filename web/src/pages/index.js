@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
@@ -15,12 +15,18 @@ import SectionBackground from '../components/section-background'
 import EquipmentCategories from '../components/equipment-categories'
 import CoverImage from '../components/cover-image'
 import { ContactPageInner } from './contact'
+import HeroVideo from '../components/hero-video'
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
+      heroVideo {
+        videoURL
+        excerpt
+        speed
+      }
       background {
         crop {
           _key
@@ -142,6 +148,8 @@ const IndexPage = props => {
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     )
   }
+  const [showSplash, setSplash] = useState(true)
+  const stopSplashHandler = () => setSplash(false)
 
   const categoryNodes =
     data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
@@ -149,6 +157,12 @@ const IndexPage = props => {
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <HeroVideo
+        {...site.heroVideo}
+        showSplash={showSplash}
+        stopSplashHandler={stopSplashHandler}
+      />
+
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
 
