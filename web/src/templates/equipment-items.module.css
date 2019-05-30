@@ -19,9 +19,11 @@
   text-decoration: none;
   color: var(--color-main-light);
   opacity: 0.5;
+    @media (hover: hover) {
   @nest &:hover {
     opacity: 0.95;
   }
+}
 }
 
 .headerImageWrap {

@@ -34,6 +34,7 @@
   background: rgba(0, 0, 0, 0.25);
   box-shadow: var(--box-shadow-1);
   transition: var(--transition-short);
+  @media (hover: hover) {
   @nest &:hover {
     background: rgba(0, 0, 0, 0.5);
     box-shadow: var(--box-shadow-2);
@@ -45,6 +46,7 @@
       animation: zoomTitle 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
     } */
   }
+}
 }
 
 .imageBlock {

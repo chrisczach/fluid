@@ -27,10 +27,11 @@ path {
   text-decoration: none;
   font-size: 1.5em;
   padding: 1em;
-
+  @media (hover: hover) {
   @nest &:hover {
     opacity: 0.6;
   }
+}
 }
 
 .footerWrapper {
