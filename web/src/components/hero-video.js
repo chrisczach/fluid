@@ -3,8 +3,13 @@ import YouTube from 'react-youtube'
 import useResizeAware from 'react-resize-aware'
 import styles from './hero-video.module.css'
 import Button from './button'
+import { cn, buildImageObj } from '../lib/helpers'
+import ReactSVG from 'react-svg'
+import { imageUrlFor } from '../lib/image-url'
+
 export default function HeroVideo({
   excerpt,
+  logo,
   videoURL,
   speed = 1,
   showSplash = true,
@@ -52,6 +57,14 @@ export default function HeroVideo({
         <Button style={{ margin: '6em' }} onClick={stopSplashHandler}>
           browse equipment
         </Button>
+      </div>
+      <div className={showSplash ? styles.largeLogo : styles.largeLogoHide}>
+        <div className={styles.logoWrap}>
+          <ReactSVG
+            className={styles.svgWrapper}
+            src={logo && imageUrlFor(buildImageObj(logo)).url()}
+          />
+        </div>
       </div>
     </div>
   )

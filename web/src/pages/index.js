@@ -27,6 +27,28 @@ export const query = graphql`
         excerpt
         speed
       }
+      logo {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt
+      }
       background {
         crop {
           _key
@@ -159,6 +181,7 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <HeroVideo
         {...site.heroVideo}
+        logo={site.logo}
         showSplash={showSplash}
         stopSplashHandler={stopSplashHandler}
       />
