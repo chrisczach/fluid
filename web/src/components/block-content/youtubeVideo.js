@@ -1,6 +1,3 @@
-import React from 'react'
+import YoutubeVideo from '../equipment-block-content/youtube-video'
 
-export default function YoutubeVideo(props) {
-  console.log(props)
-  return <div />
-}
+export default YoutubeVideo

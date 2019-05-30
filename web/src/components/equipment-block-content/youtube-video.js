@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import YouTube from 'react-youtube'
 import useResizeAware from 'react-resize-aware'
+import styles from './youtube-video.module.css'
 
 export default function YoutubeVideo({ excerpt, videoURL, speed = 1 }) {
   const videoID = videoURL.split('v=')[1].split('&')[0]
@@ -18,10 +19,21 @@ export default function YoutubeVideo({ excerpt, videoURL, speed = 1 }) {
       playlist: videoID
     }
   }
+
+  const [playing, setPlaying] = useState(false)
   return (
-    <div style={{ position: 'relative' }}>
+    <div
+      style={{ height: opts.height, width: opts.width }}
+      className={styles.youtubeWrapper + ' ' + (playing ? styles.isPlaying : '')}
+    >
       {imageResizeListener}
-      <YouTube videoId={videoID} opts={opts} onReady={onReady(speed)} onEnd={onEnd} />
+      <YouTube
+        videoId={videoID}
+        opts={opts}
+        onReady={onReady(speed)}
+        onEnd={onEnd}
+        onStateChange={({ data }) => setPlaying(data === 1)}
+      />
     </div>
   )
 }

@@ -1,0 +1,14 @@
+.youtubeWrapper {
+  position: relative;
+  box-shadow: var(--box-shadow-2);
+  transition: var(--transition-short);
+  @media (hover: hover) {
+    @nest &:hover {
+      box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 4px 10px var(--color-accent-light);
+    }
+  }
+}
+
+.isPlaying {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 4px 10px var(--color-accent-light);
+}

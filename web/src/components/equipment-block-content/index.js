@@ -2,7 +2,7 @@ import BaseBlockContent from '@sanity/block-content-to-react'
 import React from 'react'
 import Figure from './figure'
 import Slideshow from './slideshow'
-import YoutubeVideo from './youtubeVideo'
+import YoutubeVideo from './youtube-video'
 import typography from '../typography.module.css'
 import styles from './index.module.css'
 
