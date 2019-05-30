@@ -100,7 +100,7 @@ const ProjectTemplate = props => {
   const equipmentNodes = equipment && mapEdgesToNodes(equipment).filter(filterOutDocsWithoutSlugs)
   return (
     <>
-      {errors && <SEO title="GraphQL Error" />}
+      {errors && <SEO title='GraphQL Error' />}
       {category && <SEO title={category.title || 'Untitled'} />}
 
       {errors && (
@@ -109,7 +109,8 @@ const ProjectTemplate = props => {
         </Container>
       )}
       <Container>
-        <Link to="equipment" className={styles.backLink}>
+        <div style={{ height: '2em' }} />
+        <Link to='equipment' className={styles.backLink}>
           &larr; back to equipment categories
         </Link>
         <h1 className={brandedTitle1}>{category.title.toLowerCase()}</h1>
