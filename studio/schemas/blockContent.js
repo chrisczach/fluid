@@ -75,6 +75,9 @@ export default {
     },
     {
       type: "slideshow"
+    },
+    {
+      type: "youtube"
     }
   ]
 };

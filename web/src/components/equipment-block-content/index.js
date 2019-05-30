@@ -2,7 +2,7 @@ import BaseBlockContent from '@sanity/block-content-to-react'
 import React from 'react'
 import Figure from './figure'
 import Slideshow from './slideshow'
-
+import YoutubeVideo from './youtubeVideo'
 import typography from '../typography.module.css'
 import styles from './index.module.css'
 
@@ -34,6 +34,9 @@ const serializers = {
     },
     slideshow(props) {
       return <Slideshow {...props.node} />
+    },
+    youtube(props) {
+      return <YoutubeVideo {...props.node} />
     }
   }
 }
