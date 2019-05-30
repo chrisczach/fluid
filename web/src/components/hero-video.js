@@ -34,7 +34,9 @@ export default function HeroVideo({
       {imageResizeListener}
       {showSplash && (
         <YouTube
-          containerClassName={showSplash ? styles.video : styles.videoHide}
+          containerClassName={
+            showSplash && playing ? styles.videoStart : showSplash ? styles.video : styles.videoHide
+          }
           className={showSplash ? styles.iFrame : styles.iFrameHide}
           videoId={videoID}
           opts={opts}
@@ -44,7 +46,9 @@ export default function HeroVideo({
         />
       )}
       <div className={showSplash ? styles.overlay : styles.overlayHide}>
-        <Button onClick={stopSplashHandler}>browse equipment</Button>
+        <Button style={{ margin: '6em' }} onClick={stopSplashHandler}>
+          browse equipment
+        </Button>
       </div>
     </div>
   )
