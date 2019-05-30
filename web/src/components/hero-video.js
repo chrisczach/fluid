@@ -20,6 +20,7 @@ export default function HeroVideo({
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
       modestbranding: 1,
+      playsinline: 1,
       rel: 0,
       loop: 0,
       playlist: videoID,
