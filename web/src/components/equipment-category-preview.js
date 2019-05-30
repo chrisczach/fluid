@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './equipment-category-preview.module.css'
 import Image from '../components/image'
 import Button from './button'
@@ -16,7 +16,17 @@ export default function EquipmentCategoryPreview ({
 }) {
   const [imageResizeListener, imageSizes] = useResizeAware()
   const [contentResizeListener, contentSizes] = useResizeAware()
+  const [showMobile, setShowMobile] = useState()
+  useEffect(() => {
+    setShowMobile(window.innerWidth < 900)
+    window.addEventListener('resize', () => {
+      setShowMobile(window.innerWidth)
+    })
 
+    return window.removeEventListener('resize', () => {
+      setShowMobile(window.innerWidth < 900)
+    })
+  })
   return (
     <div className={styles.wrapper} key={id}>
       <div className={styles.imageBlock}>
@@ -29,7 +39,8 @@ export default function EquipmentCategoryPreview ({
               fixed
               args={{
                 width: imageSizes.width,
-                height: detectIE() ? imageSizes.width * 0.66 : contentSizes.height * 1.5
+                height:
+                  detectIE() || showMobile ? imageSizes.width * 0.66 : contentSizes.height * 1.5
               }}
             />
           </>
@@ -37,12 +48,14 @@ export default function EquipmentCategoryPreview ({
       </div>
       <div className={styles.contentBlock}>
         <div className={styles.titleText}>{title.toLowerCase()}</div>
-        {excerpt}
+        <div className={styles.excerpt }>{ excerpt }</div>
         {contentResizeListener}
       </div>
-      <Button to={preslug + current} className={styles.categoryLink}>
-        view {title.toLowerCase()}
-      </Button>
+      <div className={styles.categoryLinkWrapper}>
+        <Button to={preslug + current} className={styles.categoryLink}>
+          view {title.toLowerCase()}
+        </Button>
+      </div>
     </div>
   )
 }
