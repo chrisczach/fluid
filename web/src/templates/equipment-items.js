@@ -119,7 +119,7 @@ const EquipmentItemTemplate = props => {
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
   const [imageResizeListener, imageSizes] = useResizeAware()
-  return <WaveBackground />
+
   let heightPercentage
 
   try {
