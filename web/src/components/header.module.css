@@ -4,6 +4,24 @@
 .root {
 }
 
+.link{
+  z-index: 700;
+  text-decoration: none;
+  color: var(--color-main-light);
+  padding-left: 1em;
+  font-size: var(--burger-size);
+  transition: var(--transition-short);
+  @media (hover:hover) {
+    @nest &:hover{
+      color: var(--color-accent-light);
+    }
+  }
+    @media (max-width: 675px) {
+    opacity: 0 !important;
+    display: none !important;
+  }
+}
+
 .wrapper {
   z-index: 100;
   /* position: -webkit-sticky; */
@@ -12,9 +30,9 @@
   box-sizing: border-box;
   height: calc(var(--burger-size) / 6 * 5 + var(--burger-size) * 2);
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-
+width: 100%;
   @media (--media-min-small) {
     padding: 1.5em 1.5em;
   }

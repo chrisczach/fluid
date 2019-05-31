@@ -5,8 +5,9 @@
   height: calc(var(--burger-size) / 6 * 5);
   right: var(--burger-size);
   top: var(--burger-size);
-  @media (--media-min-medium) {
+  @media (min-width: 675px) {
     opacity: 0 !important;
+    display: none !important;
   }
 }
 

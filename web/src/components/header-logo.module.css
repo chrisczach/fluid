@@ -8,8 +8,14 @@
   z-index: 500;
   top: var(--burger-size);
   height: calc(var(--burger-size) * 1.25);
-  width: auto;
+  max-width: 15vw;
   margin: 0 auto;
+
+     @media (min-width: 675px) {
+     justify-content: flex-start;
+     padding-left: var(--burger-size);
+     margin: 0 auto 0 0 ;
+    }
 }
 
 .logoFixed {
