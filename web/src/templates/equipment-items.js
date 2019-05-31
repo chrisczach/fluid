@@ -119,7 +119,7 @@ const EquipmentItemTemplate = props => {
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
   const [imageResizeListener, imageSizes] = useResizeAware()
-
+  return <WaveBackground />
   let heightPercentage
 
   try {
@@ -155,7 +155,7 @@ const EquipmentItemTemplate = props => {
           &larr; back to {equipment.categories.title.toLowerCase()} category
         </Link>
         <h1 className={styles.titleText}>{equipment.title.toLowerCase()}</h1>
-        <p className={paragraph}>{equipment.excerpt}</p>
+        {/* <p className={paragraph}>{equipment.excerpt}</p> */}
         <div className={styles.blockText}>
           <EquipmentBlockContent blocks={equipment._rawBody || []} />
         </div>

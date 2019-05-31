@@ -18,6 +18,7 @@ body {
   -webkit-font-smoothing: antialiased;
   margin: 0;
   overflow: hidden;
+  background: #0D2448;
 }
 
 html,

@@ -54,31 +54,38 @@ export default function HeroVideo ({
     <div className={showSplash ? styles.heroWrap : styles.heroWrapHide}>
       {imageResizeListener}
       {showSplash && (
-        <YouTube
-          containerClassName={
-            showSplash && playing ? styles.videoStart : showSplash ? styles.video : styles.videoHide
-          }
-          className={showSplash ? styles.iFrame : styles.iFrameHide}
-          videoId={videoID}
-          opts={opts}
-          onReady={onReady(speed)}
-          onEnd={onEnd(stopSplashHandler)}
-          onStateChange={({ data }) => setPlaying(data === 1)}
-        />
-      )}
-      <div className={showSplash ? styles.overlay : styles.overlayHide}>
-        <Button style={{ margin: '6em' }} onClick={stopSplashHandler}>
-          browse equipment {isMobile}
-        </Button>
-      </div>
-      <div className={showSplash ? styles.largeLogo : styles.largeLogoHide}>
-        <div className={styles.logoWrap}>
-          <ReactSVG
-            className={styles.svgWrapper}
-            src={logo && imageUrlFor(buildImageObj(logo)).url()}
+        <>
+          <YouTube
+            containerClassName={
+              showSplash && playing
+                ? styles.videoStart
+                : showSplash
+                  ? styles.video
+                  : styles.videoHide
+            }
+            className={showSplash ? styles.iFrame : styles.iFrameHide}
+            videoId={videoID}
+            opts={opts}
+            onReady={onReady(speed)}
+            onEnd={onEnd(stopSplashHandler)}
+            onStateChange={({ data }) => setPlaying(data === 1)}
           />
-        </div>
-      </div>
+
+          <div className={showSplash ? styles.overlay : styles.overlayHide}>
+            <Button style={{ margin: '6em' }} onClick={stopSplashHandler}>
+              browse equipment {isMobile}
+            </Button>
+          </div>
+          <div className={!playing ? styles.largeLogo : styles.largeLogoHide}>
+            <div className={styles.logoWrap}>
+              <ReactSVG
+                className={styles.svgWrapper}
+                src={logo && imageUrlFor(buildImageObj(logo)).url()}
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }

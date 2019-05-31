@@ -1,8 +1,11 @@
 .titleText {
-  font-size: var(--font-title1-size);
+  font-size: calc(var(--font-title1-size)*1.5);
   font-family: var(--font-brand);
   color: var(--color-accent-light);
   font-weight: 100;
+  margin: 0.5em 0 1em 0;
+  text-align: center;
+  text-shadow: var(--text-shadow-heavy-close);
 }
 
 .blockText {
@@ -13,6 +16,7 @@
 .coverImage {
   opacity: 0.25;
   filter: brightness(0.5);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 4px 10px var(--color-accent-light);
 }
 
 .backLink {
@@ -32,7 +36,7 @@
   opacity: 1;
   top: 0;
   width: 100vw;
-  overflow: hidden;
+  
 }
 
 .headerImage {
@@ -40,4 +44,5 @@
   opacity: 1;
   position: absolute;
   top: 0;
+box-shadow: var(--box-shadow-2);
 }
