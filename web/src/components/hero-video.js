@@ -3,7 +3,7 @@ import YouTube from 'react-youtube'
 import useResizeAware from 'react-resize-aware'
 import styles from './hero-video.module.css'
 import Button from './button'
-import { cn, buildImageObj } from '../lib/helpers'
+import { cn, buildImageObj, detectIE } from '../lib/helpers'
 import ReactSVG from 'react-svg'
 import { imageUrlFor } from '../lib/image-url'
 
@@ -15,11 +15,21 @@ export default function HeroVideo({
   showSplash = true,
   stopSplashHandler
 }) {
+  let isMobile
+  try {
+    isMobile = screen.orientation.type && false
+  } catch (err) {
+    isMobile = true
+  }
+
+  if (isMobile) return null
+
   setTimeout(stopSplashHandler, 30000)
 
   const videoID = videoURL.split('v=')[1].split('&')[0]
   const [imageResizeListener, imageSizes] = useResizeAware()
   useEffect(() => {
+    if (detectIE) return null
     const handleScroll = event => {
       if (event.target.scrollTop > 100) {
         stopSplashHandler()
@@ -57,14 +67,7 @@ export default function HeroVideo({
   }
 
   const [playing, setPlaying] = useState(false)
-  let isMobile
-  try {
-    isMobile = screen.orientation.type && false
-  } catch (err) {
-    isMobile = true
-  }
 
-  if (isMobile) return null
   return (
     <div className={showSplash ? styles.heroWrap : styles.heroWrapHide}>
       {imageResizeListener}
