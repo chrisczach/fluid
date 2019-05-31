@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import YouTube from 'react-youtube'
 import useResizeAware from 'react-resize-aware'
 import styles from './hero-video.module.css'
@@ -28,13 +28,14 @@ export default function HeroVideo({
 
   const videoID = videoURL.split('v=')[1].split('&')[0]
   const [imageResizeListener, imageSizes] = useResizeAware()
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (detectIE()) return null
     const handleScroll = event => {
       if (event.target.scrollTop > 100) {
         stopSplashHandler()
-        event.target.scrollTop = 0
+        document.querySelector('#scroll').removeEventListener('scroll', handleScroll)
       }
+      console.log(`still listening`)
     }
 
     document.querySelector('#scroll').addEventListener('scroll', handleScroll)
