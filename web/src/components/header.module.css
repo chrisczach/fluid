@@ -71,7 +71,7 @@
   background: var(--color-main-dark);
   opacity: 0;
   @media (hover: hover) {
-    opacity: 0.75;
+    opacity: 0.25;
   }
   transition: var(--transition-short);
 }

@@ -127,9 +127,17 @@ const EquipmentItemTemplate = props => {
   } catch (err) {
     heightPercentage = 1
   }
+
+  let isMobile
+  try {
+    isMobile = screen.orientation.type && false
+  } catch (err) {
+    isMobile = true
+  }
+
   return (
     <>
-      {errors && <SEO title='GraphQL Error' />}
+      {errors && <SEO title="GraphQL Error" />}
       {equipment && <SEO title={equipment.title || 'Untitled'} />}
 
       {errors && (
@@ -144,7 +152,7 @@ const EquipmentItemTemplate = props => {
           asset={equipment.mainImage}
           fixed
           args={{
-            width: imageSizes.width,
+            width: isMobile ? imageSizes.height : imageSizes.width * 2 * heightPercentage,
             height: imageSizes.width * heightPercentage
           }}
         />

@@ -1,5 +1,5 @@
 .titleText {
-  font-size: calc(var(--font-title1-size)*1.5);
+  font-size: calc(var(--font-title1-size) * 1.5);
   font-family: var(--font-brand);
   color: var(--color-accent-light);
   font-weight: 100;
@@ -23,11 +23,11 @@
   text-decoration: none;
   color: var(--color-main-light);
   opacity: 0.5;
-    @media (hover: hover) {
-  @nest &:hover {
-    opacity: 0.95;
+  @media (hover: hover) {
+    @nest &:hover {
+      opacity: 0.95;
+    }
   }
-}
 }
 
 .headerImageWrap {
@@ -36,13 +36,16 @@
   opacity: 1;
   top: 0;
   width: 100vw;
-  
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.75), transparent);
 }
 
 .headerImage {
   z-index: 2;
   opacity: 1;
   position: absolute;
+  background: black;
   top: 0;
-box-shadow: var(--box-shadow-2);
+  box-shadow: var(--box-shadow-2);
+  left: 50%;
+  transform: translateX(-50%);
 }
