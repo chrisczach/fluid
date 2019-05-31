@@ -15,7 +15,7 @@
   width: 100vw;
   scroll-behavior: smooth;
   /* overflow: overlay; */
-  overflow: auto;
+  overflow: hidden auto;
 
   -webkit-overflow-scrolling: touch;
 }

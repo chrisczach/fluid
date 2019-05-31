@@ -29,7 +29,7 @@ export default function HeroVideo({
   const videoID = videoURL.split('v=')[1].split('&')[0]
   const [imageResizeListener, imageSizes] = useResizeAware()
   useEffect(() => {
-    if (detectIE) return null
+    if (detectIE()) return null
     const handleScroll = event => {
       if (event.target.scrollTop > 100) {
         stopSplashHandler()
