@@ -7,7 +7,7 @@ import { cn, buildImageObj } from '../lib/helpers'
 import ReactSVG from 'react-svg'
 import { imageUrlFor } from '../lib/image-url'
 
-export default function HeroVideo({
+export default function HeroVideo ({
   excerpt,
   logo,
   videoURL,
@@ -19,7 +19,7 @@ export default function HeroVideo({
   const [imageResizeListener, imageSizes] = useResizeAware()
 
   const opts = {
-    height: (imageSizes.width / 16) * 9,
+    height: String((imageSizes.width / 16) * 9),
     width: imageSizes.width,
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
@@ -72,6 +72,7 @@ export default function HeroVideo({
 
 const onReady = speed => event => {
   // access to player in all event handlers via event.target
+  event.target.playVideo()
   event.target.setPlaybackRate(speed)
 }
 

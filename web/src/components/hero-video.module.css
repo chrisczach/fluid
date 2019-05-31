@@ -1,3 +1,8 @@
+
+@media not (hover: hover) {}
+
+@media (hover: hover) { 
+
 .heroWrap {
   z-index: 600;
   position: relative;
@@ -123,4 +128,6 @@ path {
   height: auto;
   width: 50vw;
   fill: var(--color-main-light);
+}
+
 }
