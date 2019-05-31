@@ -31,12 +31,19 @@ export default function HeroVideo ({
       playlist: videoID,
       controls: 0,
       enablejsapi: 1,
-      origin: 'https://fluidpictures.chrisczach.com'
+      origin: location.hostname
     }
   }
 
   const [playing, setPlaying] = useState(false)
+  let isMobile
+  try {
+    isMobile = screen.orientation.type && false
+  } catch (err) {
+    isMobile = true
+  }
 
+  if (isMobile) return null
   return (
     <div className={showSplash ? styles.heroWrap : styles.heroWrapHide}>
       {imageResizeListener}
@@ -55,7 +62,7 @@ export default function HeroVideo ({
       )}
       <div className={showSplash ? styles.overlay : styles.overlayHide}>
         <Button style={{ margin: '6em' }} onClick={stopSplashHandler}>
-          browse equipment
+          browse equipment {isMobile}
         </Button>
       </div>
       <div className={showSplash ? styles.largeLogo : styles.largeLogoHide}>
