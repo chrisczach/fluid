@@ -31,8 +31,14 @@ export default function HeroVideo ({
       playlist: videoID,
       controls: 0,
       enablejsapi: 1,
-      origin: location.hostname
+      origin: null
     }
+  }
+
+  try {
+    opts.playerVars.origin = location.hostname
+  } catch (err) {
+    console.log('prevent build error')
   }
 
   const [playing, setPlaying] = useState(false)
