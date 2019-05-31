@@ -16,6 +16,7 @@ import EquipmentCategories from '../components/equipment-categories'
 import CoverImage from '../components/cover-image'
 import { ContactPageInner } from './contact'
 import HeroVideo from '../components/hero-video'
+
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
@@ -106,6 +107,10 @@ export const query = graphql`
       }
     }
 
+    home: sanityPage(_id: { regex: "/(drafts.|)home/" }) {
+      _rawBody
+    }
+
     equipment: sanityPage(_id: { regex: "/(drafts.|)equipment/" }) {
       title
     }
@@ -153,6 +158,7 @@ export const query = graphql`
 const IndexPage = props => {
   const { data, errors } = props
   const contact = data && data.contact
+  const home = data && data.home
   if (errors) {
     return <GraphQLErrorList errors={errors} />
   }
@@ -188,13 +194,15 @@ const IndexPage = props => {
 
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-
-        {categoryNodes && categoryNodes.length > 0 && (
-          <SectionBackground className={styles.equipmentSection}>
-            <h1 className={brandedTitle1}>{data.equipment.title.toLowerCase()}</h1>
-            <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
-          </SectionBackground>
-        )}
+        <SectionBackground className={styles.equipmentSection}>
+          <BlockContent blocks={home._rawBody || []} />
+          {categoryNodes && categoryNodes.length > 0 && (
+            <>
+              <h1 className={brandedTitle1}>{data.equipment.title.toLowerCase()}</h1>
+              <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
+            </>
+          )}
+        </SectionBackground>
         <ContactPageInner data={{ contact: contact }} />
       </Container>
       {site.background && (
