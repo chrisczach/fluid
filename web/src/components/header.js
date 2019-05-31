@@ -8,7 +8,13 @@ import { imageUrlFor } from '../lib/image-url'
 import styles from './header.module.css'
 
 const Header = () => {
-  const pathName = location.pathname.split('/')[1]
+  let pathName
+
+  try {
+    pathName = location.pathname.split('/')[1]
+  } catch (err) {
+    console.log('prevent build error when location undefined')
+  }
   return (
     <div className={styles.wrapper}>
       <Link
