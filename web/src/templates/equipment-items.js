@@ -119,9 +119,17 @@ const EquipmentItemTemplate = props => {
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
   const [imageResizeListener, imageSizes] = useResizeAware()
+
+  let heightPercentage
+
+  try {
+    heightPercentage = screen.orientation.type && 0.33
+  } catch (err) {
+    heightPercentage = 1
+  }
   return (
     <>
-      {errors && <SEO title="GraphQL Error" />}
+      {errors && <SEO title='GraphQL Error' />}
       {equipment && <SEO title={equipment.title || 'Untitled'} />}
 
       {errors && (
@@ -137,13 +145,13 @@ const EquipmentItemTemplate = props => {
           fixed
           args={{
             width: imageSizes.width,
-            height: imageSizes.width * 0.33
+            height: imageSizes.width * heightPercentage
           }}
         />
       </div>
       <Container>
+        <div style={{ height: imageSizes.width * heightPercentage - 32.5 }} />
         <Link to={`equipment/${equipment.categories.slug.current}`} className={styles.backLink}>
-          {' '}
           &larr; back to {equipment.categories.title.toLowerCase()} category
         </Link>
         <h1 className={styles.titleText}>{equipment.title.toLowerCase()}</h1>
