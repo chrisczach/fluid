@@ -22,7 +22,7 @@ export default function HeroVideo({
     isMobile = true
   }
 
-  if (isMobile) return null
+  if (isMobile || !showSplash) return null
 
   setTimeout(stopSplashHandler, 30000)
 

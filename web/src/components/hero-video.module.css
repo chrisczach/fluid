@@ -3,8 +3,9 @@
 
 .heroWrap {
   z-index: 600;
-  position: relative;
-  transform: translateY(-32px);
+  position: fixed;
+  top: 0;
+  left: 0;
   height: calc(100vw / 16 * 9);
   width: 100vw;
   display: flex;
@@ -98,9 +99,8 @@
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 3s;
   font-size: 10em;
   font-family: var(--font-brand);
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--color-main-dark);
   z-index: 600;
-  top: 0;
   width: 100vw;
   height: 100%;
   display: flex;
@@ -118,7 +118,6 @@
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.6);
-  top: 0;
   z-index: 600;
   width: 100vw;
   height: 100%;
