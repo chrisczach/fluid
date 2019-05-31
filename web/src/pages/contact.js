@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import useResizeAware from 'react-resize-aware'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
@@ -13,6 +13,8 @@ import { responsiveTitle1 } from '../components/typography.module.css'
 import CoverImage from '../components/cover-image'
 import SectionBackground from '../components/section-background'
 import { useWindowSize } from '../lib/helpers'
+import imdb from '../images/imdb.png'
+import instagram from '../images/instagram.png'
 
 export const query = graphql`
   query ContactPageQuery {
@@ -113,6 +115,23 @@ export const ContactPageInner = props => {
       >
         <div className={styles.contactText}>
           {contactResizeListener}
+          <div className={styles.social}>
+            Social:{' '}
+            <a
+              className={styles.socialLink}
+              target="_blank"
+              href="https://www.imdb.com/name/nm0247750/"
+            >
+              <img src={imdb} className={styles.socialLogo} />
+            </a>{' '}
+            <a
+              className={styles.socialLink}
+              target="_blank"
+              href="https://www.instagram.com/fluidpicturesinc/"
+            >
+              <img src={instagram} className={styles.socialLogo} />
+            </a>
+          </div>
           <BlockContent blocks={contact._rawBody || []} />
         </div>
         <div className={styles.mapWrapper}>

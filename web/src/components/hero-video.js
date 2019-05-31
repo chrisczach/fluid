@@ -7,7 +7,7 @@ import { cn, buildImageObj } from '../lib/helpers'
 import ReactSVG from 'react-svg'
 import { imageUrlFor } from '../lib/image-url'
 
-export default function HeroVideo ({
+export default function HeroVideo({
   excerpt,
   logo,
   videoURL,
@@ -15,6 +15,8 @@ export default function HeroVideo ({
   showSplash = true,
   stopSplashHandler
 }) {
+  setTimeout(stopSplashHandler, 30000)
+
   const videoID = videoURL.split('v=')[1].split('&')[0]
   const [imageResizeListener, imageSizes] = useResizeAware()
 
@@ -60,8 +62,8 @@ export default function HeroVideo ({
               showSplash && playing
                 ? styles.videoStart
                 : showSplash
-                  ? styles.video
-                  : styles.videoHide
+                ? styles.video
+                : styles.videoHide
             }
             className={showSplash ? styles.iFrame : styles.iFrameHide}
             videoId={videoID}

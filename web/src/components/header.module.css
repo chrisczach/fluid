@@ -4,21 +4,39 @@
 .root {
 }
 
-.link{
+.link {
   z-index: 700;
   text-decoration: none;
   color: var(--color-main-light);
-  padding-left: 1em;
+  padding: 0.5em;
+  margin: 0.5em;
   font-size: var(--burger-size);
   transition: var(--transition-short);
-  @media (hover:hover) {
-    @nest &:hover{
+  @media (hover: hover) {
+    @nest &:hover {
       color: var(--color-accent-light);
     }
   }
-    @media (max-width: 675px) {
+  @media (max-width: 675px) {
     opacity: 0 !important;
     display: none !important;
+  }
+
+  @nest &:after {
+    transition: var(--transition-long);
+    content: '';
+    display: block;
+    width: 0;
+    margin: 0 auto;
+
+    border-bottom: solid 2px var(--color-accent-light);
+  }
+}
+
+.activeLink {
+  color: var(--color-accent-light);
+  @nest &:after {
+    width: 100%;
   }
 }
 
@@ -32,7 +50,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-width: 100%;
+  width: 100%;
   @media (--media-min-small) {
     padding: 1.5em 1.5em;
   }
@@ -52,11 +70,16 @@ width: 100%;
   left: 0;
   background: var(--color-main-dark);
   opacity: 0;
+  @media (hover: hover) {
+    opacity: 0.75;
+  }
   transition: var(--transition-short);
 }
 
 .wrapper:hover::after {
-  opacity: 0.25;
+  @media (hover: hover) {
+    opacity: 1;
+  }
 }
 
 .branding {
@@ -90,14 +113,13 @@ width: 100%;
   align-items: center;
   position: relative;
   z-index: 200;
-  top: calc(var(--burger-size)*0.125*2);
-  height: calc(var(--burger-size)*1.25*2);
-
+  top: calc(var(--burger-size) * 0.125 * 2);
+  height: calc(var(--burger-size) * 1.25 * 2);
 }
 
 .svgWrapper svg,
 path {
-  height: calc(var(--burger-size)*1.25*2);
+  height: calc(var(--burger-size) * 1.25 * 2);
   width: auto;
   fill: var(--color-main-light);
 }
