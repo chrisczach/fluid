@@ -99,7 +99,7 @@
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 3s;
   font-size: 10em;
   font-family: var(--font-brand);
-  background: var(--color-main-dark);
+  background: var(--color-brand);
   z-index: 600;
   width: 100vw;
   height: 100%;
