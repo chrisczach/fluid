@@ -29,7 +29,13 @@ export default function EquipmentCategoryPreview ({
     })
   })
 
-  const slugs = categoryCounts[id]
+  let slugs
+
+  try {
+    slugs = categoryCounts[id]
+  } catch (err) {
+    slugs = []
+  }
   const parsedSlug = slugs && slugs.length === 1 ? `${current}/${slugs[0]}` : current
   console.log(parsedSlug)
   return (
