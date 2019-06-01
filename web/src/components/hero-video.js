@@ -7,7 +7,7 @@ import { cn, buildImageObj, detectIE } from '../lib/helpers'
 import ReactSVG from 'react-svg'
 import { imageUrlFor } from '../lib/image-url'
 
-export default function HeroVideo({
+export default function HeroVideo ({
   excerpt,
   logo,
   videoURL,
@@ -28,8 +28,9 @@ export default function HeroVideo({
 
   const videoID = videoURL.split('v=')[1].split('&')[0]
   const [imageResizeListener, imageSizes] = useResizeAware()
-  useLayoutEffect(() => {
-    if (detectIE()) return null
+  useLayoutEffect( () => {
+    //fix later, for some reason detectIE is blocking hero video on safari
+    // if (detectIE()) return null
     const handleScroll = event => {
       if (event.target.scrollTop > 100) {
         stopSplashHandler()
@@ -79,8 +80,8 @@ export default function HeroVideo({
               showSplash && playing
                 ? styles.videoStart
                 : showSplash
-                ? styles.video
-                : styles.videoHide
+                  ? styles.video
+                  : styles.videoHide
             }
             className={showSplash ? styles.iFrame : styles.iFrameHide}
             videoId={videoID}
