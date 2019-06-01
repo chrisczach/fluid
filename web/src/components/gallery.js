@@ -17,7 +17,7 @@ export default function Gallery ({ gallery }) {
 
   return (
     <>
-      <h1> className={typography.responsiveTitle1}Gallery</h1>
+      <h1 className={typography.responsiveTitle1}>Gallery</h1>
       <div className={styles.galleryWrapper}>
         <ImageGallery items={images} />
       </div>
