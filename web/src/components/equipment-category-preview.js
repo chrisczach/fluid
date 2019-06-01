@@ -12,7 +12,8 @@ export default function EquipmentCategoryPreview ({
   preslug,
   excerpt,
   mainImage,
-  grid
+  grid,
+  categoryCounts
 }) {
   const [imageResizeListener, imageSizes] = useResizeAware()
   const [contentResizeListener, contentSizes] = useResizeAware()
@@ -27,6 +28,10 @@ export default function EquipmentCategoryPreview ({
       setShowMobile(window.innerWidth < 900)
     })
   })
+
+  const slugs = categoryCounts[id]
+  const parsedSlug = slugs && slugs.length === 1 ? `${current}/${slugs[0]}` : current
+  console.log(parsedSlug)
   return (
     <div className={styles.wrapper} key={id}>
       <div className={styles.imageBlock}>
@@ -48,11 +53,11 @@ export default function EquipmentCategoryPreview ({
       </div>
       <div className={styles.contentBlock}>
         <div className={styles.titleText}>{title.toLowerCase()}</div>
-        <div className={styles.excerpt }>{ excerpt }</div>
+        <div className={styles.excerpt}>{excerpt}</div>
         {contentResizeListener}
       </div>
       <div className={styles.categoryLinkWrapper}>
-        <Button to={preslug + current} className={styles.categoryLink}>
+        <Button to={preslug + parsedSlug} className={styles.categoryLink}>
           view {title.toLowerCase()}
         </Button>
       </div>

@@ -110,6 +110,19 @@ export const query = graphql`
         }
       }
     }
+
+    equipmentItems: allSanityEquipment {
+      edges {
+        node {
+          slug {
+            current
+          }
+          categories {
+            id
+          }
+        }
+      }
+    }
   }
 `
 
@@ -120,18 +133,36 @@ const EquipmentPage = props => {
   }
   const equipment = data && data.equipment
   const site = data && data.site
+  const equipmentItems = data && data.equipmentItems
+
+  const getCategoryItemCount = ({ edges }) => {
+    const counts = {}
+    edges.forEach(({ node: { slug: { current }, categories: { id } } }) => {
+      if (counts[id] && counts[id].length > 0) {
+        counts[id].push(current)
+      } else {
+        counts[id] = [current]
+      }
+    })
+    return counts
+  }
+
   const categoryNodes =
     data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
   return (
     <>
-      <SEO title="equipment" />
+      <SEO title='equipment' />
       <Container>
         <div className={styles.blockText}>
           <BlockContent blocks={equipment._rawBody || []} />
         </div>
         <h1 className={brandedTitle1}>{equipment.title}</h1>
         {categoryNodes && categoryNodes.length > 0 && (
-          <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
+          <EquipmentCategories
+            slug={`equipment/`}
+            nodes={categoryNodes}
+            categoryCounts={getCategoryItemCount(equipmentItems)}
+          />
         )}
         <RequestInfoButton />
       </Container>

@@ -4,7 +4,7 @@ import { imageUrlFor } from '../lib/image-url'
 import { buildImageObj } from '../lib/helpers'
 import styles from './gallery.module.css'
 import 'react-image-gallery/styles/css/image-gallery.css'
-import typography from '../typography.module.css'
+import typography from '../components/typography.module.css'
 
 export default function Gallery ({ gallery }) {
   let images
