@@ -21,15 +21,15 @@ export default function HeroVideo ({
   } catch (err) {
     isMobile = true
   }
-
-  if (isMobile || !showSplash) return null
+  // fix later, for some reason detectIE is blocking hero video on safari
+  // if (isMobile || !showSplash) return null
 
   setTimeout(stopSplashHandler, 30000)
 
   const videoID = videoURL.split('v=')[1].split('&')[0]
   const [imageResizeListener, imageSizes] = useResizeAware()
-  useLayoutEffect( () => {
-    //fix later, for some reason detectIE is blocking hero video on safari
+  useLayoutEffect(() => {
+    // fix later, for some reason detectIE is blocking hero video on safari
     // if (detectIE()) return null
     const handleScroll = event => {
       if (event.target.scrollTop > 100) {
