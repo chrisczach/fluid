@@ -10,18 +10,17 @@
 .scroll {
   z-index: 0;
   position: relative;
-
   height: 100vh;
   width: 100vw;
   scroll-behavior: smooth;
   /* overflow: overlay; */
-  overflow: hidden auto;
-
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 @supports not (-ms-ime-align: auto) {
   .scroll {
-    overflow: overlay !important;
+    overflow-y: overlay !important;
   }
 
   @media screen and (orientation: landscape) {

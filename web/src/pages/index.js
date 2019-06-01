@@ -152,6 +152,19 @@ export const query = graphql`
         }
       }
     }
+
+    equipmentItems: allSanityEquipment {
+      edges {
+        node {
+          slug {
+            current
+          }
+          categories {
+            id
+          }
+        }
+      }
+    }
   }
 `
 
@@ -182,6 +195,20 @@ const IndexPage = props => {
   const categoryNodes =
     data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
 
+  const equipmentItems = data && data.equipmentItems
+
+  const getCategoryItemCount = ({ edges }) => {
+    const counts = {}
+    edges.forEach(({ node: { slug: { current }, categories: { id } } }) => {
+      if (counts[id] && counts[id].length > 0) {
+        counts[id].push(current)
+      } else {
+        counts[id] = [current]
+      }
+    })
+    return counts
+  }
+
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
@@ -199,7 +226,11 @@ const IndexPage = props => {
           {categoryNodes && categoryNodes.length > 0 && (
             <>
               <h1 className={brandedTitle1}>{data.equipment.title.toLowerCase()}</h1>
-              <EquipmentCategories slug={`equipment/`} nodes={categoryNodes} />
+              <EquipmentCategories
+                slug={`equipment/`}
+                nodes={categoryNodes}
+                categoryCounts={getCategoryItemCount(equipmentItems)}
+              />
             </>
           )}
         </SectionBackground>
