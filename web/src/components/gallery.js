@@ -2,35 +2,39 @@ import React from 'react'
 import ImageGallery from 'react-image-gallery'
 import { imageUrlFor } from '../lib/image-url'
 import { buildImageObj } from '../lib/helpers'
-import Image from './image'
-
+import styles from './gallery.module.css'
 import 'react-image-gallery/styles/css/image-gallery.css'
+import typography from '../typography.module.css'
 
 export default function Gallery ({ gallery }) {
+  let images
+  console.log((window.innerHeight / 4).toFixed(0))
+  try {
+    images = getUrls({ width: window.innerWidth, height: window.innerHeight })(gallery)
+  } catch (err) {
+    console.log(err)
+  }
 
-
-  const images = [
-    {
-      original: 'http://lorempixel.com/1000/600/nature/1/',
-      thumbnail: 'http://lorempixel.com/250/150/nature/1/'
-    },
-    {
-      original: 'http://lorempixel.com/1000/600/nature/2/',
-      thumbnail: 'http://lorempixel.com/250/150/nature/2/'
-    },
-    {
-      original: 'http://lorempixel.com/1000/600/nature/3/',
-      thumbnail: 'http://lorempixel.com/250/150/nature/3/'
-    }
-  ]
-
-  return <ImageGallery items={images} />
+  return (
+    <>
+      <h1> className={typography.responsiveTitle1}Gallery</h1>
+      <div className={styles.galleryWrapper}>
+        <ImageGallery items={images} />
+      </div>
+    </>
+  )
 }
 
-// const getUrl = ({ asset, args = null, fixed = true })=> {
-//   const imageArgs = { width: 1200, height: Math.floor((9 / 16) * 1200) }
-
-// return imageUrlFor(asset).width(args.width).height(args.height).url()
-  
-// }
-
+const getUrls = ({ width, height }) => gallery =>
+  gallery.slides.map(slide => {
+    return {
+      original: imageUrlFor(buildImageObj(slide))
+        .width(width)
+        .height(height)
+        .url(),
+      thumbnail: imageUrlFor(buildImageObj(slide))
+        .width((width / 4).toFixed(0))
+        .height((height / 4).toFixed(0))
+        .url()
+    }
+  })

@@ -1,0 +1,9 @@
+.galleryWrapper{
+  box-shadow: var(--box-shadow-2);
+  background: rgba(10,10,10,0.75);
+  @media (hover: hover) {
+  @nest &:hover{
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 4px 10px var(--color-accent-light);
+  }
+}
+}
