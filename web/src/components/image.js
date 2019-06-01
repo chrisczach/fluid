@@ -6,8 +6,7 @@ import { imageUrlFor } from '../lib/image-url'
 import { buildImageObj } from '../lib/helpers'
 import { join } from 'path'
 
-export default function Image ({ asset, args, fixed = false, ...props }) {
-  // console.log('asset', asset)
+export default function Image ({ asset, args, fixed = false, urlOnly = false, ...props }) {
   const imageArgs =
     args || (fixed ? { width: 1200, height: Math.floor((9 / 16) * 1200) } : { maxWidth: 1200 })
 
@@ -45,7 +44,7 @@ export default function Image ({ asset, args, fixed = false, ...props }) {
   imgProps.srcSet = imgProps.srcSet && addRect(imgProps.srcSet)
   imgProps.srcWebp = imgProps.srcWebp && addRect(imgProps.srcWebp)
   imgProps.srcSetWebp = imgProps.srcSetWebp && addRect(imgProps.srcSetWebp)
-
+  
   if (fixed) {
     return <Img fixed={{ ...imgProps }} alt={asset.alt} {...props} />
   } else {

@@ -14,6 +14,7 @@ import styles from './equipment-items.module.css'
 import CoverImage from '../components/cover-image'
 import RequestInfoButton from '../components/request-info-button'
 import Image from '../components/image'
+import Gallery from '../components/gallery';
 
 export const query = graphql`
   query EquipmentItemTemplateQuery($id: String!) {
@@ -169,6 +170,7 @@ const EquipmentItemTemplate = props => {
         </div>
 
         <RequestInfoButton />
+        <Gallery gallery={ equipment.gallery}/>
       </Container>
       {equipment.mainImage && (
         <CoverImage fixed asset={background} coverSize={1} className={styles.coverImage} />
