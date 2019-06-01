@@ -7,6 +7,7 @@ import 'react-image-gallery/styles/css/image-gallery.css'
 import typography from '../components/typography.module.css'
 
 export default function Gallery ({ gallery }) {
+  if (!gallery) return null
   let images
   let portrait = false
   try {

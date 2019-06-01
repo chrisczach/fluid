@@ -159,7 +159,7 @@ const EquipmentItemTemplate = props => {
         />
       </div>
       <Container>
-        <div style={{ height: imageSizes.width * heightPercentage - 32.5 }} />
+        <div style={{ height: imageSizes.width * heightPercentage + 35 }} />
         <Link to={`equipment/${equipment.categories.slug.current}`} className={styles.backLink}>
           &larr; back to {equipment.categories.title.toLowerCase()} category
         </Link>

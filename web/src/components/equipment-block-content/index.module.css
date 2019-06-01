@@ -2,16 +2,19 @@
   display: flex;
   flex-direction: column;
   @nest & ul {
-    margin: 2em auto;
-    display: inline-block;
-    justify-self: center;
-    @nest & li {
-      font-size: var(--font-large-size);
-      font-weight: 100;
-      line-height: 1.25em;
-      margin-bottom: 1em;
-    }
+    margin: 0.25em auto 1em auto;
+     font-weight: 100;
   }
+
+  @nest & li {
+
+      font-size: 1em;
+     line-height: 1.5;
+      margin:0 auto;
+    }
+
+  
+
 }
 
 .h1Style {
@@ -28,3 +31,4 @@
 
 .specsList {
 }
+
