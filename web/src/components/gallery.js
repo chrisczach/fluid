@@ -8,9 +8,13 @@ import typography from '../components/typography.module.css'
 
 export default function Gallery ({ gallery }) {
   let images
-  console.log((window.innerHeight / 4).toFixed(0))
+  let portrait = false
   try {
-    images = getUrls({ width: window.innerWidth, height: window.innerHeight })(gallery)
+    portrait = window.innerHeight > window.innerWidth
+    images = getUrls({
+      width: window.innerWidth,
+      height: portrait ? window.innerWidth : (window.innerWidth / 16) * 9
+    })(gallery)
   } catch (err) {
     console.log(err)
   }
@@ -30,7 +34,7 @@ const getUrls = ({ width, height }) => gallery =>
     return {
       original: imageUrlFor(buildImageObj(slide))
         .width(width)
-        .height(height)
+        .height(height.toFixed(0))
         .url(),
       thumbnail: imageUrlFor(buildImageObj(slide))
         .width((width / 4).toFixed(0))
