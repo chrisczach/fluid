@@ -9,14 +9,8 @@
 
 a {
   color: inherit;
-
   transition: var(--transition-short);
   text-decoration: none;
-  @media (hover: hover) {
-    @nest &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 
 .scroll {
