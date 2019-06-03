@@ -5,7 +5,7 @@ import Button from './button'
 import useResizeAware from 'react-resize-aware'
 import { detectIE } from '../lib/helpers'
 
-export default function EquipmentCategoryPreview ({
+export default function EquipmentCategoryPreview({
   id,
   title,
   slug: { current },
@@ -37,7 +37,7 @@ export default function EquipmentCategoryPreview ({
     slugs = []
   }
   const parsedSlug = slugs && slugs.length === 1 ? `${current}/${slugs[0]}` : current
-  console.log(parsedSlug)
+
   return (
     <div className={styles.wrapper} key={id}>
       <div className={styles.imageBlock}>

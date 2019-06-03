@@ -36,7 +36,7 @@ export function detectIE() {
   try {
     ua = window.navigator.userAgent
   } catch (e) {
-    return console.log('prevent build error')
+    null
   }
 
   // Test values; Uncomment to check result …

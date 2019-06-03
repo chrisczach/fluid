@@ -36,7 +36,7 @@ export default function HeroVideo({
         stopSplashHandler()
         document.querySelector('#scroll').removeEventListener('scroll', handleScroll)
       }
-      console.log(`still listening`)
+      null
     }
 
     document.querySelector('#scroll').addEventListener('scroll', handleScroll)
@@ -65,7 +65,7 @@ export default function HeroVideo({
   try {
     opts.playerVars.origin = location.hostname
   } catch (err) {
-    console.log('prevent build error')
+    null
   }
 
   const [playing, setPlaying] = useState(false)
@@ -92,7 +92,7 @@ export default function HeroVideo({
           />
 
           <div className={showSplash ? styles.overlay : styles.overlayHide}>
-            <Button style={{ margin: '6em auto' }} onClick={stopSplashHandler}>
+            <Button to="" style={{ margin: '6em auto' }} onClick={stopSplashHandler}>
               browse equipment
             </Button>
           </div>

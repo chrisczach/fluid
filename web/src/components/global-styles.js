@@ -42,7 +42,7 @@ export default function GlobalStyles({
       )
     }
   } catch (err) {
-    console.log('prevent build error when window is undefined')
+    null
   }
 
   useEffect(() => {

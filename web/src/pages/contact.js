@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import useResizeAware from 'react-resize-aware'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -102,8 +102,17 @@ export const ContactPageInner = props => {
   const [resizeListener, sizes] = useResizeAware()
   const [viewport, setViewport] = useState(location)
   const windowSize = useWindowSize()
-  const showColumns = windowSize.width < 1200
-  console.log(showColumns)
+  let [showColumns, setColumns] = useState(false)
+
+  useEffect(() => {
+    setColumns(windowSize.width < 1200)
+    window.addEventListener('resize', event => setColumns(event.target.innerWidth < 1200))
+
+    return () => {
+      window.removeEventListener('resize', event => setColumns(event.target.innerWidth < 1200))
+    }
+  })
+
   return (
     <SectionBackground className={styles.sectionBackground}>
       <h1 style={{ position: 'relative' }} className={responsiveTitle1}>

@@ -13,7 +13,7 @@ const Header = () => {
   try {
     pathName = location.pathname.split('/')[1]
   } catch (err) {
-    console.log('prevent build error when location undefined')
+    null
   }
   return (
     <div className={styles.wrapper}>

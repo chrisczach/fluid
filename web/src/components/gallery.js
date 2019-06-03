@@ -6,7 +6,7 @@ import styles from './gallery.module.css'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import typography from '../components/typography.module.css'
 
-export default function Gallery ({ gallery }) {
+export default function Gallery({ gallery }) {
   if (!gallery) return null
   let images
   let portrait = false
@@ -17,7 +17,7 @@ export default function Gallery ({ gallery }) {
       height: portrait ? window.innerWidth : (window.innerWidth / 16) * 9
     })(gallery)
   } catch (err) {
-    console.log(err)
+    null
   }
 
   return (

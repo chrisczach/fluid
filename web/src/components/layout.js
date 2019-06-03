@@ -19,24 +19,24 @@ const Layout = ({ children, companyInfo, siteSettings, location }) => {
   try {
     pathname = location.pathname
   } catch (err) {
-    console.log('prevent build error')
+    null
   }
 
   try {
     title = siteSettings.title
   } catch (err) {
-    console.log('prevent build error')
+    null
   }
   try {
     logo = siteSettings.logo
   } catch (err) {
-    console.log('prevent build error')
+    null
   }
 
   return (
     <GlobalStyles siteSettings={siteSettings}>
       <BurgerMenu siteTitle={title} logo={logo} />
-      <div id='page-wrap'>
+      <div id="page-wrap">
         <Header logo={logo} />
         <HeaderLogo logo={logo} />
         <Transition location={{ pathname }}>
@@ -47,14 +47,14 @@ const Layout = ({ children, companyInfo, siteSettings, location }) => {
 
         <footer className={styles.footer}>
           <div className={styles.footerWrapper}>
-            <Link className={styles.footerTitle} to='/'>
+            <Link className={styles.footerTitle} to="/">
               {title.toLowerCase()}
             </Link>
             <div className={styles.siteInfo}>
-              © {new Date().getFullYear()}, Built with <a href='https://www.sanity.io'>Sanity</a>{' '}
+              © {new Date().getFullYear()}, Built with <a href="https://www.sanity.io">Sanity</a>{' '}
               &amp;
               {` `}
-              <a href='https://www.gatsbyjs.org'>Gatsby</a>
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
             </div>
           </div>
         </footer>

@@ -6,25 +6,24 @@ import { imageUrlFor } from '../lib/image-url'
 import { buildImageObj } from '../lib/helpers'
 import { join } from 'path'
 
-export default function Image ({ asset, args, fixed = false, urlOnly = false, ...props }) {
+export default function Image({ asset, args, fixed = false, urlOnly = false, ...props }) {
   const imageArgs =
     args || (fixed ? { width: 1200, height: Math.floor((9 / 16) * 1200) } : { maxWidth: 1200 })
 
   const imgProps = fixed
     ? getFixedGatsbyImage(asset, imageArgs, sanityConfig.api)
     : getFluidGatsbyImage(asset, imageArgs, sanityConfig.api)
-  // console.log(imgProps)
+
   try {
     imgProps.base64 = asset.asset.metadata.lqip
   } catch (err) {
-    console.log(err)
+    null
   }
   let processedImg = imageUrlFor(asset)
   if (fixed) {
     processedImg = processedImg.width(args.width).height(args.height)
     processedImg = processedImg.url()
   } else {
-    console.log(imgProps)
     processedImg = processedImg.width(imageArgs.maxWidth)
 
     // if (!imageArgs.maxHeight) {
@@ -44,7 +43,7 @@ export default function Image ({ asset, args, fixed = false, urlOnly = false, ..
   imgProps.srcSet = imgProps.srcSet && addRect(imgProps.srcSet)
   imgProps.srcWebp = imgProps.srcWebp && addRect(imgProps.srcWebp)
   imgProps.srcSetWebp = imgProps.srcSetWebp && addRect(imgProps.srcSetWebp)
-  
+
   if (fixed) {
     return <Img fixed={{ ...imgProps }} alt={asset.alt} {...props} />
   } else {
