@@ -124,7 +124,7 @@ const EquipmentItemTemplate = props => {
   let heightPercentage
 
   try {
-    heightPercentage = screen.orientation.type && 0.33
+    heightPercentage = screen.orientation.type && 0.5
   } catch (err) {
     heightPercentage = 1
   }
@@ -138,7 +138,7 @@ const EquipmentItemTemplate = props => {
 
   return (
     <>
-      {errors && <SEO title='GraphQL Error' />}
+      {errors && <SEO title="GraphQL Error" />}
       {equipment && <SEO title={equipment.title || 'Untitled'} />}
 
       {errors && (
@@ -147,19 +147,20 @@ const EquipmentItemTemplate = props => {
         </Container>
       )}
       <div className={styles.headerImageWrap}>
-        {imageResizeListener}
         <Image
           className={styles.headerImage}
           asset={equipment.mainImage}
           fixed
           args={{
-            width: isMobile ? imageSizes.height : imageSizes.width * 2 * heightPercentage,
-            height: imageSizes.width * heightPercentage
+            width: imageSizes.width * 1,
+            height: imageSizes.height - 35
           }}
         />
       </div>
       <Container>
-        <div style={{ height: imageSizes.width * heightPercentage + 35 }} />
+        <div style={{ height: imageSizes.width * heightPercentage + 35, position: 'relative' }}>
+          {imageResizeListener}
+        </div>
         <Link to={`equipment/${equipment.categories.slug.current}`} className={styles.backLink}>
           &larr; back to {equipment.categories.title.toLowerCase()} category
         </Link>
