@@ -22,7 +22,7 @@ export default function HeroVideo({
     isMobile = true
   }
   // fix later, for some reason detectIE is blocking hero video on safari
-  // if (isMobile || !showSplash) return null
+  if (isMobile || !showSplash) return null
 
   setTimeout(stopSplashHandler, 30000)
 
@@ -93,7 +93,7 @@ export default function HeroVideo({
 
           <div className={showSplash ? styles.overlay : styles.overlayHide}>
             <Button style={{ margin: '6em auto' }} onClick={stopSplashHandler}>
-              browse equipment {isMobile}
+              browse equipment
             </Button>
           </div>
           <div className={!playing ? styles.largeLogo : styles.largeLogoHide}>
