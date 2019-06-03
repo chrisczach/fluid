@@ -45,7 +45,8 @@
     "react-sticky-el": "^1.0.20",
     "react-svg": "^9.0.4",
     "react-transition-group": "^4.0.1",
-    "react-youtube": "^7.9.0"
+    "react-youtube": "^7.9.0",
+    "@loadable/component": "^5.10.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

@@ -1,5 +1,6 @@
 import React, { useState, useLayoutEffect, lazy, Suspense } from 'react'
-const YouTube = lazy(() => import('react-youtube'))
+import loadable from '@loadable/component'
+const YouTube = loadable(() => import('react-youtube'))
 import useResizeAware from 'react-resize-aware'
 import styles from './hero-video.module.css'
 import Button from './button'
@@ -75,54 +76,34 @@ export default function HeroVideo({
       {imageResizeListener}
       {showSplash && (
         <>
-          <Suspense
-            fallback={
-              <>
-                <div className={showSplash ? styles.overlay : styles.overlayHide}>
-                  <Button to="" style={{ margin: '6em auto' }} onClick={stopSplashHandler}>
-                    browse equipment
-                  </Button>
-                </div>
-                <div className={!playing ? styles.largeLogo : styles.largeLogoHide}>
-                  <div className={styles.logoWrap}>
-                    <ReactSVG
-                      className={styles.svgWrapper}
-                      src={logo && imageUrlFor(buildImageObj(logo)).url()}
-                    />
-                  </div>
-                </div>
-              </>
+          <YouTube
+            containerClassName={
+              showSplash && playing
+                ? styles.videoStart
+                : showSplash
+                ? styles.video
+                : styles.videoHide
             }
-          >
-            <YouTube
-              containerClassName={
-                showSplash && playing
-                  ? styles.videoStart
-                  : showSplash
-                  ? styles.video
-                  : styles.videoHide
-              }
-              className={showSplash ? styles.iFrame : styles.iFrameHide}
-              videoId={videoID}
-              opts={opts}
-              onReady={onReady(speed)}
-              onEnd={onEnd(stopSplashHandler)}
-              onStateChange={({ data }) => setPlaying(data === 1)}
-            />
-            <div className={showSplash ? styles.overlay : styles.overlayHide}>
-              <Button to="" style={{ margin: '6em auto' }} onClick={stopSplashHandler}>
-                browse equipment
-              </Button>
+            className={showSplash ? styles.iFrame : styles.iFrameHide}
+            videoId={videoID}
+            opts={opts}
+            onReady={onReady(speed)}
+            onEnd={onEnd(stopSplashHandler)}
+            onStateChange={({ data }) => setPlaying(data === 1)}
+          />
+          <div className={showSplash ? styles.overlay : styles.overlayHide}>
+            <Button to="" style={{ margin: '6em auto' }} onClick={stopSplashHandler}>
+              browse equipment
+            </Button>
+          </div>
+          <div className={!playing ? styles.largeLogo : styles.largeLogoHide}>
+            <div className={styles.logoWrap}>
+              <ReactSVG
+                className={styles.svgWrapper}
+                src={logo && imageUrlFor(buildImageObj(logo)).url()}
+              />
             </div>
-            <div className={!playing ? styles.largeLogo : styles.largeLogoHide}>
-              <div className={styles.logoWrap}>
-                <ReactSVG
-                  className={styles.svgWrapper}
-                  src={logo && imageUrlFor(buildImageObj(logo)).url()}
-                />
-              </div>
-            </div>
-          </Suspense>
+          </div>
         </>
       )}
     </div>
