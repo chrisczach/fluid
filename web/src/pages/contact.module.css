@@ -80,3 +80,15 @@
     }
   }
 }
+
+a {
+  color: inherit;
+  transition: var(--transition-short);
+
+  @media (hover: hover) {
+    text-decoration: none;
+    @nest &:hover {
+      text-decoration: underline;
+    }
+  }
+}
