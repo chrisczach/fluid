@@ -23,6 +23,8 @@ const serializers = {
 
         case 'blockquote':
           return <blockquote className={typography.blockQuote}>{props.children}</blockquote>
+        case 'span':
+          return <span style={{ color: 'pink' }}>{props.children}</span>
 
         default:
           return <p className={typography.paragraph}>{props.children}</p>

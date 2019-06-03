@@ -7,6 +7,18 @@
   z-index: -2;
 }
 
+a {
+  color: inherit;
+
+  transition: var(--transition-short);
+  text-decoration: none;
+  @media (hover: hover) {
+    @nest &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 .scroll {
   z-index: 0;
   position: relative;
