@@ -212,12 +212,12 @@ const IndexPage = props => {
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <HeroVideo
+      {/* <HeroVideo
         {...site.heroVideo}
         logo={site.logo}
         showSplash={showSplash}
         stopSplashHandler={stopSplashHandler}
-      />
+      /> */}
 
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
