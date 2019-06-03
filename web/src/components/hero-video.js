@@ -7,7 +7,7 @@ import { cn, buildImageObj, detectIE } from '../lib/helpers'
 import ReactSVG from 'react-svg'
 import { imageUrlFor } from '../lib/image-url'
 
-export default function HeroVideo ({
+export default function HeroVideo({
   excerpt,
   logo,
   videoURL,
@@ -80,8 +80,8 @@ export default function HeroVideo ({
               showSplash && playing
                 ? styles.videoStart
                 : showSplash
-                  ? styles.video
-                  : styles.videoHide
+                ? styles.video
+                : styles.videoHide
             }
             className={showSplash ? styles.iFrame : styles.iFrameHide}
             videoId={videoID}
@@ -92,7 +92,7 @@ export default function HeroVideo ({
           />
 
           <div className={showSplash ? styles.overlay : styles.overlayHide}>
-            <Button style={{ margin: '6em' }} onClick={stopSplashHandler}>
+            <Button style={{ margin: '6em auto' }} onClick={stopSplashHandler}>
               browse equipment {isMobile}
             </Button>
           </div>
