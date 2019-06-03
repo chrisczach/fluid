@@ -126,7 +126,7 @@ const EquipmentItemTemplate = props => {
   try {
     heightPercentage = screen.orientation.type && 0.5
   } catch (err) {
-    heightPercentage = 1
+    heightPercentage = 0.75
   }
 
   let isMobile
