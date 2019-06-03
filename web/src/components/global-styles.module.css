@@ -66,3 +66,8 @@
   .scroll::-webkit-scrollbar-thumb {background: blue;}
   .scroll::-webkit-scrollbar-corner {background: blue;}
   .scroll::-webkit-resizer {background: blue;} */
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
