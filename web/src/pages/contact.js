@@ -102,7 +102,7 @@ export const ContactPageInner = props => {
   const [resizeListener, sizes] = useResizeAware()
   const [viewport, setViewport] = useState(location)
   const windowSize = useWindowSize()
-  const showColumns = windowSize.width < 900
+  const showColumns = windowSize.width < 1200
   console.log(showColumns)
   return (
     <SectionBackground className={styles.sectionBackground}>
