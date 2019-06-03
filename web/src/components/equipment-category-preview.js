@@ -38,6 +38,13 @@ export default function EquipmentCategoryPreview({
   }
   const parsedSlug = slugs && slugs.length === 1 ? `${current}/${slugs[0]}` : current
 
+  let ie
+  try {
+    ie = detectIE()
+  } catch (err) {
+    null
+  }
+
   return (
     <div className={styles.wrapper} key={id}>
       <div className={styles.imageBlock}>
@@ -50,8 +57,7 @@ export default function EquipmentCategoryPreview({
               fixed
               args={{
                 width: imageSizes.width,
-                height:
-                  detectIE() || showMobile ? imageSizes.width * 0.66 : contentSizes.height * 1.5
+                height: ie || showMobile ? imageSizes.width * 0.66 : contentSizes.height * 1.5
               }}
             />
           </>
