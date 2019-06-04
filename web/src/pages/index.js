@@ -11,6 +11,7 @@ import { brandedTitle1 } from '../components/typography.module.css'
 import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
 import styles from './index.module.css'
 import Loadable from 'react-loadable'
+import HeroVideo from '../components/hero-video'
 
 const LazyContact = Loadable({
   loader: () => import('../components/contact-inner'),
@@ -212,12 +213,12 @@ const IndexPage = props => {
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      {/* <HeroVideo
+      <HeroVideo
         {...site.heroVideo}
         logo={site.logo}
         showSplash={showSplash}
         stopSplashHandler={stopSplashHandler}
-      /> */}
+      />
 
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
