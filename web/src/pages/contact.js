@@ -135,16 +135,18 @@ export const ContactPageInner = props => {
             <a
               className={styles.socialLink}
               target="_blank"
+              alt="Dave Eastwood IMDb Profile"
               href="https://www.imdb.com/name/nm0247750/"
             >
-              <img src={imdb} className={styles.socialLogo} />
+              <img src={imdb} className={styles.socialLogo} alt="IMDb Logo" />
             </a>{' '}
             <a
               className={styles.socialLink}
               target="_blank"
+              alt="Fluid Pictures Inc Instagram"
               href="https://www.instagram.com/fluidpicturesinc/"
             >
-              <img src={instagram} className={styles.socialLogo} />
+              <img src={instagram} className={styles.socialLogo} alt="instagram logo" />
             </a>
           </div>
           <BlockContent blocks={contact._rawBody || []} />
