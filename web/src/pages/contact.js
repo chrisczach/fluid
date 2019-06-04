@@ -137,6 +137,7 @@ export const ContactPageInner = props => {
               target="_blank"
               alt="Dave Eastwood IMDb Profile"
               href="https://www.imdb.com/name/nm0247750/"
+              rel="noreferrer"
             >
               <img src={imdb} className={styles.socialLogo} alt="IMDb Logo" />
             </a>{' '}
@@ -145,6 +146,7 @@ export const ContactPageInner = props => {
               target="_blank"
               alt="Fluid Pictures Inc Instagram"
               href="https://www.instagram.com/fluidpicturesinc/"
+              rel="noreferrer"
             >
               <img src={instagram} className={styles.socialLogo} alt="instagram logo" />
             </a>
