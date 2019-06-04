@@ -30,16 +30,13 @@ export default function GlobalStyles({
   const scrollDiv = createRef()
   try {
     if (window) {
-      setTimeout(
-        () => (
-          scrollDiv.current.scrollIntoView({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-          }),
-          0
-        )
-      )
+      requestAnimationFrame(() => {
+        scrollDiv.current.scrollIntoView({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        })
+      })
     }
   } catch (err) {
     null
