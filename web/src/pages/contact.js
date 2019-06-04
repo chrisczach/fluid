@@ -14,6 +14,13 @@ import imdb from '../images/imdb.png'
 import instagram from '../images/instagram.png'
 import { useWindowSize } from '../lib/helpers'
 import styles from './contact.module.css'
+import Loadable from 'react-loadable';
+import {MapLoading} from '../compontents/Map'
+ 
+const LazyMap = Loadable({
+  loader: () => import('../compontents/Map'),
+  loading: MapLoading,
+});
 
 export const query = graphql`
   query ContactPageQuery {
@@ -95,9 +102,7 @@ export const ContactPageInner = props => {
     longitude: -118.59653,
     zoom: 13
   }
-
   const [contactResizeListener, contactSizes] = useResizeAware()
-  const [contactTextResizeListener, contactTextSizes] = useResizeAware()
   const [resizeListener, sizes] = useResizeAware()
   const [viewport, setViewport] = useState(location)
   const windowSize = useWindowSize()
@@ -111,6 +116,9 @@ export const ContactPageInner = props => {
       window.removeEventListener('resize', event => setColumns(event.target.innerWidth < 1200))
     }
   })
+
+  const width = showColumns ? contactSizes.width : sizes.width
+  const height = showColumns ? contactSizes.width : sizes.height
 
   return (
     <SectionBackground className={styles.sectionBackground}>
@@ -127,15 +135,15 @@ export const ContactPageInner = props => {
             Social:{' '}
             <a
               className={styles.socialLink}
-              target="_blank"
-              href="https://www.imdb.com/name/nm0247750/"
+              target='_blank'
+              href='https://www.imdb.com/name/nm0247750/'
             >
               <img src={imdb} className={styles.socialLogo} />
             </a>{' '}
             <a
               className={styles.socialLink}
-              target="_blank"
-              href="https://www.instagram.com/fluidpicturesinc/"
+              target='_blank'
+              href='https://www.instagram.com/fluidpicturesinc/'
             >
               <img src={instagram} className={styles.socialLogo} />
             </a>
@@ -144,22 +152,14 @@ export const ContactPageInner = props => {
         </div>
         <div className={styles.mapWrapper}>
           {resizeListener}
-          <ReactMapGL
-            {...viewport}
-            mapStyle="mapbox://styles/mapbox/dark-v10"
-            onViewportChange={setViewport}
-            width={showColumns ? contactSizes.width : sizes.width}
-            height={showColumns ? contactSizes.width : sizes.height}
-            mapboxApiAccessToken={process.env.GATSBY_MAPBOX_TOKEN}
-          >
-            <Popup closeButton={false} {...location} closeOnClick={false} anchor="bottom">
-              <div className={styles.marker}>Fluid Pictures Shop</div>
-            </Popup>
-          </ReactMapGL>
+          <LazyMap viewport={ viewport } setViewport={ setViewport } width={ width } height={ height } location={ location} />
         </div>
       </div>
     </SectionBackground>
   )
 }
+
+
+)
 
 export default ContactPage
