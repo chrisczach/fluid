@@ -1,18 +1,15 @@
-import React from 'react'
 import { graphql } from 'gatsby'
+import React from 'react'
 import BlockContent from '../components/block-content'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import PeopleGrid from '../components/people-grid'
-import SEO from '../components/seo'
-import styles from './about.module.css'
-import Layout from '../containers/layout'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
-
-import { responsiveTitle1 } from '../components/typography.module.css'
-import CoverImage from '../components/cover-image'
 import Button from '../components/button'
+import Container from '../components/container'
+import CoverImage from '../components/cover-image'
+import GraphQLErrorList from '../components/graphql-error-list'
 import SectionBackground from '../components/section-background'
+import SEO from '../components/seo'
+import { responsiveTitle1 } from '../components/typography.module.css'
+import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
+import styles from './about.module.css'
 
 export const query = graphql`
   query AboutPageQuery {

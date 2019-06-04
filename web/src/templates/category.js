@@ -1,17 +1,15 @@
-import React from 'react'
 import { graphql, Link } from 'gatsby'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import Project from '../components/project'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
-import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
-import { brandedTitle1 } from '../components/typography.module.css'
-import EquipmentItems from '../components/equipment-categories'
+import React from 'react'
 import BlockContent from '../components/block-content'
-import styles from './category.module.css'
+import Container from '../components/container'
 import CoverImage from '../components/cover-image'
+import EquipmentItems from '../components/equipment-categories'
+import GraphQLErrorList from '../components/graphql-error-list'
 import RequestInfoButton from '../components/request-info-button'
+import SEO from '../components/seo'
+import { brandedTitle1 } from '../components/typography.module.css'
+import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
+import styles from './category.module.css'
 
 export const query = graphql`
   query CategoryListTemplateQuery($id: String!) {
@@ -100,7 +98,7 @@ const ProjectTemplate = props => {
   const equipmentNodes = equipment && mapEdgesToNodes(equipment).filter(filterOutDocsWithoutSlugs)
   return (
     <>
-      {errors && <SEO title='GraphQL Error' />}
+      {errors && <SEO title="GraphQL Error" />}
       {category && <SEO title={category.title || 'Untitled'} />}
 
       {errors && (
@@ -110,7 +108,7 @@ const ProjectTemplate = props => {
       )}
       <Container>
         <div style={{ height: '2em' }} />
-        <Link to='equipment' className={styles.backLink}>
+        <Link to="equipment" className={styles.backLink}>
           &larr; back to equipment categories
         </Link>
         <h1 className={brandedTitle1}>{category.title.toLowerCase()}</h1>

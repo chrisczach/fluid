@@ -1,12 +1,12 @@
-import React, { useState, useLayoutEffect, lazy, Suspense } from 'react'
 import loadable from '@loadable/component'
-const YouTube = loadable(() => import('react-youtube'))
+import React, { useLayoutEffect, useState } from 'react'
 import useResizeAware from 'react-resize-aware'
-import styles from './hero-video.module.css'
-import Button from './button'
-import { cn, buildImageObj, detectIE } from '../lib/helpers'
 import ReactSVG from 'react-svg'
+import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
+import Button from './button'
+import styles from './hero-video.module.css'
+const YouTube = loadable(() => import('react-youtube'))
 
 export default function HeroVideo({
   excerpt,

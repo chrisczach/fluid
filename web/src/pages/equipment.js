@@ -1,17 +1,15 @@
-import React from 'react'
 import { graphql } from 'gatsby'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
-
-import { brandedTitle1 } from '../components/typography.module.css'
-import EquipmentCategories from '../components/equipment-categories'
+import React from 'react'
 import BlockContent from '../components/block-content'
-import styles from './equipment.module.css'
+import Container from '../components/container'
 import CoverImage from '../components/cover-image'
+import EquipmentCategories from '../components/equipment-categories'
+import GraphQLErrorList from '../components/graphql-error-list'
 import RequestInfoButton from '../components/request-info-button'
+import SEO from '../components/seo'
+import { brandedTitle1 } from '../components/typography.module.css'
+import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
+import styles from './equipment.module.css'
 
 export const query = graphql`
   query EquipmentCategoryPageQuery {
@@ -151,7 +149,7 @@ const EquipmentPage = props => {
     data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
   return (
     <>
-      <SEO title='equipment' />
+      <SEO title="equipment" />
       <Container>
         <div className={styles.blockText}>
           <BlockContent blocks={equipment._rawBody || []} />
