@@ -1,12 +1,13 @@
 import { graphql } from 'gatsby'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import React, { useEffect, useState } from 'react'
-import ReactMapGL, { Popup } from 'react-map-gl'
+import Loadable from 'react-loadable'
 import useResizeAware from 'react-resize-aware'
 import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import CoverImage from '../components/cover-image'
 import GraphQLErrorList from '../components/graphql-error-list'
+import { MapLoading } from '../components/Map'
 import SectionBackground from '../components/section-background'
 import SEO from '../components/seo'
 import { responsiveTitle1 } from '../components/typography.module.css'
@@ -14,13 +15,11 @@ import imdb from '../images/imdb.png'
 import instagram from '../images/instagram.png'
 import { useWindowSize } from '../lib/helpers'
 import styles from './contact.module.css'
-import Loadable from 'react-loadable';
-import {MapLoading} from '../compontents/Map'
- 
+
 const LazyMap = Loadable({
-  loader: () => import('../compontents/Map'),
-  loading: MapLoading,
-});
+  loader: () => import('../components/Map'),
+  loading: MapLoading
+})
 
 export const query = graphql`
   query ContactPageQuery {
@@ -135,15 +134,15 @@ export const ContactPageInner = props => {
             Social:{' '}
             <a
               className={styles.socialLink}
-              target='_blank'
-              href='https://www.imdb.com/name/nm0247750/'
+              target="_blank"
+              href="https://www.imdb.com/name/nm0247750/"
             >
               <img src={imdb} className={styles.socialLogo} />
             </a>{' '}
             <a
               className={styles.socialLink}
-              target='_blank'
-              href='https://www.instagram.com/fluidpicturesinc/'
+              target="_blank"
+              href="https://www.instagram.com/fluidpicturesinc/"
             >
               <img src={instagram} className={styles.socialLogo} />
             </a>
@@ -152,14 +151,17 @@ export const ContactPageInner = props => {
         </div>
         <div className={styles.mapWrapper}>
           {resizeListener}
-          <LazyMap viewport={ viewport } setViewport={ setViewport } width={ width } height={ height } location={ location} />
+          <LazyMap
+            viewport={viewport}
+            setViewport={setViewport}
+            width={width}
+            height={height}
+            location={location}
+          />
         </div>
       </div>
     </SectionBackground>
   )
 }
-
-
-)
 
 export default ContactPage
