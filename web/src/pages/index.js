@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
+import LoadableVisibility from 'react-loadable-visibility/react-loadable'
 import Loadable from 'react-loadable'
 import BlockContent from '../components/block-content'
 import Container from '../components/container'
@@ -17,9 +18,22 @@ const HeroVideo = Loadable({
   delay: 1000
 })
 
-const LazyContact = Loadable({
+const LazyContact = LoadableVisibility({
   loader: () => import('../components/contact-inner'),
-  loading: () => <div>Loading</div>
+  loading: () => (
+    <div
+      style={{
+        width: '100%',
+        height: '40em',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '2em'
+      }}
+    >
+      Loading...
+    </div>
+  )
 })
 
 export const query = graphql`
