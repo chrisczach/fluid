@@ -9,8 +9,13 @@ import SectionBackground from '../components/section-background'
 import SEO from '../components/seo'
 import { brandedTitle1 } from '../components/typography.module.css'
 import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
-import { ContactPageInner } from './contact'
 import styles from './index.module.css'
+import Loadable from 'react-loadable'
+
+const LazyContact = Loadable({
+  loader: () => import('../components/contact-inner'),
+  loading: () => <div>Loading</div>
+})
 
 export const query = graphql`
   query IndexPageQuery {
@@ -229,7 +234,7 @@ const IndexPage = props => {
             </>
           )}
         </SectionBackground>
-        <ContactPageInner data={{ contact: contact }} />
+        <LazyContact data={{ contact: contact }} />
       </Container>
       {site.background && (
         <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
