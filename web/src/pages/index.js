@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
+import Loadable from 'react-loadable'
 import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import CoverImage from '../components/cover-image'
@@ -10,8 +11,11 @@ import SEO from '../components/seo'
 import { brandedTitle1 } from '../components/typography.module.css'
 import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
 import styles from './index.module.css'
-import Loadable from 'react-loadable'
-import HeroVideo from '../components/hero-video'
+const HeroVideo = Loadable({
+  loader: () => import('../components/hero-video'),
+  loading: () => null,
+  delay: 1000
+})
 
 const LazyContact = Loadable({
   loader: () => import('../components/contact-inner'),
@@ -213,13 +217,6 @@ const IndexPage = props => {
   return (
     <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <HeroVideo
-        {...site.heroVideo}
-        logo={site.logo}
-        showSplash={showSplash}
-        stopSplashHandler={stopSplashHandler}
-      />
-
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
         <SectionBackground className={styles.equipmentSection}>
@@ -240,6 +237,12 @@ const IndexPage = props => {
       {site.background && (
         <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
       )}
+      <HeroVideo
+        {...site.heroVideo}
+        logo={site.logo}
+        showSplash={showSplash}
+        stopSplashHandler={stopSplashHandler}
+      />
     </>
   )
 }
