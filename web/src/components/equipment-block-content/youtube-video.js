@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import YouTube from 'react-youtube'
 import useResizeAware from 'react-resize-aware'
+import YouTube from 'react-youtube'
 import styles from './youtube-video.module.css'
 
 export default function YoutubeVideo({ excerpt, videoURL, speed = 1 }) {

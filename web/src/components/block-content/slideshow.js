@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import { buildImageObj } from '../../lib/helpers'
-import { imageUrlFor } from '../../lib/image-url'
 import Image from '../image'
-import ImageBlurUp from '../image-blur-up'
 import styles from './slideshow.module.css'
 
 function Slideshow(props) {
