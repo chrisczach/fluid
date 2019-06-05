@@ -142,7 +142,7 @@ path {
   fill: var(--color-main-light);
 }
 
-@media not (hover: hover) {
+@media (hover: none) {
   .heroWrap,
   .heroWrapHide,
   .video,
