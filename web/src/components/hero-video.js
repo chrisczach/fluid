@@ -26,8 +26,8 @@ export default function HeroVideo({
   } catch (err) {
     isMobile = true
   }
-  // fix later, for some reason detectIE is blocking hero video on safari
-  if (isMobile || !showSplash) return null
+  // // fix later, for some reason detectIE is blocking hero video on safari
+  // if (isMobile || !showSplash) return null
 
   setTimeout(stopSplashHandler, 30000)
 

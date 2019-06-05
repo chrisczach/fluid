@@ -1,6 +1,3 @@
-@media not (hover: hover) {
-}
-
 .heroWrap {
   z-index: 600;
   position: fixed;
@@ -143,4 +140,21 @@ path {
   height: 80%;
   width: 50vw;
   fill: var(--color-main-light);
+}
+
+@media not (hover: hover) {
+  .heroWrap,
+  .heroWrapHide,
+  .video,
+  .videoHide,
+  .videoStart,
+  .overlay,
+  .overlayHide,
+  .iFrame,
+  .iFrameHide,
+  .largeLogo,
+  .largeLogoHide,
+  .logoWrap {
+    opacity: 0 !important;
+  }
 }
