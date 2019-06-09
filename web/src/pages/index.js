@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 import LoadableVisibility from 'react-loadable-visibility/react-loadable'
-import Loadable from 'react-loadable'
+// import Loadable from 'react-loadable'
 import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import CoverImage from '../components/cover-image'
@@ -12,11 +12,11 @@ import SEO from '../components/seo'
 import { brandedTitle1 } from '../components/typography.module.css'
 import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
 import styles from './index.module.css'
-const HeroVideo = Loadable({
-  loader: () => import('../components/hero-video'),
-  loading: () => null,
-  delay: 1000
-})
+// const HeroVideo = Loadable({
+//   loader: () => import('../components/hero-video'),
+//   loading: () => null,
+//   delay: 1000
+// })
 
 const LazyContact = LoadableVisibility({
   loader: () => import('../components/contact-inner'),
@@ -251,12 +251,12 @@ const IndexPage = props => {
       {site.background && (
         <CoverImage fixed asset={site.background} coverSize={1} className={styles.coverImage} />
       )}
-      <HeroVideo
+      {/* <HeroVideo
         {...site.heroVideo}
         logo={site.logo}
         showSplash={showSplash}
         stopSplashHandler={stopSplashHandler}
-      />
+      /> */}
     </>
   )
 }
