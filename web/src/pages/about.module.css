@@ -16,3 +16,42 @@
   opacity: 0.5;
   filter: brightness(0.5);
 }
+
+.social {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.25em;
+  font-weight: 100;
+  margin-bottom: 1em;
+}
+
+.socialLink {
+  margin: 0 0 0 0.75em;
+}
+
+@keyframes zoomLogo {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg) translateY(-5%);
+  }
+  100% {
+    transform: scale(1.025);
+  }
+}
+
+.socialLogo {
+  height: 2em;
+  transition: var(--transition-short);
+  @media (hover: hover) {
+    @nest &:hover {
+      transform: scale(1.1);
+      animation: zoomLogo 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+    }
+  }
+}

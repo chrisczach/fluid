@@ -10,6 +10,8 @@ import SEO from '../components/seo'
 import { responsiveTitle1 } from '../components/typography.module.css'
 import { filterOutDocsWithoutSlugs, mapEdgesToNodes } from '../lib/helpers'
 import styles from './about.module.css'
+import imdb from '../images/imdb.png'
+import instagram from '../images/instagram.png'
 
 export const query = graphql`
   query AboutPageQuery {
@@ -90,9 +92,31 @@ const AboutPage = props => {
       <Container>
         <SectionBackground className={styles.sectionBackground}>
           <h1 className={responsiveTitle1}>{page.title}</h1>
-          <div className={styles.aboutText}>
+
+          <div className={ styles.aboutText }>
+            <div className={ styles.social }>
+              Social:{ ' ' }
+              <a
+                className={ styles.socialLink }
+                target='_blank'
+                alt='Dave Eastwood IMDb Profile'
+                href='https://www.imdb.com/name/nm0247750/'
+                rel='noreferrer'
+              >
+                <img src={ imdb } className={ styles.socialLogo } alt='IMDb Logo' />
+              </a>{ ' ' }
+              <a
+                className={ styles.socialLink }
+                target='_blank'
+                alt='Fluid Pictures Inc Instagram'
+                href='https://www.instagram.com/fluidpicturesinc/'
+                rel='noreferrer'
+              >
+                <img src={ instagram } className={ styles.socialLogo } alt='instagram logo' />
+              </a>
+            </div>
             <BlockContent blocks={page._rawBody || []} />
-            <Button to="/contact" className={styles.alignButton}>
+            <Button to='/contact' className={styles.alignButton}>
               contact us
             </Button>
           </div>

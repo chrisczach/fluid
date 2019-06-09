@@ -208,8 +208,8 @@ const IndexPage = props => {
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     )
   }
-  const [showSplash, setSplash] = useState(true)
-  const stopSplashHandler = () => setSplash(false)
+  // const [showSplash, setSplash] = useState(true)
+  // const stopSplashHandler = () => setSplash(false)
 
   const categoryNodes =
     data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
