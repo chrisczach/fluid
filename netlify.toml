@@ -6,3 +6,8 @@
 [[redirects]]
   from = "/studio"
   to = "https://fluid.sanity.studio/desk"
+  
+[[headers]]
+  for = "/path/to/serviceworker.js"
+  [headers.values]
+    cache-control = "max-age=0,no-cache,no-store,must-revalidate"
