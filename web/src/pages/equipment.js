@@ -154,7 +154,7 @@ const EquipmentPage = props => {
         <div className={styles.blockText}>
           <BlockContent blocks={equipment._rawBody || []} />
         </div>
-        <h1 className={brandedTitle1}>{equipment.title}</h1>
+        {/* <h1 className={brandedTitle1}>{equipment.title}</h1> */}
         {categoryNodes && categoryNodes.length > 0 && (
           <EquipmentCategories
             slug={`equipment/`}

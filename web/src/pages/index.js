@@ -237,7 +237,7 @@ const IndexPage = props => {
           <BlockContent blocks={home._rawBody || []} />
           {categoryNodes && categoryNodes.length > 0 && (
             <>
-              <h1 className={brandedTitle1}>{data.equipment.title.toLowerCase()}</h1>
+              {/* <h1 className={brandedTitle1}>{data.equipment.title.toLowerCase()}</h1> */}
               <EquipmentCategories
                 slug={`equipment/`}
                 nodes={categoryNodes}
