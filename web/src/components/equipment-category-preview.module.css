@@ -36,42 +36,42 @@
   background: rgba(20, 20, 20, 0.75);
   box-shadow: var(--box-shadow-1);
   transition: var(--transition-short);
-  
+
   @media (--media-max-large) {
-flex-direction: column;
+    flex-direction: column;
   }
   @media (hover: hover) {
     background: rgba(0, 0, 0, 0.25);
-  @nest &:hover {
-    background: rgba(0, 0, 0, 0.50);
-    box-shadow: var(--box-shadow-2);
-    animation: zoomBackground 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) both;
-  }
-  @nest &:hover .imageOverlay {
-    background: rgba(0, 0, 0, 0.1);
-    /* @nest & .titleText {
+    @nest &:hover {
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: var(--box-shadow-2);
+      animation: zoomBackground 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+    }
+    @nest &:hover .imageOverlay {
+      /* background: rgba(0, 0, 0, 0.1); */
+      /* @nest & .titleText {
       animation: zoomTitle 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
     } */
+    }
   }
-}
 }
 
 .imageBlock {
   position: relative;
-flex-basis: 1;
-height: 100%;
+  flex-basis: 1;
+  height: 100%;
 }
 
 .contentBlock {
   /* text-shadow: var(--text-shadow-light-close); */
   position: relative;
-flex-basis: 1;
-height: 100%;
+  flex-basis: 1;
+  height: 100%;
   padding: 2em 2em 2em 2em;
 }
 
 .titleText {
-    font-size: 2em;
+  font-size: 2em;
   font-family: var(--font-brand);
   padding-bottom: 0.5em;
   color: var(--color-accent-light);
@@ -79,9 +79,6 @@ height: 100%;
 
 .imageOverlay {
   transition: var(--transition-short);
-  @media (hover:hover) {
-  background: rgba(0, 0, 0, 0.5);
-  }
   position: absolute;
   display: flex;
   justify-content: center;
@@ -94,10 +91,8 @@ height: 100%;
   text-shadow: var(--text-shadow-heavy-close);
 }
 
-
 .gridImageOverlay {
   transition: var(--transition-short);
-  background: rgba(0, 0, 0, 0.5);
   font-size: 2em;
   font-family: var(--font-brand);
   position: absolute;
@@ -120,14 +115,12 @@ height: 100%;
 
   @media (--media-max-large) {
     position: relative;
-    
   }
 }
 
 .categoryLink {
-  margin: 2em
+  margin: 2em;
 }
 
-.excerpt{
-
+.excerpt {
 }
