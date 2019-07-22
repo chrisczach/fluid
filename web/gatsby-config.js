@@ -10,11 +10,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Fluid Pictures',
-        short_name: 'Fluid Pictures',
+        name: 'Fluid Pictures Inc',
+        short_name: 'Fluid Pictures Inc',
         start_url: '/',
-        background_color: '#F1F2F1',
-        theme_color: '#B87C6E',
+        background_color: '#0D2448',
+        theme_color: '#0D2448',
         display: 'standalone',
         icon: 'src/images/logo.png' // This path is relative to the root of the site.
       }
@@ -56,7 +56,7 @@ module.exports = {
  * with directions to enter the info manually or in the environment.
  */
 
-function requireConfig (path) {
+function requireConfig(path) {
   try {
     return require('../studio/sanity.json')
   } catch (e) {
