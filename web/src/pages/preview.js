@@ -21,23 +21,23 @@ import { StaticQuery, graphql } from 'gatsby'
 // }
 
 export default function preview() {
-  let id
-  let weirdHackForBuildError
+  let id = false
+
   try {
     id = getUrlParameter('document')
-    weirdHackForBuildError = (
-      <StaticQuery
-        query={query}
-        render={({ site, allSanityEquipment: { equipmentList } }) => {
-          const equipment = equipmentList.find(({ _id }) => _id === id)
-          return EquipmentItemTemplate({ data: { site, equipment } })
-        }}
-      />
-    )
-  } catch (e) {
-    weirdHackForBuildError = <div>Something to fix build error</div>
-  }
-  return weirdHackForBuildError
+  } catch (e) {}
+
+  return id ? (
+    <StaticQuery
+      query={query}
+      render={({ site, allSanityEquipment: { equipmentList } }) => {
+        const equipment = equipmentList.find(({ _id }) => _id === id)
+        return EquipmentItemTemplate({ data: { site, equipment } })
+      }}
+    />
+  ) : (
+    <div>fix for build error</div>
+  )
 }
 
 const getUrlParameter = name => {
