@@ -1,3 +1,3 @@
 export default function resolveProductionUrl(document) {
-  return `https://fluidpictures.netlify.com/preview?document=${document._id}`;
+  return `http://localhost:8000/preview?document=${document._id}`;
 }

@@ -110,7 +110,7 @@ export const query = graphql`
   }
 `
 
-const EquipmentItemTemplate = props => {
+export const EquipmentItemTemplate = props => {
   const { data, errors } = props
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
