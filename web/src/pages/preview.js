@@ -21,9 +21,10 @@ import { StaticQuery, graphql } from 'gatsby'
 // }
 
 export default function preview() {
-  const id = getUrlParameter('document')
+  let id
   let weirdHackForBuildError
   try {
+    id = getUrlParameter('document')
     weirdHackForBuildError = (
       <StaticQuery
         query={query}
