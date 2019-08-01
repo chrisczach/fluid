@@ -14,7 +14,7 @@ export default function Gallery({ gallery }) {
     portrait = window.innerHeight > window.innerWidth
     images = getUrls({
       width: window.innerWidth,
-      height: portrait ? window.innerWidth : (window.innerWidth / 16) * 9
+      height: portrait ? window.innerWidth : (window.innerWidth / 3) * 2
     })(gallery)
   } catch (err) {
     null
