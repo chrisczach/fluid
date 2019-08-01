@@ -13,8 +13,7 @@ export default function Gallery({ gallery }) {
   try {
     portrait = window.innerHeight > window.innerWidth
     images = getUrls({
-      width: window.innerWidth,
-      height: portrait ? window.innerWidth : (window.innerWidth / 3) * 2
+      width: window.innerWidth
     })(gallery)
   } catch (err) {
     null
@@ -35,11 +34,9 @@ const getUrls = ({ width, height }) => gallery =>
     return {
       original: imageUrlFor(buildImageObj(slide))
         .width(width)
-        .height(height.toFixed(0))
         .url(),
       thumbnail: imageUrlFor(buildImageObj(slide))
         .width((width / 4).toFixed(0))
-        .height((height / 4).toFixed(0))
         .url()
     }
   })
