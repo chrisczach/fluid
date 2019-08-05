@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { EquipmentItemTemplate } from '../templates/equipment-items'
+import { StaticQuery, graphql } from 'gatsby'
+
 // import sanityClient from '@sanity/client'
 // import BlogPostTemplate, { query } from '../templates/blog-post'
 
@@ -17,15 +20,132 @@ import React, { useState } from 'react'
 //   return <BlogPostTemplate data={previewData} />
 // }
 
-// const getUrlParameter = name => {
-//   try {
-//     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]')
-//     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)')
-//     var results = regex.exec(location.search)
-//     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
-//   } catch (err) {}
-// }
+export default function preview() {
+  let id = false
 
-export default function preview () {
-  return <div>preview</div>
+  try {
+    id = getUrlParameter('document')
+  } catch (e) {}
+
+  return id ? (
+    <StaticQuery
+      query={query}
+      render={({ site, allSanityEquipment: { equipmentList } }) => {
+        const equipment = equipmentList.find(({ _id }) => _id === id)
+        return EquipmentItemTemplate({ data: { site, equipment } })
+      }}
+    />
+  ) : (
+    <div>fix for build error</div>
+  )
 }
+
+const getUrlParameter = name => {
+  try {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]')
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)')
+    var results = regex.exec(location.search)
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
+  } catch (err) {}
+}
+
+const query = graphql`
+  query PreviewQuery {
+    allSanityEquipment {
+      equipmentList: nodes {
+        _id
+        title
+        categories {
+          title
+          slug {
+            current
+          }
+        }
+        gallery {
+          slides {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+              metadata {
+                lqip
+              }
+            }
+          }
+        }
+        _rawBody
+        slug {
+          current
+        }
+        excerpt
+        mainImage {
+          crop {
+            _key
+            _type
+            top
+            bottom
+            left
+            right
+          }
+          hotspot {
+            _key
+            _type
+            x
+            y
+            height
+            width
+          }
+          asset {
+            _id
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
+      }
+    }
+
+    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      background {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+          metadata {
+            lqip
+          }
+        }
+        alt
+      }
+    }
+  }
+`

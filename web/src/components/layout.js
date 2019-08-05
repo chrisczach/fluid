@@ -10,6 +10,8 @@ import { imageUrlFor } from '../lib/image-url'
 import Transition from './page-transition'
 import { Link } from 'gatsby'
 import HeaderLogo from './header-logo'
+import imdb from '../images/imdb.png'
+import instagram from '../images/instagram.png'
 
 const Layout = ({ children, companyInfo, siteSettings, location }) => {
   let logo
@@ -51,10 +53,27 @@ const Layout = ({ children, companyInfo, siteSettings, location }) => {
               {title.toLowerCase()}
             </Link>
             <div className={styles.siteInfo}>
-              © {new Date().getFullYear()}, Built with <a href="https://www.sanity.io">Sanity</a>{' '}
-              &amp;
-              {` `}
-              <a href="https://www.gatsbyjs.org">Gatsby</a>
+              <div className={styles.social}>
+                <a
+                  className={styles.socialLink}
+                  target="_blank"
+                  alt="Dave Eastwood IMDb Profile"
+                  href="https://www.imdb.com/name/nm0247750/"
+                  rel="noreferrer"
+                >
+                  <img src={imdb} className={styles.socialLogo} alt="IMDb Logo" />
+                </a>{' '}
+                <a
+                  className={styles.socialLink}
+                  target="_blank"
+                  alt="Fluid Pictures Inc Instagram"
+                  href="https://www.instagram.com/fluidpicturesinc/"
+                  rel="noreferrer"
+                >
+                  <img src={instagram} className={styles.socialLogo} alt="instagram logo" />
+                </a>
+              </div>
+              {/* © {new Date().getFullYear()} */}
             </div>
           </div>
         </footer>

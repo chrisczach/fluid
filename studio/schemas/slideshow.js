@@ -7,7 +7,14 @@ export default {
       type: "array",
       name: "slides",
       title: "Photos",
-      of: [{ type: "image" }],
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true
+          }
+        }
+      ],
       options: {
         layout: "grid"
       }
