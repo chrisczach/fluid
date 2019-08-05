@@ -76,12 +76,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Styling of overlay */
 .bm-overlay {
+    -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 .bm-overlay::before {
   height: 100%;
   width: 100%;
   position: absolute;
   content: '';
-  background: var(--color-main-light);
+  background: var(--color-main-dark);
   opacity: 0.3;
+
 }

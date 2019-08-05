@@ -36,7 +36,10 @@
   background: rgba(20, 20, 20, 0.75);
   box-shadow: var(--box-shadow-1);
   transition: var(--transition-short);
-  
+    --webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+
+
   @media (--media-max-large) {
 flex-direction: column;
   }
@@ -46,6 +49,8 @@ flex-direction: column;
     background: rgba(0, 0, 0, 0.50);
     box-shadow: var(--box-shadow-2);
     animation: zoomBackground 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+      --webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   }
   @nest &:hover .imageOverlay {
     background: rgba(0, 0, 0, 0.1);

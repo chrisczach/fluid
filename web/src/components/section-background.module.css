@@ -2,4 +2,12 @@
   /* position: relative; */
   background: linear-gradient(to bottom right, rgba(20, 20, 20, 0.75) 20%, rgba(20, 20, 20, 0.25));
   box-shadow: var(--box-shadow-2);
+    --webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+    transition: var(--transition-short);
+    @media (hover: hover) {
+  @nest &:hover {
+        --webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  }}
 }
