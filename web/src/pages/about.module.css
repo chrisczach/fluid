@@ -4,6 +4,12 @@
   margin-top: 2em;
   min-height: 50vh;
   z-index: 5 !important;
+     transition: var(--transition-short);
+      @media (hover: hover) {
+  @nest &:hover {
+        --webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  }}
 }
 
 .aboutText {
