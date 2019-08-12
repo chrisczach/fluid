@@ -123,27 +123,15 @@ export const EquipmentItemTemplate = props => {
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
   const [imageResizeListener, { height: heightAware }] = useResizeAware()
-  let height
-  let heightPercentage
+  let height = 800
 
   try {
-    heightPercentage = screen.orientation.type && 0.5
     height = heightAware
-  } catch (err) {
-    heightPercentage = 0.75
-    height = 800
-  }
-
-  let isMobile
-  try {
-    isMobile = screen.orientation.type && false
-  } catch (err) {
-    isMobile = true
-  }
+  } catch (err) {}
 
   const { index, next, prev, currentItem } = slideShowHandler([
     equipment.mainImage,
-    ...equipment.gallery.slides
+    ...(equipment.gallery && equipment.gallery.slides ? equipment.gallery.slides : [])
   ])
   return (
     <>
