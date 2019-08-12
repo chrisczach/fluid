@@ -51,31 +51,71 @@
   transform: translateX(-50%);
 }
 
-.currentImage{
-    position: relative;
+.currentImage {
+  position: relative;
   margin: calc(40px + 0.5em) 0.5em 0.5em 0.5em;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
   overflow: overlay hidden;
   -webkit-overflow-scrolling: touch;
   height: 50vh;
-  @media screen and (orientation: portrait){
+  @media screen and (orientation: portrait) {
     height: 25vh;
   }
 }
 
-.slider{
+.sliderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5em;
+}
+
+.slider {
   position: relative;
-    display: flex;
-  width: 100%;
-  overflow: overlay hidden;
+  display: inline-flex;
+  max-width: 100%;
+  overflow: auto hidden;
   -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
+  padding: 0.5em 0;
   height: 10vh;
-  @media screen and (orientation: portrait){
+  scroll-snap-type: x mandatory;
+  @media screen and (orientation: portrait) {
     height: 5vh;
   }
 }
 
-.slideButton{
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slideButton {
   width: 1fr;
+}
+
+.tile {
+  scroll-snap-align: start;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  margin: 0 0.125em;
+  border: 4px solid transparent;
+}
+
+.activeTile {
+  scroll-snap-align: start;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  margin: 0 0.125em;
+  border: 4px solid orange;
+}
+
+.mainWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

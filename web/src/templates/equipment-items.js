@@ -135,7 +135,7 @@ export const EquipmentItemTemplate = props => {
   ])
   return (
     <>
-      {errors && <SEO title='GraphQL Error' />}
+      {errors && <SEO title="GraphQL Error" />}
       {equipment && <SEO title={equipment.title || 'Untitled'} />}
 
       {errors && (
@@ -154,37 +154,16 @@ export const EquipmentItemTemplate = props => {
           }}
         />
       </div> */}
-      <div className={styles.currentImage}>
-        <div
-          style={{
-            width: `${Math.floor(
-              5 * height * currentItem.asset.metadata.dimensions.aspectRatio
-            )}px`,
-            height: `100%`,
-            // overflow: 'hidden',
-            position: 'relative',
-            flexShrink: 0
-          }}
-        >
-          <Image
-            asset={currentItem}
-            args={{
-              maxWidth: Math.floor(5 * height * currentItem.asset.metadata.dimensions.aspectRatio),
-              maxHeight: 5 * height
-            }}
-          />
-        </div>
-      </div>
-      <div className={styles.slider}>
-        {sliderListener}
-        {/* <button className={styles.prevButton} onClick={prev}>
+      <div className={styles.mainWrapper}>
+        <button className={styles.prevButton} onClick={prev}>
           Prev
-        </button> */}
-        {galleryArray.map((currentItem, index) => (
+        </button>
+        <div className={styles.currentImage}>
           <div
-            onClick={() => setIndex(index)}
             style={{
-              width: `${Math.floor(height * currentItem.asset.metadata.dimensions.aspectRatio)}px`,
+              width: `${Math.floor(
+                5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+              )}px`,
               height: `100%`,
               // overflow: 'hidden',
               position: 'relative',
@@ -194,16 +173,40 @@ export const EquipmentItemTemplate = props => {
             <Image
               asset={currentItem}
               args={{
-                maxWidth: Math.floor(height * currentItem.asset.metadata.dimensions.aspectRatio),
-                maxHeight: height
+                maxWidth: Math.floor(
+                  5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+                ),
+                maxHeight: 5 * height
               }}
             />
           </div>
-        ))}
-
-        {/* <button className={styles.nextButton} onClick={next}>
+        </div>
+        <button className={styles.nextButton} onClick={next}>
           Next
-        </button> */}
+        </button>
+      </div>
+      <div className={styles.sliderWrapper}>
+        <div className={styles.slider}>
+          {sliderListener}
+
+          {galleryArray.map((currentItem, i) => (
+            <div
+              onClick={() => setIndex(i)}
+              className={index === i ? styles.activeTile : styles.tile}
+              style={{
+                width: `${Math.floor(height * currentItem.asset.metadata.dimensions.aspectRatio)}px`
+              }}
+            >
+              <Image
+                asset={currentItem}
+                args={{
+                  maxWidth: Math.floor(height * currentItem.asset.metadata.dimensions.aspectRatio),
+                  maxHeight: height
+                }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
       <Container>
         {/* <div style={{ height: imageSizes.width * heightPercentage + 35, position: 'relative' }}>
