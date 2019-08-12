@@ -133,15 +133,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-backdrop-filter: blur(4px) brightness(0.7);
-  backdrop-filter: blur(4px) brightness(0.7);
+  -webkit-backdrop-filter: blur(8px) brightness(0.6);
+  backdrop-filter: blur(8px) brightness(0.6);
+  transition: var(--transition-short);
+}
+
+.mainWrapper:hover {
+  -webkit-backdrop-filter: blur(16px) brightness(0.5);
+  backdrop-filter: blur(16px) brightness(0.5);
 }
 
 .prevButton {
   cursor: pointer;
   position: absolute;
   left: 0;
-  padding: 2em;
+  padding: 0.5em;
   height: 100%;
   background: transparent;
   display: flex;
@@ -159,7 +165,7 @@
   z-index: 0;
   position: absolute;
   right: 0;
-  padding: 2em;
+  padding: 0.5em;
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -178,10 +184,35 @@
 
 .galleryWrapper {
   box-shadow: var(--box-shadow-2);
-  background: rgba(10, 10, 10, 0.75);
+  /* background: rgba(10, 10, 10, 0.75); */
   @media (hover: hover) {
     @nest &:hover {
       box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 4px 10px var(--color-accent-light);
     }
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

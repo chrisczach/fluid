@@ -158,20 +158,20 @@ export const EquipmentItemTemplate = props => {
         />
       </div> */}
       <div className={styles.galleryWrapper}>
-        <div className={styles.mainWrapper}>
+        <div className={styles.mainWrapper} style={{ height: `${5 * height}px` }}>
           {moreThanOne && (
             <button className={styles.prevButton} onClick={prev}>
               {'<'}
             </button>
           )}
 
-          <div className={styles.currentImage}>
+          <div className={styles.currentImage} style={{ height: `${5 * height}px` }}>
             <div
               style={{
                 width: `${Math.floor(
                   5 * height * currentItem.asset.metadata.dimensions.aspectRatio
                 )}px`,
-                height: `100%`,
+                height: `${5 * height}px`,
                 // overflow: 'hidden',
                 position: 'relative',
                 flexShrink: 0
