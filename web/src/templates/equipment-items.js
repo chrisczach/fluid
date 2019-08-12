@@ -26,22 +26,22 @@ export const query = graphql`
       }
       gallery {
         slides {
-          crop {
-            _key
-            _type
-            top
-            bottom
-            left
-            right
-          }
-          hotspot {
-            _key
-            _type
-            x
-            y
-            height
-            width
-          }
+          # crop {
+          #   _key
+          #   _type
+          #   top
+          #   bottom
+          #   left
+          #   right
+          # }
+          # hotspot {
+          #   _key
+          #   _type
+          #   x
+          #   y
+          #   height
+          #   width
+          # }
           asset {
             _id
             metadata {
@@ -130,7 +130,7 @@ export const EquipmentItemTemplate = props => {
   } catch (err) {}
 
   const { index, next, prev, currentItem, length, galleryArray, setIndex } = slideShowHandler([
-    equipment.mainImage,
+    { asset: equipment.mainImage.asset },
     ...(equipment.gallery && equipment.gallery.slides ? equipment.gallery.slides : [])
   ])
 
