@@ -100,9 +100,9 @@ export const EquipmentItemTemplate = props => {
     equipment.mainImage,
     ...(equipment.gallery && equipment.gallery.slides ? equipment.gallery.slides : [])
   ])
-  console.log(galleryArray)
+
   const moreThanOne = length !== 1
-  console.log(moreThanOne)
+
   return (
     <>
       {errors && <SEO title="GraphQL Error" />}
