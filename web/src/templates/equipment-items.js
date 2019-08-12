@@ -123,13 +123,15 @@ export const EquipmentItemTemplate = props => {
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
   const [imageResizeListener, { height: heightAware }] = useResizeAware()
-  const height = heightAware || 800;
+  let height
   let heightPercentage
 
   try {
     heightPercentage = screen.orientation.type && 0.5
+    height = heightAware
   } catch (err) {
     heightPercentage = 0.75
+    height = 800
   }
 
   let isMobile
