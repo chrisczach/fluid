@@ -10,6 +10,8 @@ import Image from '../components/image'
 import RequestInfoButton from '../components/request-info-button'
 import SEO from '../components/seo'
 import styles from './equipment-items.module.css'
+import { slideShowHandler } from '../lib/hooks'
+import { relative } from 'path'
 
 export const query = graphql`
   query EquipmentItemTemplateQuery($id: String!) {
@@ -44,6 +46,9 @@ export const query = graphql`
             _id
             metadata {
               lqip
+              dimensions {
+                aspectRatio
+              }
             }
           }
         }
@@ -74,6 +79,9 @@ export const query = graphql`
           _id
           metadata {
             lqip
+            dimensions {
+              aspectRatio
+            }
           }
         }
         alt
@@ -114,7 +122,7 @@ export const EquipmentItemTemplate = props => {
   const { data, errors } = props
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
-  const [imageResizeListener, imageSizes] = useResizeAware()
+  const [imageResizeListener, { height }] = useResizeAware()
 
   let heightPercentage
 
@@ -131,9 +139,13 @@ export const EquipmentItemTemplate = props => {
     isMobile = true
   }
 
+  const { index, next, prev, currentItem } = slideShowHandler([
+    equipment.mainImage,
+    ...equipment.gallery.slides
+  ])
   return (
     <>
-      {errors && <SEO title="GraphQL Error" />}
+      {errors && <SEO title='GraphQL Error' />}
       {equipment && <SEO title={equipment.title || 'Untitled'} />}
 
       {errors && (
@@ -141,7 +153,7 @@ export const EquipmentItemTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      <div className={styles.headerImageWrap}>
+      {/* <div className={styles.headerImageWrap}>
         <Image
           className={styles.headerImage}
           asset={equipment.mainImage}
@@ -151,11 +163,38 @@ export const EquipmentItemTemplate = props => {
             height: imageSizes.height - 35
           }}
         />
+      </div> */}
+      <div className={styles.slideshowWrapper}>
+        {imageResizeListener}
+        <button className={styles.prevButton} onClick={prev}>
+          Prev
+        </button>
+        <div
+          style={{
+            width: `${Math.floor(height / currentItem.asset.metadata.dimensions.aspectRatio)}px`,
+            height: `${height}px`,
+            // overflow: 'hidden',
+            position: 'relative'
+          }}
+        >
+          <Image
+            asset={currentItem}
+            args={{
+              maxWidth: Math.floor(height / currentItem.asset.metadata.dimensions.aspectRatio),
+              maxHeight: height
+            }}
+          />
+        </div>
+
+        <button className={styles.nextButton} onClick={next}>
+          Next
+        </button>
       </div>
       <Container>
-        <div style={{ height: imageSizes.width * heightPercentage + 35, position: 'relative' }}>
+        {/* <div style={{ height: imageSizes.width * heightPercentage + 35, position: 'relative' }}>
           {imageResizeListener}
-        </div>
+        </div> */}
+
         <Link to={`equipment/${equipment.categories.slug.current}`} className={styles.backLink}>
           &larr; back to {equipment.categories.title.toLowerCase()} category
         </Link>
@@ -165,7 +204,7 @@ export const EquipmentItemTemplate = props => {
           <EquipmentBlockContent blocks={equipment._rawBody || []} />
         </div>
         <RequestInfoButton />
-        <Gallery gallery={equipment.gallery} />
+        {/* <Gallery gallery={equipment.gallery} /> */}
       </Container>
       {equipment.mainImage && (
         <CoverImage fixed asset={background} coverSize={1} className={styles.coverImage} />
