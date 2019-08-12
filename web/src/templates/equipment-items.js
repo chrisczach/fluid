@@ -102,7 +102,13 @@ export const EquipmentItemTemplate = props => {
   ])
 
   const moreThanOne = length !== 1
-
+  const sliderRef = useRef()
+  const scrollTileToView = index =>
+    sliderRef.current.childNodes[index].scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    })
   return (
     <>
       {errors && <SEO title="GraphQL Error" />}
@@ -134,7 +140,10 @@ export const EquipmentItemTemplate = props => {
                 )}px`
               }}
               className={styles.prevButton}
-              onClick={prev}
+              onClick={() => {
+                prev()
+                scrollTileToView(index)
+              }}
             >
               {'<'}
             </button>
@@ -173,7 +182,10 @@ export const EquipmentItemTemplate = props => {
                 )}px`
               }}
               className={styles.nextButton}
-              onClick={next}
+              onClick={() => {
+                next()
+                scrollTileToView(index)
+              }}
             >
               {'>'}
             </button>
@@ -182,7 +194,7 @@ export const EquipmentItemTemplate = props => {
 
         {moreThanOne && (
           <div className={styles.sliderWrapper}>
-            <div className={styles.slider}>
+            <div className={styles.slider} ref={sliderRef}>
               {sliderListener}
 
               {galleryArray.map((currentItem, i) => {
