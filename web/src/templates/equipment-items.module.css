@@ -161,6 +161,7 @@
 
   @media screen and (orientation: portrait) {
     z-index: 2;
+    font-size: 2em;
   }
 }
 
@@ -182,6 +183,7 @@
 
   @media screen and (orientation: portrait) {
     z-index: 2;
+    font-size: 2em;
   }
 }
 

@@ -159,7 +159,7 @@ export const EquipmentItemTemplate = props => {
       </div> */}
       <div className={styles.galleryWrapper}>
         <div className={styles.mainWrapper} style={{ height: `${5 * height}px` }}>
-          {moreThanOne && (
+          {moreThanOne && index > 0 && (
             <button className={styles.prevButton} onClick={prev}>
               {'<'}
             </button>
@@ -189,7 +189,7 @@ export const EquipmentItemTemplate = props => {
             </div>
           </div>
 
-          {moreThanOne && (
+          {moreThanOne && index < length - 1 && (
             <button className={styles.nextButton} onClick={next}>
               {'>'}
             </button>
