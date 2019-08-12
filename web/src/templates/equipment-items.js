@@ -129,10 +129,13 @@ export const EquipmentItemTemplate = props => {
     height = heightAware
   } catch (err) {}
 
-  const { index, next, prev, currentItem, galleryArray, setIndex } = slideShowHandler([
+  const { index, next, prev, currentItem, length, galleryArray, setIndex } = slideShowHandler([
     equipment.mainImage,
     ...(equipment.gallery && equipment.gallery.slides ? equipment.gallery.slides : [])
   ])
+
+  const moreThanOne = length !== 1
+  console.log(moreThanOne)
   return (
     <>
       {errors && <SEO title="GraphQL Error" />}
@@ -154,60 +157,76 @@ export const EquipmentItemTemplate = props => {
           }}
         />
       </div> */}
-      <div className={styles.mainWrapper}>
-        <button className={styles.prevButton} onClick={prev}>
-          Prev
-        </button>
-        <div className={styles.currentImage}>
-          <div
-            style={{
-              width: `${Math.floor(
-                5 * height * currentItem.asset.metadata.dimensions.aspectRatio
-              )}px`,
-              height: `100%`,
-              // overflow: 'hidden',
-              position: 'relative',
-              flexShrink: 0
-            }}
-          >
-            <Image
-              asset={currentItem}
-              args={{
-                maxWidth: Math.floor(
-                  5 * height * currentItem.asset.metadata.dimensions.aspectRatio
-                ),
-                maxHeight: 5 * height
-              }}
-            />
-          </div>
-        </div>
-        <button className={styles.nextButton} onClick={next}>
-          Next
-        </button>
-      </div>
-      <div className={styles.sliderWrapper}>
-        <div className={styles.slider}>
-          {sliderListener}
+      <div className={styles.galleryWrapper}>
+        <div className={styles.mainWrapper}>
+          {moreThanOne && (
+            <button className={styles.prevButton} onClick={prev}>
+              {'<'}
+            </button>
+          )}
 
-          {galleryArray.map((currentItem, i) => (
+          <div className={styles.currentImage}>
             <div
-              onClick={() => setIndex(i)}
-              className={index === i ? styles.activeTile : styles.tile}
               style={{
-                width: `${Math.floor(height * currentItem.asset.metadata.dimensions.aspectRatio)}px`
+                width: `${Math.floor(
+                  5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+                )}px`,
+                height: `100%`,
+                // overflow: 'hidden',
+                position: 'relative',
+                flexShrink: 0
               }}
             >
               <Image
                 asset={currentItem}
                 args={{
-                  maxWidth: Math.floor(height * currentItem.asset.metadata.dimensions.aspectRatio),
-                  maxHeight: height
+                  maxWidth: Math.floor(
+                    5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+                  ),
+                  maxHeight: 5 * height
                 }}
               />
             </div>
-          ))}
+          </div>
+
+          {moreThanOne && (
+            <button className={styles.nextButton} onClick={next}>
+              {'>'}
+            </button>
+          )}
         </div>
+
+        {moreThanOne && (
+          <div className={styles.sliderWrapper}>
+            <div className={styles.slider}>
+              {sliderListener}
+
+              {galleryArray.map((currentItem, i) => (
+                <div
+                  onClick={() => setIndex(i)}
+                  className={index === i ? styles.activeTile : styles.tile}
+                  style={{
+                    width: `${Math.floor(
+                      height * currentItem.asset.metadata.dimensions.aspectRatio
+                    )}px`
+                  }}
+                >
+                  <Image
+                    asset={currentItem}
+                    args={{
+                      maxWidth: Math.floor(
+                        height * currentItem.asset.metadata.dimensions.aspectRatio
+                      ),
+                      maxHeight: height
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
+
       <Container>
         {/* <div style={{ height: imageSizes.width * heightPercentage + 35, position: 'relative' }}>
           {imageResizeListener}
