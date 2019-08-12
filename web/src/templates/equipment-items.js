@@ -100,7 +100,7 @@ export const EquipmentItemTemplate = props => {
     equipment.mainImage,
     ...(equipment.gallery && equipment.gallery.slides ? equipment.gallery.slides : [])
   ])
-
+  console.log(currentItem)
   const moreThanOne = length !== 1
   const sliderRef = useRef()
   const scrollTileToView = index =>
@@ -130,7 +130,14 @@ export const EquipmentItemTemplate = props => {
           }}
         />
       </div> */}
-      <div className={styles.galleryWrapper}>
+      <div
+        className={styles.galleryWrapper}
+        style={{
+          width: moreThanOne
+            ? '100%'
+            : `${Math.floor(5 * height * currentItem.asset.metadata.dimensions.aspectRatio)}px`
+        }}
+      >
         <div className={styles.mainWrapper} style={{ height: `${5 * height}px` }}>
           {moreThanOne && index > 0 && (
             <button
@@ -192,46 +199,51 @@ export const EquipmentItemTemplate = props => {
           )}
         </div>
 
-        {moreThanOne && (
-          <div className={styles.sliderWrapper}>
-            <div className={styles.slider} ref={sliderRef}>
-              {sliderListener}
+        <div
+          className={styles.sliderWrapper}
+          style={{
+            opacity: moreThanOne ? 1 : 0,
+            position: moreThanOne ? 'relative' : 'absolute',
+            bottom: 0
+          }}
+        >
+          <div className={styles.slider} ref={sliderRef}>
+            {sliderListener}
 
-              {galleryArray.map((currentItem, i) => {
-                return (
-                  <div
-                    id={i}
-                    onClick={({ target }) => {
-                      setIndex(i)
-                      target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'nearest',
-                        inline: 'center'
-                      })
-                    }}
-                    className={index === i ? styles.activeTile : styles.tile}
-                    style={{
-                      width: `${Math.floor(
+            {galleryArray.map((currentItem, i) => {
+              return (
+                <div
+                  id={i}
+                  onClick={({ target }) => {
+                    setIndex(i)
+                    target.scrollIntoView({
+                      behavior: 'smooth',
+                      block: 'nearest',
+                      inline: 'center'
+                    })
+                  }}
+                  className={index === i ? styles.activeTile : styles.tile}
+                  style={{
+                    width: `${Math.floor(
+                      height * currentItem.asset.metadata.dimensions.aspectRatio
+                    )}px`
+                  }}
+                >
+                  <Image
+                    asset={currentItem}
+                    aspectFixed
+                    args={{
+                      maxWidth: Math.floor(
                         height * currentItem.asset.metadata.dimensions.aspectRatio
-                      )}px`
+                      ),
+                      maxHeight: height
                     }}
-                  >
-                    <Image
-                      asset={currentItem}
-                      aspectFixed
-                      args={{
-                        maxWidth: Math.floor(
-                          height * currentItem.asset.metadata.dimensions.aspectRatio
-                        ),
-                        maxHeight: height
-                      }}
-                    />
-                  </div>
-                )
-              })}
-            </div>
+                  />
+                </div>
+              )
+            })}
           </div>
-        )}
+        </div>
       </div>
 
       <Container>

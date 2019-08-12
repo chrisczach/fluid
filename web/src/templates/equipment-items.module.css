@@ -198,6 +198,7 @@
   box-shadow: var(--box-shadow-2);
   background: radial-gradient(circle at center, #00000077, transparent);
   transition: var(--transition-short);
+  margin: 0 auto;
   @media (hover: hover) {
     @nest &:hover {
       background: radial-gradient(circle at center, #000000bb, transparent);
