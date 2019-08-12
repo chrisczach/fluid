@@ -122,14 +122,14 @@ export const EquipmentItemTemplate = props => {
   const { data, errors } = props
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
-  const [imageResizeListener, { height: heightAware }] = useResizeAware()
+  const [sliderListener, { height: heightAware }] = useResizeAware()
   let height = 800
 
   try {
     height = heightAware
   } catch (err) {}
 
-  const { index, next, prev, currentItem } = slideShowHandler([
+  const { index, next, prev, currentItem, galleryArray, setIndex } = slideShowHandler([
     equipment.mainImage,
     ...(equipment.gallery && equipment.gallery.slides ? equipment.gallery.slides : [])
   ])
@@ -154,31 +154,56 @@ export const EquipmentItemTemplate = props => {
           }}
         />
       </div> */}
-      <div className={styles.slideshowWrapper}>
-        {imageResizeListener}
-        <button className={styles.prevButton} onClick={prev}>
-          Prev
-        </button>
+      <div className={styles.currentImage}>
         <div
           style={{
-            width: `${Math.floor(height / currentItem.asset.metadata.dimensions.aspectRatio)}px`,
-            height: `${height}px`,
+            width: `${Math.floor(
+              5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+            )}px`,
+            height: `100%`,
             // overflow: 'hidden',
-            position: 'relative'
+            position: 'relative',
+            flexShrink: 0
           }}
         >
           <Image
             asset={currentItem}
             args={{
-              maxWidth: Math.floor(height / currentItem.asset.metadata.dimensions.aspectRatio),
-              maxHeight: height
+              maxWidth: Math.floor(5 * height * currentItem.asset.metadata.dimensions.aspectRatio),
+              maxHeight: 5 * height
             }}
           />
         </div>
+      </div>
+      <div className={styles.slider}>
+        {sliderListener}
+        {/* <button className={styles.prevButton} onClick={prev}>
+          Prev
+        </button> */}
+        {galleryArray.map((currentItem, index) => (
+          <div
+            onClick={() => setIndex(index)}
+            style={{
+              width: `${Math.floor(height * currentItem.asset.metadata.dimensions.aspectRatio)}px`,
+              height: `100%`,
+              // overflow: 'hidden',
+              position: 'relative',
+              flexShrink: 0
+            }}
+          >
+            <Image
+              asset={currentItem}
+              args={{
+                maxWidth: Math.floor(height * currentItem.asset.metadata.dimensions.aspectRatio),
+                maxHeight: height
+              }}
+            />
+          </div>
+        ))}
 
-        <button className={styles.nextButton} onClick={next}>
+        {/* <button className={styles.nextButton} onClick={next}>
           Next
-        </button>
+        </button> */}
       </div>
       <Container>
         {/* <div style={{ height: imageSizes.width * heightPercentage + 35, position: 'relative' }}>
