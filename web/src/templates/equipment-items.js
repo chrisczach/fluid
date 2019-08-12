@@ -1,5 +1,5 @@
 import { graphql, Link } from 'gatsby'
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import useResizeAware from 'react-resize-aware'
 import Container from '../components/container'
 import CoverImage from '../components/cover-image'
@@ -185,28 +185,38 @@ export const EquipmentItemTemplate = props => {
             <div className={styles.slider}>
               {sliderListener}
 
-              {galleryArray.map((currentItem, i) => (
-                <div
-                  onClick={() => setIndex(i)}
-                  className={index === i ? styles.activeTile : styles.tile}
-                  style={{
-                    width: `${Math.floor(
-                      height * currentItem.asset.metadata.dimensions.aspectRatio
-                    )}px`
-                  }}
-                >
-                  <Image
-                    asset={currentItem}
-                    aspectFixed
-                    args={{
-                      maxWidth: Math.floor(
-                        height * currentItem.asset.metadata.dimensions.aspectRatio
-                      ),
-                      maxHeight: height
+              {galleryArray.map((currentItem, i) => {
+                return (
+                  <div
+                    id={i}
+                    onClick={({ target }) => {
+                      setIndex(i)
+                      target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                      })
                     }}
-                  />
-                </div>
-              ))}
+                    className={index === i ? styles.activeTile : styles.tile}
+                    style={{
+                      width: `${Math.floor(
+                        height * currentItem.asset.metadata.dimensions.aspectRatio
+                      )}px`
+                    }}
+                  >
+                    <Image
+                      asset={currentItem}
+                      aspectFixed
+                      args={{
+                        maxWidth: Math.floor(
+                          height * currentItem.asset.metadata.dimensions.aspectRatio
+                        ),
+                        maxHeight: height
+                      }}
+                    />
+                  </div>
+                )
+              })}
             </div>
           </div>
         )}
