@@ -104,7 +104,7 @@ export const EquipmentItemTemplate = props => {
   const moreThanOne = length !== 1
   const sliderRef = useRef()
   const scrollTileToView = index =>
-    sliderRef.current.childNodes[index].scrollIntoView({
+    sliderRef.current.childNodes[index + 1].scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'center'
@@ -141,8 +141,8 @@ export const EquipmentItemTemplate = props => {
               }}
               className={styles.prevButton}
               onClick={() => {
+                scrollTileToView(index - 1)
                 prev()
-                scrollTileToView(index)
               }}
             >
               {'<'}
@@ -183,8 +183,8 @@ export const EquipmentItemTemplate = props => {
               }}
               className={styles.nextButton}
               onClick={() => {
+                scrollTileToView(index + 1)
                 next()
-                scrollTileToView(index)
               }}
             >
               {'>'}
