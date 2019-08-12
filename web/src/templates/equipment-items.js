@@ -160,7 +160,15 @@ export const EquipmentItemTemplate = props => {
       <div className={styles.galleryWrapper}>
         <div className={styles.mainWrapper} style={{ height: `${5 * height}px` }}>
           {moreThanOne && index > 0 && (
-            <button className={styles.prevButton} onClick={prev}>
+            <button
+              style={{
+                width: `calc(50% - ${Math.floor(
+                  2.5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+                )}px`
+              }}
+              className={styles.prevButton}
+              onClick={prev}
+            >
               {'<'}
             </button>
           )}
@@ -190,7 +198,15 @@ export const EquipmentItemTemplate = props => {
           </div>
 
           {moreThanOne && index < length - 1 && (
-            <button className={styles.nextButton} onClick={next}>
+            <button
+              style={{
+                width: `calc(50% - ${Math.floor(
+                  2.5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+                )}px`
+              }}
+              className={styles.nextButton}
+              onClick={next}
+            >
               {'>'}
             </button>
           )}
