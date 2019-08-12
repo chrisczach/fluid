@@ -26,22 +26,6 @@ export const query = graphql`
       }
       gallery {
         slides {
-          # crop {
-          #   _key
-          #   _type
-          #   top
-          #   bottom
-          #   left
-          #   right
-          # }
-          # hotspot {
-          #   _key
-          #   _type
-          #   x
-          #   y
-          #   height
-          #   width
-          # }
           asset {
             _id
             metadata {
@@ -116,7 +100,7 @@ export const EquipmentItemTemplate = props => {
     equipment.mainImage,
     ...(equipment.gallery && equipment.gallery.slides ? equipment.gallery.slides : [])
   ])
-
+  console.log(galleryArray)
   const moreThanOne = length !== 1
   console.log(moreThanOne)
   return (
