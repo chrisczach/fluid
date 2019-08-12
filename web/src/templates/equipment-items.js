@@ -154,6 +154,7 @@ export const EquipmentItemTemplate = props => {
             >
               <Image
                 asset={currentItem}
+                aspectFixed
                 args={{
                   maxWidth: Math.floor(
                     5 * height * currentItem.asset.metadata.dimensions.aspectRatio
@@ -196,6 +197,7 @@ export const EquipmentItemTemplate = props => {
                 >
                   <Image
                     asset={currentItem}
+                    aspectFixed
                     args={{
                       maxWidth: Math.floor(
                         height * currentItem.asset.metadata.dimensions.aspectRatio

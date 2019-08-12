@@ -4,7 +4,14 @@ import React from 'react'
 import sanityConfig from '../../../studio/sanity.json'
 import { imageUrlFor } from '../lib/image-url'
 
-export default function Image({ asset, args, fixed = false, urlOnly = false, ...props }) {
+export default function Image({
+  asset,
+  args,
+  fixed = false,
+  urlOnly = false,
+  aspectFixed = false,
+  ...props
+}) {
   const imageArgs =
     args || (fixed ? { width: 1200, height: Math.floor((9 / 16) * 1200) } : { maxWidth: 1200 })
 
@@ -31,17 +38,19 @@ export default function Image({ asset, args, fixed = false, urlOnly = false, ...
     processedImg = processedImg.url()
   }
 
-  const url = processedImg.split('?')[0] + '?'
-  const urlWithRect = processedImg.split('&')[0] + '&'
+  if (!aspectFixed) {
+    const url = processedImg.split('?')[0] + '?'
 
-  const addRect = srcToAddRect => srcToAddRect.split(url).join(urlWithRect)
-  imgProps.src = addRect(imgProps.src)
+    const urlWithRect = processedImg.split('&')[0] + '&'
 
-  // these props are resolving to null??? fix it later
-  imgProps.srcSet = imgProps.srcSet && addRect(imgProps.srcSet)
-  imgProps.srcWebp = imgProps.srcWebp && addRect(imgProps.srcWebp)
-  imgProps.srcSetWebp = imgProps.srcSetWebp && addRect(imgProps.srcSetWebp)
+    const addRect = srcToAddRect => srcToAddRect.split(url).join(urlWithRect)
+    imgProps.src = addRect(imgProps.src)
 
+    // these props are resolving to null??? fix it later
+    imgProps.srcSet = imgProps.srcSet && addRect(imgProps.srcSet)
+    imgProps.srcWebp = imgProps.srcWebp && addRect(imgProps.srcWebp)
+    imgProps.srcSetWebp = imgProps.srcSetWebp && addRect(imgProps.srcSetWebp)
+  }
   if (fixed) {
     return <Img fixed={{ ...imgProps }} alt={asset.alt} {...props} />
   } else {
