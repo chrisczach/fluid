@@ -122,8 +122,8 @@ export const EquipmentItemTemplate = props => {
   const { data, errors } = props
   const equipment = data && data.equipment
   const background = data && data.site && data.site.background
-  const [imageResizeListener, { height }] = useResizeAware()
-
+  const [imageResizeListener, { height: heightAware }] = useResizeAware()
+  const height = heightAware || 800;
   let heightPercentage
 
   try {
