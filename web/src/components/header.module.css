@@ -42,6 +42,7 @@
 
 .wrapper {
   z-index: 100;
+  opacity: 0.85;
   /* position: -webkit-sticky; */
   top: 0;
   position: fixed;

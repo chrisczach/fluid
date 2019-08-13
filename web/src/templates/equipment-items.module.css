@@ -1,16 +1,18 @@
 .titleText {
-  font-size: calc(var(--font-title1-size) * 1.5);
+  font-size: calc(var(--font-title1-size) * 1.25);
   font-family: var(--font-brand);
   color: var(--color-accent-light);
   font-weight: 100;
   margin: 0.5em 0 1em 0;
   text-align: center;
+  opacity: .9;
   text-shadow: var(--text-shadow-heavy-close);
 }
 
 .blockText {
   position: relative;
   padding: 0 2em 2em 2em;
+  opacity: .95;
 }
 
 .coverImage {

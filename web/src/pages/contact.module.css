@@ -18,6 +18,7 @@
 }
 
 .contactText {
+  opacity: 0.85;
   position: relative;
   margin: 0 1em;
   color: var(--color-accent-light);

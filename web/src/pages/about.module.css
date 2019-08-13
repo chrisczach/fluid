@@ -16,6 +16,7 @@
   position: relative;
   padding: 0 0 0 1em;
   color: var(--color-accent-light);
+  opacity: 0.85;
 }
 
 .coverImage {

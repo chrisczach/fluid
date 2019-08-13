@@ -83,10 +83,12 @@
   flex-basis: 1;
   height: 100%;
   padding: 2em 2em 2em 2em;
+  opacity: 0.85;
 }
 
 .titleText {
   font-size: 2em;
+  opacity: 0.85;
   font-family: var(--font-brand);
   padding-bottom: 0.5em;
   color: var(--color-accent-light);
@@ -127,7 +129,7 @@
   right: 0;
   display: flex;
   justify-content: flex-end;
-
+  opacity: 0.85;
   @media (--media-max-large) {
     position: relative;
   }
