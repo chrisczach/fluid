@@ -1,11 +1,10 @@
-
-
 .absolute {
   pointer-events: none;
   position: absolute !important;
   z-index: -1 !important;
   top: 0;
   left: 0;
+  filter: saturate(0.2);
 }
 
 .fixed {
@@ -14,4 +13,5 @@
   z-index: -1 !important;
   top: 0;
   left: 0;
+  filter: saturate(0.6) contrast(0.8) blur(2px);
 }
