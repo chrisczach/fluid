@@ -19,6 +19,31 @@ export const query = graphql`
       id
       title
       categories {
+        mainImage {
+          crop {
+            _key
+            _type
+            top
+            bottom
+            left
+            right
+          }
+          hotspot {
+            _key
+            _type
+            x
+            y
+            height
+            width
+          }
+          asset {
+            _id
+            metadata {
+              lqip
+            }
+          }
+          alt
+        }
         title
         slug {
           current
@@ -54,41 +79,13 @@ export const query = graphql`
         }
       }
     }
-
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      background {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-          metadata {
-            lqip
-          }
-        }
-        alt
-      }
-    }
   }
 `
 
 export const EquipmentItemTemplate = props => {
   const { data, errors } = props
   const equipment = data && data.equipment
-  const background = data && data.site && data.site.background
+  // const background = data && data.site && data.site.background
   const [sliderListener, { height: heightAware }] = useResizeAware()
   let height = 800
 
@@ -263,7 +260,12 @@ export const EquipmentItemTemplate = props => {
         {/* <Gallery gallery={equipment.gallery} /> */}
       </Container>
       {equipment.mainImage && (
-        <CoverImage fixed asset={background} coverSize={1} className={styles.coverImage} />
+        <CoverImage
+          fixed
+          asset={equipment.categories.mainImage}
+          coverSize={1}
+          className={styles.coverImage}
+        />
       )}
     </>
   )
