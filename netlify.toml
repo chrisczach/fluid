@@ -47,3 +47,5 @@
   for = "/path/to/serviceworker.js"
   [headers.values]
     cache-control = "max-age=0,no-cache,no-store,must-revalidate"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
