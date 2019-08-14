@@ -6,7 +6,39 @@
 [[redirects]]
   from = "/studio"
   to = "https://fluid.sanity.studio/desk"
-  
+
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact"
+
+[[redirects]]
+  from = "/credits-and-awards"
+  to = "/about"
+
+[[redirects]]
+  from = "/services"
+  to = "/equipment"
+
+[[redirects]]
+  from = "/furio-dolly-rail-cam/*"
+  to = "/equipment/furio-dolly-rail-cam/:splat"
+
+[[redirects]]
+  from = "/towercam/*"
+  to = "/equipment/towercam/:splat"
+
+[[redirects]]
+  from = "/jimmy-jib-triangle/*"
+  to = "/equipment/jimmy-jib-triangle/:splat"
+
+[[redirects]]
+  from = "/remote-head/*"
+  to = "/equipment/remote-head/:splat"
+
+[[redirects]]
+  from = "/steadicam/*"
+  to = "/equipment/steadicam/:splat"
+
 [[headers]]
   for = "/path/to/serviceworker.js"
   [headers.values]
