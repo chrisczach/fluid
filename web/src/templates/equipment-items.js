@@ -222,7 +222,7 @@ export const EquipmentItemTemplate = props => {
                   className={index === i ? styles.activeTile : styles.tile}
                   style={{
                     width: `${Math.floor(
-                      height * currentItem.asset.metadata.dimensions.aspectRatio
+                      height * currentItem.asset.metadata.dimensions.aspectRatio*.8
                     )}px`
                   }}
                 >
