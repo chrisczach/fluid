@@ -6,6 +6,7 @@
   "scripts": {
     "deploy": "npm run graphql-deploy && npm run sanity-deploy",
     "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",
+    "build": "sanity build",
     "graphql-deploy": "sanity graphql deploy --playground",
     "sanity-deploy": "sanity deploy",
     "lint": "eslint .",
