@@ -1,3 +1,26 @@
 export default function resolveProductionUrl(document) {
-  return `https://fluidpictures.chrisczach.com//preview?document=${document._id}`;
+  const { _type } = document;
+
+  let path;
+  if (_type === "category") {
+    const {
+      slug: { current }
+    } = document;
+    path = `equipment/${current}`;
+  } else if (_type === "page") {
+    const { _id } = document;
+    if (_id.endsWith("home")) {
+      path = "";
+    } else if (_id.endsWith("about")) {
+      path = "about";
+    } else if (_id.endsWith("contact")) {
+      path = "contact";
+    } else if (_id.endsWith("equipment")) {
+      path = "equipment";
+    }
+  } else {
+    path = JSON.stringify(document);
+  }
+
+  return `https://fluidpreview.herokuapp.com/${path}`;
 }
