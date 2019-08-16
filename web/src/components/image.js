@@ -16,8 +16,8 @@ export default function Image({
     args || (fixed ? { width: 1200, height: Math.floor((9 / 16) * 1200) } : { maxWidth: 1200 })
 
   const imgProps = fixed
-    ? getFixedGatsbyImage(asset, imageArgs, sanityConfig.api)
-    : getFluidGatsbyImage(asset, imageArgs, sanityConfig.api)
+    ? getFixedGatsbyImage(asset, imageArgs, sanityConfig.api || herokuConfigAPI)
+    : getFluidGatsbyImage(asset, imageArgs, sanityConfig.api || herokuConfigAPI)
 
   try {
     imgProps.base64 = asset.asset.metadata.lqip
@@ -59,4 +59,9 @@ export default function Image({
     }
     return <Img fluid={{ ...imgProps }} alt={asset.alt} {...props} />
   }
+}
+
+const herokuConfigAPI = {
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET
 }
