@@ -1,16 +1,17 @@
+import imageUrlBuilder from '@sanity/image-url'
+
 let sanityConfig
-if (process.env.PROJECT_PATH) {
+
+try {
+  sanityConfig = require('../../../studio/sanity.json')
+} catch (e) {
   sanityConfig = {
     api: {
       projectId: process.env.SANITY_PROJECT_ID,
       dataset: process.env.SANITY_DATASET
     }
   }
-} else {
-  sanityConfig = require('../../../studio/sanity.json')
 }
-
-import imageUrlBuilder from '@sanity/image-url'
 
 const builder = imageUrlBuilder(sanityConfig.api)
 

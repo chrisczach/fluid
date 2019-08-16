@@ -3,20 +3,16 @@ import { getFixedGatsbyImage, getFluidGatsbyImage } from 'gatsby-source-sanity'
 import React from 'react'
 import { imageUrlFor } from '../lib/image-url'
 let sanityConfig
-if (process.env.PROJECT_PATH) {
+
+try {
+  sanityConfig = require('../../../studio/sanity.json')
+} catch (e) {
   sanityConfig = {
     api: {
       projectId: process.env.SANITY_PROJECT_ID,
       dataset: process.env.SANITY_DATASET
     }
   }
-} else {
-  sanityConfig = require('../../../studio/sanity.json')
-}
-
-const herokuConfigAPI = {
-  projectId: process.env.SANITY_PROJECT_ID,
-  dataset: process.env.SANITY_DATASET
 }
 
 export default function Image({
