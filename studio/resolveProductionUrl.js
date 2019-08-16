@@ -1,7 +1,7 @@
 export default function resolveProductionUrl(document) {
   const { _type } = document;
 
-  let path;
+  let path = "";
   if (_type === "category") {
     const {
       slug: { current }
@@ -18,8 +18,13 @@ export default function resolveProductionUrl(document) {
     } else if (_id.endsWith("equipment")) {
       path = "equipment";
     }
-  } else {
-    path = JSON.stringify(document);
+  } else if (_type === "equipment") {
+    const {
+      slug: { current },
+      categories: { _ref }
+    } = document;
+
+    path = `preview?category=${_ref}&equipment=${current}`;
   }
 
   return `https://fluidpreview.herokuapp.com/${path}`;
