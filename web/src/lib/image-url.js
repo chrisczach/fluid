@@ -1,7 +1,7 @@
 import sanityConfig from '../../../studio/sanity.json'
 import imageUrlBuilder from '@sanity/image-url'
 
-const builder = imageUrlBuilder(sanityConfig.api)
+const builder = imageUrlBuilder(sanityConfig.api || herokuConfigAPI)
 
 export function imageUrlFor(source) {
   return builder.image(source)
