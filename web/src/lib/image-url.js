@@ -8,8 +8,6 @@ export function imageUrlFor(source) {
 }
 
 const herokuConfigAPI = {
-  api: {
-    projectId: process.env.SANITY_PROJECT_ID,
-    dataset: process.env.SANITY_DATASET
-  }
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET
 }
