@@ -2,16 +2,10 @@ import Img from 'gatsby-image'
 import { getFixedGatsbyImage, getFluidGatsbyImage } from 'gatsby-source-sanity'
 import React from 'react'
 import { imageUrlFor } from '../lib/image-url'
-let sanityConfig
-
-try {
-  sanityConfig = require('../../../studio/sanity.json')
-} catch (e) {
-  sanityConfig = {
-    api: {
-      projectId: process.env.SANITY_PROJECT_ID,
-      dataset: process.env.SANITY_DATASET
-    }
+let sanityConfig = {
+  api: {
+    projectId: 'pjkgqycs',
+    dataset: 'production'
   }
 }
 
