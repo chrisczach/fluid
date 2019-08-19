@@ -3,7 +3,7 @@
     opacity: 0;
     filter: saturate(0.2) contrast(0.5) blur(8px);
   }
-  70% {
+  50% {
     opacity: 1;
     filter: saturate(5) contrast(2) blur(8px);
   }
