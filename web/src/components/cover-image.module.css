@@ -1,10 +1,25 @@
+@keyframes loadCover {
+  0% {
+    opacity: 0;
+    filter: saturate(0.2) contrast(0.5) blur(8px);
+  }
+  70% {
+    opacity: 1;
+    filter: saturate(5) contrast(2) blur(8px);
+  }
+  100% {
+    opacity: 1;
+    filter: saturate(2) contrast(1.25) blur(0px);
+  }
+}
+
 .absolute {
   pointer-events: none;
   position: absolute !important;
   z-index: -1 !important;
   top: 0;
   left: 0;
-  filter: saturate(0.2);
+  animation: loadCover ease-out 3s 1 forwards;
 }
 
 .fixed {
@@ -13,5 +28,5 @@
   z-index: -1 !important;
   top: 0;
   left: 0;
-  filter: saturate(0.6) contrast(0.8) blur(2px);
+  animation: loadCover ease-out 3s 1 forwards;
 }
