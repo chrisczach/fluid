@@ -24,17 +24,17 @@
     "@sanity/desk-tool": "^0.142.1",
     "@sanity/production-preview": "^0.142.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.4"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.0",
     "prettier-eslint-cli": "^4.7.1"
   }
