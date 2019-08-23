@@ -46,7 +46,7 @@
     "react-resize-aware": "^3.0.0-beta.3",
     "react-scrolllock": "^4.0.1",
     "react-sticky-el": "^1.0.20",
-    "react-svg": "^9.0.4",
+    "react-svg": "^10.0.18",
     "react-transition-group": "^4.2.1",
     "react-youtube": "^7.9.0"
   },
