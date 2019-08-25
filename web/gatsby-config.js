@@ -4,6 +4,9 @@ const {
 } = requireConfig('../studio/sanity.json')
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://www.fluidpicturesinc.com`
+  },
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
@@ -45,6 +48,7 @@ module.exports = {
         component: require.resolve(`./src/containers/layout.js`)
       }
     },
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-offline'
   ]
 }
@@ -56,7 +60,7 @@ module.exports = {
  * with directions to enter the info manually or in the environment.
  */
 
-function requireConfig(path) {
+function requireConfig (path) {
   try {
     return require('../studio/sanity.json')
   } catch (e) {
