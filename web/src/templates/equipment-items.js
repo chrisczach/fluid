@@ -108,8 +108,12 @@ export const EquipmentItemTemplate = props => {
     })
   return (
     <>
-      {errors && <SEO title="GraphQL Error" />}
-      {equipment && <SEO title={equipment.title || 'Untitled'} />}
+      {errors && <SEO title='GraphQL Error' />}
+      {equipment && (
+        <SEO
+          title={`${equipment.title} Rentals - ${equipment.categories.title} Rentals - Equipment Rentals`}
+        />
+      )}
 
       {errors && (
         <Container>
@@ -222,7 +226,7 @@ export const EquipmentItemTemplate = props => {
                   className={index === i ? styles.activeTile : styles.tile}
                   style={{
                     width: `${Math.floor(
-                      height * currentItem.asset.metadata.dimensions.aspectRatio*.8
+                      height * currentItem.asset.metadata.dimensions.aspectRatio * 0.8
                     )}px`
                   }}
                 >

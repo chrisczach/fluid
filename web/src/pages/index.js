@@ -230,7 +230,7 @@ const IndexPage = props => {
 
   return (
     <>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO title={`${site.title} - Equipment Rentals`} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
         <SectionBackground className={styles.equipmentSection}>

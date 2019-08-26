@@ -149,7 +149,7 @@ const EquipmentPage = props => {
     data && data.category && mapEdgesToNodes(data.category).filter(filterOutDocsWithoutSlugs)
   return (
     <>
-      <SEO title="equipment" />
+      <SEO title="equipment rentals" />
       <Container>
         <div className={styles.blockText}>
           <BlockContent blocks={equipment._rawBody || []} />

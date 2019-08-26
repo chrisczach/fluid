@@ -65,7 +65,7 @@ const ContactPage = props => {
 
   return (
     <>
-      <SEO title={props.data.contact.title} />
+      <SEO title={`${props.data.contact.title} - request equipment rental information`} />
       <Container>
         <div className={styles.spacer} />
         <ContactPageInner {...props} />
@@ -130,25 +130,25 @@ export const ContactPageInner = props => {
       >
         <div className={styles.contactText}>
           {contactResizeListener}
-          <div className={ styles.social }>
-            Social:{ ' ' }
+          <div className={styles.social}>
+            Social:{' '}
             <a
-              className={ styles.socialLink }
+              className={styles.socialLink}
               target="_blank"
               alt="Dave Eastwood IMDb Profile"
               href="https://www.imdb.com/name/nm0247750/"
               rel="noreferrer"
             >
-              <img src={ imdb } className={ styles.socialLogo } alt="IMDb Logo" />
-            </a>{ ' ' }
+              <img src={imdb} className={styles.socialLogo} alt="IMDb Logo" />
+            </a>{' '}
             <a
-              className={ styles.socialLink }
+              className={styles.socialLink}
               target="_blank"
               alt="Fluid Pictures Inc Instagram"
               href="https://www.instagram.com/fluidpicturesinc/"
               rel="noreferrer"
             >
-              <img src={ instagram } className={ styles.socialLogo } alt="instagram logo" />
+              <img src={instagram} className={styles.socialLogo} alt="instagram logo" />
             </a>
           </div>
           <BlockContent blocks={contact._rawBody || []} />
