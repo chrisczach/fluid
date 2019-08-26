@@ -212,6 +212,8 @@ export const EquipmentItemTemplate = props => {
             {sliderListener}
 
             {galleryArray.map((currentItem, i) => {
+              currentItem.alt = currentItem.asset.alt || `${equipment.title} image ${i}`
+              console.log(currentItem.asset.alt)
               return (
                 <div
                   id={i}
