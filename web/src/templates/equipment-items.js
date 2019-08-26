@@ -108,7 +108,7 @@ export const EquipmentItemTemplate = props => {
     })
   return (
     <>
-      {errors && <SEO title='GraphQL Error' />}
+      {errors && <SEO title="GraphQL Error" />}
       {equipment && (
         <SEO
           title={`${equipment.title} Rentals - ${equipment.categories.title} Rentals - Equipment Rentals`}
@@ -252,7 +252,7 @@ export const EquipmentItemTemplate = props => {
           {imageResizeListener}
         </div> */}
 
-        <Link to={`equipment/${equipment.categories.slug.current}`} className={styles.backLink}>
+        <Link to={`equipment/${equipment.categories.slug.current}/`} className={styles.backLink}>
           &larr; back to {equipment.categories.title.toLowerCase()} category
         </Link>
         <h1 className={styles.titleText}>{equipment.title.toLowerCase()}</h1>
