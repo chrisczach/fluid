@@ -3,7 +3,7 @@ import ScrollLock from 'react-scrolllock'
 
 import styles from './global-styles.module.css'
 
-export default function GlobalStyles({
+export default function GlobalStyles ({
   children,
   siteSettings = {
     title: 'Fluid Pictures',
@@ -47,20 +47,23 @@ export default function GlobalStyles({
   })
 
   return (
-    <ScrollLock>
-      <div
-        id="scroll"
-        ref={scrollDiv}
-        style={{
-          background:
-            'linear-gradient(to bottom right, var(--color-accent-dark), var(--color-main-dark))',
-          ...globalColors
-        }}
-        className={styles.scroll}
-      >
-        {/* <div className={styles.background} /> */}
-        <>{children}</>
-      </div>
-    </ScrollLock>
+    <>
+      <meta name='viewport' content='width=device-width, initial-scale=1' />
+      <ScrollLock>
+        <div
+          id='scroll'
+          ref={scrollDiv}
+          style={{
+            background:
+              'linear-gradient(to bottom right, var(--color-accent-dark), var(--color-main-dark))',
+            ...globalColors
+          }}
+          className={styles.scroll}
+        >
+          {/* <div className={styles.background} /> */}
+          <>{children}</>
+        </div>
+      </ScrollLock>
+    </>
   )
 }

@@ -97,7 +97,6 @@ export const EquipmentItemTemplate = props => {
     equipment.mainImage,
     ...(equipment.gallery && equipment.gallery.slides ? equipment.gallery.slides : [])
   ])
-  console.log(currentItem)
   const moreThanOne = length !== 1
   const sliderRef = useRef()
   const scrollTileToView = index =>
