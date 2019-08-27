@@ -88,9 +88,10 @@ export const EquipmentItemTemplate = props => {
   // const background = data && data.site && data.site.background
   const [sliderListener, { height: heightAware }] = useResizeAware()
   let height = 800
-
+  let multiple = 5
   try {
     height = heightAware
+    multiple = window.innerWidth < window.innerHeight ? 2 : 5
   } catch (err) {}
 
   const { index, next, prev, currentItem, length, galleryArray, setIndex } = slideShowHandler([
@@ -107,7 +108,7 @@ export const EquipmentItemTemplate = props => {
     })
   return (
     <>
-      {errors && <SEO title="GraphQL Error" />}
+      {errors && <SEO title='GraphQL Error' />}
       {equipment && (
         <SEO
           title={`${equipment.title} Rentals - ${equipment.categories.title} Rentals - Equipment Rentals`}
@@ -138,12 +139,12 @@ export const EquipmentItemTemplate = props => {
             : `${Math.floor(5 * height * currentItem.asset.metadata.dimensions.aspectRatio)}px`
         }}
       >
-        <div className={styles.mainWrapper} style={{ height: `${5 * height}px` }}>
+        <div className={styles.mainWrapper} style={{ height: `${multiple * height}px` }}>
           {moreThanOne && index > 0 && (
             <button
               style={{
                 width: `calc(50% - ${Math.floor(
-                  2.5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+                  (multiple / 2) * height * currentItem.asset.metadata.dimensions.aspectRatio
                 )}px`
               }}
               className={styles.prevButton}
@@ -156,13 +157,13 @@ export const EquipmentItemTemplate = props => {
             </button>
           )}
 
-          <div className={styles.currentImage} style={{ height: `${5 * height}px` }}>
+          <div className={styles.currentImage} style={{ height: `${multiple * height}px` }}>
             <div
               style={{
                 width: `${Math.floor(
-                  5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+                  multiple * height * currentItem.asset.metadata.dimensions.aspectRatio
                 )}px`,
-                height: `${5 * height}px`,
+                height: `${multiple * height}px`,
                 // overflow: 'hidden',
                 position: 'relative',
                 flexShrink: 0
@@ -173,9 +174,9 @@ export const EquipmentItemTemplate = props => {
                 aspectFixed
                 args={{
                   maxWidth: Math.floor(
-                    5 * height * currentItem.asset.metadata.dimensions.aspectRatio
+                    multiple * height * currentItem.asset.metadata.dimensions.aspectRatio
                   ),
-                  maxHeight: 5 * height
+                  maxHeight: multiple * height
                 }}
               />
             </div>
