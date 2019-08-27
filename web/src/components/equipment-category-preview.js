@@ -36,7 +36,7 @@ export default function EquipmentCategoryPreview({
   } catch (err) {
     slugs = []
   }
-  const parsedSlug = slugs && slugs.length === 1 ? `${current}/${slugs[0]}` : current
+  const parsedSlug = slugs && slugs.length === 1 ? `${current}/${slugs[0]}/` : current + '/'
 
   let ie
   try {

@@ -15,14 +15,14 @@ const Header = () => {
       <Link
         className={styles.link + ' ' + (pathName === 'about' ? styles.activeLink : '')}
         id="about"
-        to="/about"
+        to="/about/"
       >
         about
       </Link>
       <Link
         className={styles.link + ' ' + (pathName === 'equipment' ? styles.activeLink : '')}
         id="equipment"
-        to="/equipment"
+        to="/equipment/"
       >
         equipment
       </Link>
@@ -32,7 +32,7 @@ const Header = () => {
       <Link
         className={styles.link + ' ' + (pathName === 'contact' ? styles.activeLink : '')}
         id="contact"
-        to="/contact"
+        to="/contact/"
       >
         contact
       </Link>

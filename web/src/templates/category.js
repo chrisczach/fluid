@@ -108,7 +108,7 @@ const ProjectTemplate = props => {
       )}
       <Container>
         <div style={{ height: '2em' }} />
-        <Link to="equipment" className={styles.backLink}>
+        <Link to="equipment/" className={styles.backLink}>
           &larr; back to equipment categories
         </Link>
         <h1 className={brandedTitle1}>{category.title.toLowerCase()}</h1>

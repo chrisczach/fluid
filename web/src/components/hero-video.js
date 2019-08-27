@@ -96,7 +96,7 @@ export default function HeroVideo({
             onStateChange={({ data }) => setPlaying(data === 1)}
           />
           <div className={showSplash ? styles.overlay : styles.overlayHide}>
-            <Button to="" style={{ margin: '6em auto' }} onClick={stopSplashHandler}>
+            <Button to="/" style={{ margin: '6em auto' }} onClick={stopSplashHandler}>
               browse equipment
             </Button>
           </div>
