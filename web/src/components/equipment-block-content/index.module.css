@@ -1,17 +1,25 @@
+
+
 .root {
   display: flex;
   flex-direction: column;
+
   @nest & ul {
     margin: 0.25em auto 1em auto;
      font-weight: 100;
   }
 
   @nest & li {
+  font-size: var(--font-base-size);
 
-      font-size: 1em;
+
+  @media (max-width: 674px) {
+    font-size: var(--font-large-size);
+  }
      line-height: 1.5;
       margin:0 auto;
     }
+
 
   
 
