@@ -140,4 +140,11 @@
 }
 
 .excerpt {
+    font-size: var(--font-base-size);
+  line-height: var(--font-base-line-height);
+
+  @media (--media-max-medium) {
+    font-size: var(--font-large-size);
+    line-height: var(--font-base-line-height);
+  }
 }
