@@ -69,15 +69,15 @@
   line-height: var(--font-base-line-height);
   margin: 0.5rem 0 1rem 0;
 
-  @media (--media-max-medium) {
+  /* @media (--media-max-medium) {
     font-size: var(--font-large-size);
     line-height: var(--font-base-line-height);
-  }
+  } */
 
-  /* @media (--media-min-medium) {
+  @media (--media-min-medium) {
     font-size: var(--font-large-size);
     line-height: var(--font-large-line-height);
-  } */
+  }
 }
 
 .blockQuote {

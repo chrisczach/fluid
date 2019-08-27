@@ -1,28 +1,21 @@
-
-
 .root {
   display: flex;
   flex-direction: column;
 
   @nest & ul {
     margin: 0.25em auto 1em auto;
-     font-weight: 100;
+    font-weight: 100;
   }
 
   @nest & li {
-  font-size: var(--font-base-size);
+    font-size: var(--font-base-size);
 
-
-  @media (max-width: 674px) {
-    font-size: var(--font-large-size);
-  }
-     line-height: 1.5;
-      margin:0 auto;
+    @media (min-width: 675px) {
+      font-size: var(--font-large-size);
     }
-
-
-  
-
+    line-height: 1.5;
+    margin: 0 auto;
+  }
 }
 
 .h1Style {
@@ -39,4 +32,3 @@
 
 .specsList {
 }
-
