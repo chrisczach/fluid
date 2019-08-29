@@ -108,9 +108,10 @@ export const EquipmentItemTemplate = props => {
     })
   return (
     <>
-      {errors && <SEO title='GraphQL Error' />}
+      {errors && <SEO title="GraphQL Error" />}
       {equipment && (
         <SEO
+          description={equipment.excerpt}
           title={`${equipment.title} Rentals - ${equipment.categories.title} Rentals - Equipment Rentals`}
         />
       )}

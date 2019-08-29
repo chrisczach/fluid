@@ -99,7 +99,12 @@ const ProjectTemplate = props => {
   return (
     <>
       {errors && <SEO title="GraphQL Error" />}
-      {category && <SEO title={`${category.title} Rentals - Equipment Rentals`} />}
+      {category && (
+        <SEO
+          title={`${category.title} Rentals - Equipment Rentals`}
+          description={category.excerpt}
+        />
+      )}
 
       {errors && (
         <Container>
