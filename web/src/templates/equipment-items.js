@@ -214,7 +214,6 @@ export const EquipmentItemTemplate = props => {
 
             {galleryArray.map((currentItem, i) => {
               currentItem.alt = currentItem.asset.alt || `${equipment.title} image ${i}`
-              console.log(currentItem.asset.alt)
               return (
                 <div
                   id={i}
