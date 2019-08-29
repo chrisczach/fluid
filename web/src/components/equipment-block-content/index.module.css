@@ -8,14 +8,14 @@
   }
 
   @nest & li {
-    font-size: var(--font-base-size);
+    line-height: 1.5;
+    margin: 0 auto;
+  }
+      font-size: var(--font-base-size);
 
     @media (min-width: 675px) {
       font-size: var(--font-large-size);
     }
-    line-height: 1.5;
-    margin: 0 auto;
-  }
 }
 
 .h1Style {
