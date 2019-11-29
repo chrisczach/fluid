@@ -14,15 +14,15 @@
     "test": "sanity check"
   },
   "dependencies": {
-    "@sanity/base": "^0.142.2",
-    "@sanity/cli": "^0.142.2",
-    "@sanity/color-input": "^0.142.0",
-    "@sanity/components": "^0.142.5",
-    "@sanity/core": "^0.142.5",
-    "@sanity/default-layout": "^0.142.5",
-    "@sanity/default-login": "^0.142.3",
-    "@sanity/desk-tool": "^0.142.5",
-    "@sanity/production-preview": "^0.142.0",
+    "@sanity/base": "^0.146.3",
+    "@sanity/cli": "^0.146.0",
+    "@sanity/color-input": "^0.146.0",
+    "@sanity/components": "^0.146.3",
+    "@sanity/core": "^0.146.0",
+    "@sanity/default-layout": "^0.146.3",
+    "@sanity/default-login": "^0.146.0",
+    "@sanity/desk-tool": "^0.146.3",
+    "@sanity/production-preview": "^0.146.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
@@ -35,7 +35,7 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.1",
     "prettier-eslint-cli": "^5.0.0"
   }
 }
