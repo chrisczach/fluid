@@ -57,7 +57,8 @@ export default function EquipmentCategoryPreview({
               fixed
               args={{
                 width: imageSizes.width,
-                height: ie || showMobile ? imageSizes.width * 0.66 : contentSizes.height * 1.5
+                height:
+                  true || ie || showMobile ? imageSizes.width * 0.66 : contentSizes.height * 1.5
               }}
             />
           </>
