@@ -5,14 +5,14 @@
   font-weight: 100;
   margin: 0.5em 0 1em 0;
   text-align: center;
-  opacity: .9;
+  opacity: 0.9;
   text-shadow: var(--text-shadow-heavy-close);
 }
 
 .blockText {
   position: relative;
   padding: 0 2em 2em 2em;
-  opacity: .95;
+  opacity: 0.95;
 }
 
 .coverImage {
@@ -160,7 +160,7 @@
 
   z-index: 2;
   opacity: 0.7;
-
+  align-items: center;
   min-width: 10%;
   @media screen and (orientation: portrait) {
     font-size: 2em;
@@ -171,7 +171,7 @@
 .nextButton {
   cursor: pointer;
   z-index: 2;
-
+  align-items: center;
   position: absolute;
   right: 0;
   padding: 0.5em;
