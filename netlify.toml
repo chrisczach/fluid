@@ -1,8 +1,3 @@
-[build]
-  base = "web/"
-  command = "npm run build"
-  publish = "web/public"
-
  [[redirects]]
   from = "https://fluidpicturesinc.com/*"
   to = "https://www.fluidpicturesinc.com/:splat 301!"
@@ -12,12 +7,8 @@
   to = "https://fluidpictures.netlify.com/:splat 301!"
  
 [[redirects]]
-  from = "https://studio.fluidpicturesinc.com/"
-  to = "https://fluid.sanity.studio/desk"
-
-[[redirects]]
   from = "/studio"
-  to = "https://fluid.sanity.studio/desk"
+  to = "https://studio.fluidpicturesinc.com"
 
 [[redirects]]
   from = "/contact-us"
