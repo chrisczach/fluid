@@ -16,7 +16,7 @@
   "dependencies": {
     "@loadable/component": "^5.10.3",
     "@sanity/block-content-to-react": "^2.0.7",
-    "@sanity/client": "^0.142.6",
+    "@sanity/client": "^2.0.1",
     "@sanity/image-url": "^0.140.15",
     "date-fns": "^2.8.1",
     "dotenv": "^8.2.0",
