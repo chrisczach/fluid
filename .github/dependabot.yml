@@ -1,0 +1,38 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  assignees:
+  - chrisczach
+  ignore:
+  - dependency-name: gatsby-plugin-offline
+    versions:
+    - 3.10.1
+    - 3.8.0
+    - 3.9.0
+  - dependency-name: gatsby-plugin-react-helmet
+    versions:
+    - 3.7.0
+    - 3.9.0
+  - dependency-name: "@sanity/client"
+    versions:
+    - 2.1.4
+    - 2.2.6
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
+  - dependency-name: react-image-gallery
+    versions:
+    - 1.0.8
+  - dependency-name: lerna
+    versions:
+    - 3.22.1
+  - dependency-name: handlebars
+    versions:
+    - 4.7.6
